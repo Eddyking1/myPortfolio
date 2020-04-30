@@ -1,0 +1,50 @@
+.footer {
+    position: relative;
+    box-sizing: content-box;
+    background-color: rgb(17, 24, 39);
+    min-width:100%;
+    min-height:100vh;
+    top: 90vh;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.topFooterBox{
+    display:flex;
+    justify-content: center;
+    height:100%;
+    width:100%;
+    padding:0;
+    margin:0;
+    flex-wrap: wrap;
+}
+
+.slideShow {
+    display: flex;
+    justify-content: center;
+    flex-direction: column; 
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap:wrap;
+    width:70%;
+    height: 600px;
+    margin: 100px 15px 100px 15px;
+    opacity: 95%;
+    border: 2px solid;
+    color: rgb(26, 29, 34);
+    border-radius: 6px;
+    border-color: teal;
+    background-color: rgb(223, 223, 223);
+    box-shadow: 10px 11px 10px #3333;
+    font-family: 'Roboto Mono', monospace;
+   
+}
+
+.fContact {
+    display:flex;
+    justify-content: center;
+    min-width:100%;
+    background-color: #a3a3a3;
+}

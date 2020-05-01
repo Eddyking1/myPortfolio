@@ -6,14 +6,6 @@
     "node": "10.15.0",
     "npm": "6.10.1"
   },
-  "proxy": {
-    "/auth/google": {
-      "target": "http://localhost:3000"
-    },
-    "/api/*": {
-      "target": "http://localhost:3000"
-    }
-  },
   "scripts": {
     "start": "node index.js",
     "server": "nodemon index.js",
@@ -25,25 +17,18 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
     "concurrently": "^3.6.1",
     "cookie-session": "^1.4.0",
-    "core-util-is": "^1.0.2",
     "express": "^4.17.1",
-    "materialize-css": "^0.99.0",
+    "localtunnel": "^2.0.0",
+    "lodash": "^4.17.15",
     "mongoose": "^5.8.0",
     "nodemon": "^2.0.3",
     "passport": "^0.4.1",
     "passport-google-oauth20": "^2.0.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-redux": "^5.0.5",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "3.3.0",
-    "react-stripe-checkout": "^2.4.0",
-    "redux": "^3.7.1",
-    "redux-thunk": "^2.2.0",
-    "sass": "^1.23.7",
+    "path-parser": "^6.1.0",
+    "sendgrid": "^5.2.3",
     "stripe": "^7.14.0"
   },
   "eslintConfig": {

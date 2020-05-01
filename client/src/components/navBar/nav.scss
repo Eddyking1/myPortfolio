@@ -1,0 +1,50 @@
+.nav {
+  position: fixed;
+  box-sizing: border-box;
+  background-color: rgb(17, 24, 39);
+  height: 70px;
+  min-width: 100vw;
+  z-index: 9999;
+}
+
+.navbarTransition {
+}
+
+.navBarContainer {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  p {
+    padding: 0 5px;
+    font-size: 14px;
+  }
+}
+.navButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: "Roboto Mono", monospace;
+  border-radius: 6px;
+  color: rgb(3, 246, 190);
+  background-color: rgb(0, 0, 0);
+  border: 2px solid;
+  border-color: rgb(19, 100, 162);
+  box-shadow: 10px 11px 10px #3333;
+  opacity: 95%;
+  margin: 5px;
+  .links {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    align-items: center;
+    color: rgb(216, 223, 221);
+  }
+}
+
+.navStoreButton {
+  position: absolute;
+  right: 0;
+  margin: 0px 10px;
+
+  @extend .navButton;
+}

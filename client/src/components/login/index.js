@@ -1,8 +1,7 @@
 import React, {  useContext, useReducer, useState, useEffect } from "react";
 import "./style.css";
 import getCurrentUser from "./loginActions";
-import {StoreContext} from '../../context/index.js';
-const axios = require('axios');
+import {StoreContext} from '../../contextApi/index.js';
 
 
  

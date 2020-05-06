@@ -90,8 +90,8 @@ $linkColor: rgb(216, 223, 221);
 .hamContainer {
   position: absolute;
   height:100vh;
-  width:20vw;
-  left:-20vw;
+  width:50vw;
+  left:-50vw;
   background-color:$navBackgroundColor;
   z-index: 999;
   transition: 1s;
@@ -99,7 +99,7 @@ $linkColor: rgb(216, 223, 221);
 
 .hamContainerAnimate {
   @extend .hamContainer;
-  transform: translateX(19vw);
+  transform: translateX(49vw);
   
 }
 

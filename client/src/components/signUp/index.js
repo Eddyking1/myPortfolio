@@ -1,6 +1,6 @@
 import React, { useContext, useReducer, useState, useEffect } from "react";
 import "./style.scss";
-
+import { Redirect } from 'react-router-dom';
 import { StoreContext } from '../../contextApi/'
 
 
@@ -92,7 +92,10 @@ function SignUp() {
           </div>
           <button className="buttonSubmit" type="submit" onClick={() => (setCounter(counter + 1))}> <p>Submit</p> </button>
           </form>
+        <div className="googleLogin">
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
 
+        </div>
      {/*  {JSON.stringify(list)} */ }
 
     </div>

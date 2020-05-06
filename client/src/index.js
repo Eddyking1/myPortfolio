@@ -6,6 +6,7 @@ import WebbApp from './components/app/index.js';
 import Login from './components/login/index';
 import Signup from './components/signUp/index';
 import NavBar from './components/navBar/navComponent.js';
+import Shop from './components/shop/index.js'
 // Development only axios helpers!
 import axios from 'axios';
 window.axios = axios;
@@ -18,7 +19,7 @@ ReactDOM.render(
                     <Route exact path="/" component={WebbApp} />
                     <Route path="/login" component={Login} />
                     <Route path="/signUp" component={Signup} />
-                    <Route path="/shop" />
+                    <Route path="/shop" component={Shop} />
                </div>
           </Router>
      </StoreProvider>

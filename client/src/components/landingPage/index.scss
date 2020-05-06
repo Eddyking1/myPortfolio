@@ -44,9 +44,10 @@
 
 .infoCard {
     height:200px;
-    padding: 30px;
+    padding: 15px;
     background-color:beige;
-    width:40%;
+    font-size:12px;
+    width:60%;
     border-radius:15px;
     margin:15px;
     border: 2px solid teal;
@@ -61,4 +62,5 @@
 .cards{
     flex-direction: column;
     display: flex;
+    flex-wrap:wrap;
 }

@@ -8,21 +8,6 @@ import nodejsLogo from '../../assets/Images/nodejsLogo.png';
 import './index.scss';
 
 function LandingPage() {
-    const [scrollY, setScrollY] = useState();
-   
-    function logit() {
-        setScrollY(window.pageYOffset);
-      }
-    
-      useEffect(() => {
-        function watchScroll() {
-          window.addEventListener("scroll", logit);
-        }
-        watchScroll();
-        return () => {
-          window.removeEventListener("scroll", logit);
-        };
-      });
 
     return (
         <div className="landingPageContainer">

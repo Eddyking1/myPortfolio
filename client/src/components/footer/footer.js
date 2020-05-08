@@ -1,28 +1,27 @@
 import React, { Component } from 'react';
+import Slider from '../slider/slider.js'
+import {footerImages} from '../slider/sliderData.js'
 import './footer.scss';
 
+export default function Footer() {
 
-export default class footer extends Component {
+    return (
+        <div className="footer">
+            <div className="topFooterBox" >
+                <div className="slideShow">
+                    <h1>Kolla igenom WebbDev Dealsen!</h1>
+                    {Slider(footerImages)}
+                </div>
 
-    render() {
-        return (
-            <div className="footer">
-                <div className="topFooterBox" >
-                    <div className="slideShow">
-                        Insert Slideshow here
-                    </div>
-
-                    <div className="fContact">
-                        <p>
-                            Email: Edward.kumerius@gmail.com
+                <div className="fContact">
+                    <p>
+                        Email: Edward.kumerius@gmail.com
                     </p>
-                    </div>
                 </div>
             </div>
-        )
-    }
+        </div>
+    )
+
 }
-
-
 
 

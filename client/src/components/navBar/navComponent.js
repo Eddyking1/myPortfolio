@@ -1,5 +1,6 @@
 import React, { useState, useLayoutEffect } from 'react';
 import homeIcon from '../../assets/Images/homeIcon.png';
+import { MdReorder } from "react-icons/md";
 import { Link } from "react-router-dom";
 import './nav.scss';
 
@@ -34,7 +35,7 @@ export default function NavBar() {
                 <div className="hamNav">
                     <div className="navBarFade">
                         <button className="navButton" onClick={() => { hamChecker() }}>
-                            <i className="material-icons">reorder</i>
+                            <MdReorder/>
                         </button>
                         <div className="hamHomeIcon">
                             <Link to="/">

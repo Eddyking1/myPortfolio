@@ -12,6 +12,10 @@ $linkColor: rgb(216, 223, 221);
   z-index: 9999;
 }
 
+@media only screen and (max-width: 900px) {
+
+}
+
 .navBarContainer {
   display: flex;
   justify-content: flex-end ;
@@ -20,6 +24,8 @@ $linkColor: rgb(216, 223, 221);
     font-size: 14px;
   }
 }
+
+
 .navButton {
   display: flex;
   flex-direction: row;

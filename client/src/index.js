@@ -16,7 +16,7 @@ window.axios = axios;
 ReactDOM.render(
      <StoreProvider>
           <Router>
-               <IconContext.Provider value={{ className: 'react-icons' }}>
+               <IconContext.Provider value={{ color: 'white', className: 'react-icons' }}>
                     <NavBar />
                     <div name="Component routes">
                          <Route exact path="/" component={WebbApp} />

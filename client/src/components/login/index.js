@@ -1,5 +1,5 @@
 import React, {  useContext, useReducer, useState, useEffect } from "react";
-import "./style.css";
+import "./index.scss";
 import getCurrentUser from "./loginActions";
 import {StoreContext} from '../../contextApi/index.js';
 

@@ -6,6 +6,20 @@ import './nav.scss';
 
 
 export default function NavBar() {
+    const [showHamburger, setShowHamburger] = useState(false);
+    const [screenWidth, setScreenWidth] = useState(0);
+
+    function hamChecker() {
+        var x = document.getElementsByClassName('hamContainer')[0];
+        if (showHamburger === false) {
+            x.classList.add("hamContainerAnimate");
+            setShowHamburger(!showHamburger);
+        }
+        else {
+            x.classList.remove("hamContainerAnimate");
+            setShowHamburger(!showHamburger);
+        }
+    }
 
     return (
         <div>

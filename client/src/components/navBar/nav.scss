@@ -3,6 +3,10 @@ $navItemBorderColor: rgb(19, 100, 162);
 $navColor: rgb(3, 246, 190);
 $linkColor: rgb(216, 223, 221);
 
+
+.hamNav {
+  display:none;
+}
 .nav {
   position: fixed;
   box-sizing: border-box;
@@ -83,6 +87,7 @@ $linkColor: rgb(216, 223, 221);
   }
 
   .hamNav {
+    display: inline;
     position: fixed;
     background-color: $navBackgroundColor;
     width: 100vw;

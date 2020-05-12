@@ -63,33 +63,34 @@ export default function NavBar() {
             </div>
             <div className="nav">
                 <div className="navBarFade">
-                    <div className="homeIcon">
-                        <Link to="/">
-                            <img src={homeIcon} />
-                        </Link>
-                    </div>
-
                     <div className="navBarContainer">
-                        <button className="navButton">
-                            <Link to="/login" className="links">
-                                <MdAccountCircle />
-                                <p> Login </p>
+                        <div className="homeIcon">
+                            <Link to="/">
+                                <img src={homeIcon} />
                             </Link>
-                        </button>
+                        </div>
+                        <div className="routeIcons">
+                            <button className="navButton">
+                                <Link to="/login" className="links">
+                                    <MdAccountCircle />
+                                    <p> Login </p>
+                                </Link>
+                            </button>
 
-                        <button className="navButton">
-                            <Link to="/signup" className="links">
-                                <MdPersonAdd />
-                                <p> Sign Up </p>
-                            </Link>
-                        </button>
+                            <button className="navButton">
+                                <Link to="/signup" className="links">
+                                    <MdPersonAdd />
+                                    <p> Sign Up </p>
+                                </Link>
+                            </button>
 
-                        <button className="navButton">
-                            <Link to="/shop" className="links">
-                                <MdShoppingCart />
-                                <p> Store </p>
-                            </Link>
-                        </button>
+                            <button className="navButton">
+                                <Link to="/shop" className="links">
+                                    <MdShoppingCart />
+                                    <p> Store </p>
+                                </Link>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

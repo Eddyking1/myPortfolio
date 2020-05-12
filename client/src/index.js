@@ -7,7 +7,7 @@ import Login from './components/login/index';
 import Signup from './components/signUp/index';
 import NavBar from './components/navBar/navComponent.js';
 import Shop from './components/shop/index.js'
-import {IconContext} from 'react-icons';
+import { IconContext } from 'react-icons/lib';
 import './main.scss';
 // Development only axios helpers!
 import axios from 'axios';

@@ -1,6 +1,6 @@
 import React, { useState, useLayoutEffect } from 'react';
 import homeIcon from '../../assets/Images/homeIcon.png';
-import { MdReorder, MdShoppingCart, MdPersonAdd,MdAccountCircle } from "react-icons/md";
+import { MdReorder, MdShoppingCart, MdPersonAdd, MdAccountCircle } from "react-icons/md";
 import { Link } from "react-router-dom";
 import './nav.scss';
 
@@ -35,7 +35,7 @@ export default function NavBar() {
                 <div className="hamNav">
                     <div className="navBarFade">
                         <button className="navButton" onClick={() => { hamChecker() }}>
-                            <MdReorder/>
+                            <MdReorder />
                         </button>
                         <div className="hamHomeIcon">
                             <Link to="/">
@@ -82,22 +82,22 @@ export default function NavBar() {
                         <div className="navBarContainer">
                             <button className="navButton">
                                 <Link to="/login" className="links">
-                                    <MdAccountCircle/>
+                                    <MdAccountCircle />
                                     <p> Login </p>
                                 </Link>
                             </button>
 
                             <button className="navButton">
                                 <Link to="/signup" className="links">
-                                    <MdPersonAdd/>
+                                    <MdPersonAdd />
                                     <p> Sign Up </p>
                                 </Link>
                             </button>
 
                             <button className="navButton">
                                 <Link to="/shop" className="links">
-                                <MdShoppingCart/>
-                                <p> Store </p>
+                                    <MdShoppingCart />
+                                    <p> Store </p>
                                 </Link>
                             </button>
                         </div>

@@ -14,7 +14,7 @@ $linkColor: rgb(216, 223, 221);
 
 .navBarContainer {
   display: flex;
-  justify-content: flex-end ;
+  justify-content: flex-end;
   p {
     padding: 0 5px;
     font-size: 14px;
@@ -33,7 +33,7 @@ $linkColor: rgb(216, 223, 221);
   border-color: $navItemBorderColor;
   box-shadow: 10px 11px 10px #3333;
   margin: 10px;
-  outline:0;
+  outline: 0;
   .links {
     display: flex;
     justify-content: center;
@@ -41,118 +41,122 @@ $linkColor: rgb(216, 223, 221);
     align-items: center;
     color: $linkColor;
   }
-  :active{
+  :active {
     transform: translateY(4px);
   }
   :hover {
-    transform: translate3d(1px, 1px,2px);
+    transform: translate3d(1px, 1px, 2px);
     transform: rotateY(15deg);
     transform: rotateZ(2deg);
     perspective: 100px;
-    transition:0.2s;
-  }  
-}
-
-@media only screen and (max-width: 900px) {
-.hamHomeIcon {
-  position: absolute;
-  justify-content: flex-end;
-  top:0;
-  right:0;
-  margin:0 !important;
-  @extend .homeIcon;
-}
-
-.homeIcon {
-  @extend .navBarContainer;
-  position: absolute;
-  justify-content: center;
-  margin:10px;
-  :hover {
-    transform: translate3d(1px, 1px,2px);
-    transform: rotateY(15deg);
-    transform: rotateZ(-2deg);
-    perspective: 100px;
-    transition:0.2s;
+    transition: 0.2s;
   }
 }
 
-.hamNav {
-  position: fixed;
-  background-color:$navBackgroundColor ;
-  width:100vw;
-  z-index:999999999;
-}
+@media only screen and (max-width: 900px) {
+  .hamHomeIcon {
+    position: absolute;
+    justify-content: flex-end;
+    top: 0;
+    right: 0;
+    margin: 0 !important;
+    @extend .homeIcon;
+  }
 
-.hamShadow {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: black;
-  z-index: 1;
-}
+  .homeIcon {
+    display: flex;
+    justify-content: flex-end;
+    p {
+      padding: 0 5px;
+      font-size: 14px;
+    }
+    position: absolute;
+    justify-content: center;
+    margin: 10px;
+    :hover {
+      transform: translate3d(1px, 1px, 2px);
+      transform: rotateY(15deg);
+      transform: rotateZ(-2deg);
+      perspective: 100px;
+      transition: 0.2s;
+    }
+  }
 
-.hamLinks{
-  display: inline-block;
-  text-align: center;
-  vertical-align: middle;
-  width:100%;
-  background: #111727;
-  background: -webkit-gradient(linear, left top, left bottom, from(#111727), to(#424242));
-  background: -moz-linear-gradient(top, #111727, #424242);
-  background: linear-gradient(to bottom, #111727, #424242);
-  font: normal normal bold 16px times new roman;
-  color: #9be8ff;
-  text-decoration: none;
-  border: 1px solid $navItemBorderColor;
-  margin: 0 0 20px;
-}
-.hamContainer {
-  position: absolute;
-  height:100vh;
-  width:50vw;
-  left:-50vw;
-  background-color:$navBackgroundColor;
-  z-index: 999;
-  transition: 0.5s;
-  animation-iteration-count:1;
-}
+  .hamNav {
+    position: fixed;
+    background-color: $navBackgroundColor;
+    width: 100vw;
+    z-index: 999999999;
+  }
 
-.hamContainerAnimate {
-  @extend .hamContainer;
-  transform: translateX(49vw);
-  
-}
+  .hamShadow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 1;
+  }
 
-.linkContainer{
-  display:flex;
-  justify-content: center;
-  flex-direction: column;
-  padding:25px;
-}
+  .hamLinks {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    width: 100%;
+    background: #111727;
+    background: -webkit-gradient(linear, left top, left bottom, from(#111727), to(#424242));
+    background: -moz-linear-gradient(top, #111727, #424242);
+    background: linear-gradient(to bottom, #111727, #424242);
+    font: normal normal bold 16px times new roman;
+    color: #9be8ff;
+    text-decoration: none;
+    border: 1px solid $navItemBorderColor;
+    margin: 0 0 20px;
+  }
+  .hamContainer {
+    position: absolute;
+    height: 100vh;
+    width: 50vw;
+    left: -50vw;
+    background-color: $navBackgroundColor;
+    z-index: 999;
+    transition: 0.5s;
+    animation-iteration-count: 1;
+  }
 
-.socialIcons{
-  @extend .linkContainer;
-  justify-items: center;
-  align-items: center;
-}
+  .hamContainerAnimate {
+    @extend .hamContainer;
+    transform: translateX(49vw);
+  }
 
+  .linkContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 25px;
+  }
 
-.navBarFade {  animation-name: fade-in;
-  animation-fill-mode: both;
-  animation-duration: 0.7s;
-  animation-delay: 1s;
-  animation-iteration-count:1;
+  .socialIcons {
+    @extend .linkContainer;
+    justify-items: center;
+    align-items: center;
+  }
 
-  $animationDelay: 1;
+  .navBarFade {
+    animation-name: fade-in;
+    animation-fill-mode: both;
+    animation-duration: 0.7s;
+    animation-delay: 1s;
+    animation-iteration-count: 1;
+
+    $animationDelay: 1;
     @for $i from 1 through 3 {
       .transformFade:nth-of-type(#{$i}) {
-        animation-delay: #{0.3+($i)/30}s;
+        animation-delay: #{0.3+ ($i)/30}s;
       }
     }
-}
+  }
 
-.nav {
-  display: none;
-}
+  .nav {
+    display: none;
+  }
 }

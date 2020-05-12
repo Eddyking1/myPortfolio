@@ -7,6 +7,8 @@ import Login from './components/login/index';
 import Signup from './components/signUp/index';
 import NavBar from './components/navBar/navComponent.js';
 import Shop from './components/shop/index.js'
+import {IconContext} from 'react-icons';
+import './main.scss';
 // Development only axios helpers!
 import axios from 'axios';
 window.axios = axios;
@@ -14,13 +16,15 @@ window.axios = axios;
 ReactDOM.render(
      <StoreProvider>
           <Router>
-               <NavBar />
-               <div name="Component routes">
-                    <Route exact path="/" component={WebbApp} />
-                    <Route path="/login" component={Login} />
-                    <Route path="/signUp" component={Signup} />
-                    <Route path="/shop" component={Shop} />
-               </div>
+               <IconContext.Provider value={{ className: 'react-icons' }}>
+                    <NavBar />
+                    <div name="Component routes">
+                         <Route exact path="/" component={WebbApp} />
+                         <Route path="/login" component={Login} />
+                         <Route path="/signUp" component={Signup} />
+                         <Route path="/shop" component={Shop} />
+                    </div>
+               </IconContext.Provider>
           </Router>
      </StoreProvider>
      ,

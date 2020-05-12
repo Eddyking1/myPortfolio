@@ -7,7 +7,6 @@ export default function Footer() {
 
     return (
         <div className="footer">
-            <div className="topFooterBox" >
                 <div className="slideShow">
                     <h1>Kolla igenom WebbDev Dealsen!</h1>
                     {Slider(footerImages)}
@@ -17,7 +16,6 @@ export default function Footer() {
                     <p>
                         Email: Edward.kumerius@gmail.com
                     </p>
-                </div>
             </div>
         </div>
     )

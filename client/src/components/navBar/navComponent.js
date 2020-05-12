@@ -1,6 +1,6 @@
 import React, { useState, useLayoutEffect } from 'react';
 import homeIcon from '../../assets/Images/homeIcon.png';
-import { MdReorder } from "react-icons/md";
+import { MdReorder, MdShoppingCart, MdPersonAdd,MdAccountCircle } from "react-icons/md";
 import { Link } from "react-router-dom";
 import './nav.scss';
 
@@ -82,22 +82,22 @@ export default function NavBar() {
                         <div className="navBarContainer">
                             <button className="navButton">
                                 <Link to="/login" className="links">
-                                    <i className="material-icons">meeting_room</i>
+                                    <MdAccountCircle/>
                                     <p> Login </p>
                                 </Link>
                             </button>
 
                             <button className="navButton">
                                 <Link to="/signup" className="links">
-                                    <i className="material-icons">add_circle</i>
+                                    <MdPersonAdd/>
                                     <p> Sign Up </p>
                                 </Link>
                             </button>
 
                             <button className="navButton">
                                 <Link to="/shop" className="links">
-                                    <i className="material-icons">shopping_cart</i>
-                                    <p> Store </p>
+                                <MdShoppingCart/>
+                                <p> Store </p>
                                 </Link>
                             </button>
                         </div>

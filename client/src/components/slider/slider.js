@@ -4,6 +4,6 @@ import './style.scss';
 
 export default function Slider (props) {
     return (
-            <ImageGallery items={props} showThumbnails={false} fullscreen={true} />
+            <ImageGallery items={props} showThumbnails={false}/>
     )
 };

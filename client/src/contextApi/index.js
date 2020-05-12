@@ -1,13 +1,13 @@
-import React from 'react'
+import {useState, createContext} from 'react';
 
-export const StoreContext = React.createContext(null)
+export const StoreContext = createContext(null)
 
 export default ({ children }) => {
 
-  const [isOnline, setIsOnline] = React.useState(false);
-  const [registeredUser, setRegisteredUser] = React.useState([]);
-  const [loadpage, setPage] = React.useState({});
-  const [sliderData, setSliderData] = React.useState([]);
+  const [isOnline, setIsOnline] = useState(false);
+  const [registeredUser, setRegisteredUser] = useState([]);
+  const [loadpage, setPage] = useState({});
+  const [sliderData, setSliderData] = useState([]);
   /*  lägg till flera hooks om det behövs för till globala storen - lägg till hooken
   i store objeckt arrayen som ett objeckt, sedan använd useContext(StoreContext) och 
   destructa ut objektet som behövs användas.  som det görs i storen 

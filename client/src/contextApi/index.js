@@ -8,6 +8,8 @@ export default ({ children }) => {
   const [registeredUser, setRegisteredUser] = useState([]);
   const [loadpage, setPage] = useState({});
   const [sliderData, setSliderData] = useState([]);
+  const [data, setData] = useState({ hits: [] });
+
   /*  lägg till flera hooks om det behövs för till globala storen - lägg till hooken
   i store objeckt arrayen som ett objeckt, sedan använd useContext(StoreContext) och 
   destructa ut objektet som behövs användas.  som det görs i storen 
@@ -17,6 +19,7 @@ export default ({ children }) => {
     isRegistered: [registeredUser, setRegisteredUser],
     landingpage: [loadpage, setPage],
     slideShowData : [sliderData, setSliderData],
+    loginData: [data, setData],
   }
   /* returnera contextets values och children vilket gör så att allt som finns innuti
   storeContextet visas t.ex app.js när contexten wrappas

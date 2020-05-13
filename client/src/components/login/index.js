@@ -25,9 +25,9 @@ function reducer(state, action) {
 
 
 function Login() {
-  const { onlineState: [isOnline, setIsOnline] } = useContext(StoreContext)
+  const { onlineState: [isOnline, setIsOnline] } = useContext(StoreContext);
+  const { loginData: [data, setData] } = useContext(StoreContext);
   const [redirect, setRedirect] = useState(false);
-  const [data, setData] = useState({ hits: [] });
   const [url, setUrl] = useState(
     'https://fathomless-wildwood-66414.herokuapp.com/api/user',
   );
@@ -56,6 +56,9 @@ function Login() {
     if (redirect) {
       window.history.pushState(null,null,'/auth/google');
       window.location.reload();
+    }
+    if(!redirect) {
+      window.history.pushState(null,null,'/profile');
     }
   }
 

@@ -46,9 +46,10 @@ function Login() {
 
 
   return (
-   (isLoading ? <div className="wrapper"> 
-    
-    </div> : <div className="loading"> <img src={homeIcon}/> is not ready</div>)
+   (isLoading ? <div className="loading"> <img src={homeIcon}/> Loading..</div> : 
+   <div className="wrapper"> 
+      
+   </div>)
   );
 }
 

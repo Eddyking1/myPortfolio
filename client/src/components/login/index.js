@@ -40,7 +40,7 @@ function Login() {
       try {
         const result = await axios(url);
         setData(result.data);
-        console.log(data)
+        console.log(result)
         if (data) {
           setTimeout(() => {
             setIsLoading(false);

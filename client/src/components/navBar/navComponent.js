@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import homeIcon from '../../assets/Images/homeIcon.png';
+import { StoreContext } from '../../contextApi/index.js';
 import { MdReorder, MdShoppingCart, MdPersonAdd, MdAccountCircle } from "react-icons/md";
 import { Link } from "react-router-dom";
 import './nav.scss';
@@ -7,6 +8,7 @@ import './nav.scss';
 
 export default function NavBar() {
     const [showHamburger, setShowHamburger] = useState(false);
+    const { loginData: [data, setData] } = useContext(StoreContext);
 
     function hamChecker() {
         var x = document.getElementsByClassName('hamContainer')[0];
@@ -19,6 +21,7 @@ export default function NavBar() {
             setShowHamburger(!showHamburger);
         }
     }
+
 
     return (
         <div>
@@ -41,10 +44,12 @@ export default function NavBar() {
                             <Link to="./" className="hamLinks" onClick={() => { hamChecker() }}>
                                 <p> Home </p>
                             </Link>
-
-                            <Link to="/login" className="hamLinks" onClick={() => { hamChecker() }}>
-                                <p> Login with google! </p>
-                            </Link>
+                            {(data ? <Link to="/Profile" className="hamLinks" onClick={() => { hamChecker() }}>
+                                <p> Profile </p>
+                            </Link> :
+                                <Link to="/login" className="hamLinks" onClick={() => { hamChecker() }}>
+                                    <p> Login with google! </p>
+                                </Link>)}
 
                             <Link to="/profile" className="hamLinks" onClick={() => { hamChecker() }}>
                                 <p> Profile </p>

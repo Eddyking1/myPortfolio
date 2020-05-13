@@ -62,7 +62,7 @@ function Login() {
       window.history.pushState(null,null,'/auth/google');
       window.location.reload();
     }
-    if(!redirect) {
+    if(data.id) {
       window.history.pushState(null,null,'/profile');
     }
   }

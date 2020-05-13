@@ -44,7 +44,7 @@ export default function NavBar() {
                             <Link to="./" className="hamLinks" onClick={() => { hamChecker() }}>
                                 <p> Home </p>
                             </Link>
-                            {(data ? <Link to="/Profile" className="hamLinks" onClick={() => { hamChecker() }}>
+                            {(data.data ? <Link to="/Profile" className="hamLinks" onClick={() => { hamChecker() }}>
                                 <p> Profile </p>
                             </Link> :
                                 <Link to="/login" className="hamLinks" onClick={() => { hamChecker() }}>

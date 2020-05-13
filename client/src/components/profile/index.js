@@ -2,7 +2,7 @@ import React from 'react'
 
 export const Profile = () => {
     return (
-        <div>
+        <div className="wrapper">
             <p>
             Profile yay
             </p>

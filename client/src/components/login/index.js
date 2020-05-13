@@ -39,7 +39,7 @@ function Login() {
       setData(result.data);
           setTimeout(() => {
             setIsLoading(false);
-          }, 2000)
+          }, 1500)
     };
 
     fetchData();

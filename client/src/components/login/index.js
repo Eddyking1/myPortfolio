@@ -43,6 +43,7 @@ function Login() {
 
       const result = await axios(url);
 
+      console.log(result.data);
       setData(result.data);
       setIsLoading(false);
     };

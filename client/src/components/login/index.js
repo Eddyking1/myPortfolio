@@ -41,32 +41,32 @@ function Login() {
         const result = await axios(url);
         setData(result.data);
         console.log(data)
-        if(data.id){
+        if (data) {
           setTimeout(() => {
             setIsLoading(false);
             setRedirect(true);
           }, 1500)
         }
       }
-      catch (error){
+      catch (error) {
         setTimeout(() => {
           setIsLoading(false);
           setRedirect(true);
           setIsError(true);
         }, 1500)
-        fetchData();
-      }   
+      }
     };
-    
+    fetchData();
+
   }, [url]);
 
   const renderRedirect = () => {
     if (redirect && isError) {
-      window.history.pushState(null,null,'/auth/google');
+      window.history.pushState(null, null, '/auth/google');
       window.location.reload();
     }
-    else{
-      window.history.pushState(null,null,'/profile');
+    else {
+      window.history.pushState(null, null, '/profile');
       window.location.reload();
     }
   }
@@ -74,7 +74,7 @@ function Login() {
   return (
     (isLoading ? <div className="loading"> <img src={homeIcon} /> Loading..</div> :
       <div className="wrapper">
-      {renderRedirect()}
+        {renderRedirect()}
       </div>)
   );
 }

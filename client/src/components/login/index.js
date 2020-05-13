@@ -1,4 +1,5 @@
-import React, { useContext, useReducer, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import { Redirect } from "react-router-dom";
 import "./index.scss";
 import { StoreContext } from '../../contextApi/index.js';
 import homeIcon from '../../assets/Images/homeIcon.png';
@@ -22,35 +23,47 @@ function reducer(state, action) {
   }
 }
 
+
 function Login() {
   const { onlineState: [isOnline, setIsOnline] } = useContext(StoreContext)
-
+  const [redirect, setRedirect] = useState(false);
   const [data, setData] = useState({ hits: [] });
   const [url, setUrl] = useState(
     'https://fathomless-wildwood-66414.herokuapp.com/api/user',
   );
-  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
-      const result = await axios(url);
-      console.log(result.data);
-      setData(result.data);
-          setTimeout(() => {
-            setIsLoading(false);
-          }, 1500)
+      try {
+        const result = await axios(url);
+        setData(result.data);
+      }
+      catch (error){
+        setTimeout(() => {
+          setIsLoading(false);
+          setRedirect(true);
+        }, 1500)
+        fetchData();
+      }   
     };
-
-    fetchData();
+    
   }, [url]);
 
+  const renderRedirect = () => {
+    if (redirect) {
+      window.history.pushState(null,null,'/auth/google');
+      window.location.reload();
+    }
+  }
 
   return (
-   (isLoading ? <div className="loading"> <img src={homeIcon}/> Loading..</div> : 
-   <div className="wrapper"> 
-      
-   </div>)
+    (isLoading ? <div className="loading"> <img src={homeIcon} /> Loading..</div> :
+      <div className="wrapper">
+      {renderRedirect()}
+      </div>)
   );
 }
 

@@ -40,6 +40,7 @@ function Login() {
       try {
         const result = await axios(url);
         setData(result.data);
+        renderRedirect();
       }
       catch (error){
         setTimeout(() => {

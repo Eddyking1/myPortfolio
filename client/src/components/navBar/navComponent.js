@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import homeIcon from '../../assets/Images/homeIcon.png';
 import { StoreContext } from '../../contextApi/index.js';
 import { MdReorder, MdShoppingCart, MdPersonAdd, MdAccountCircle } from "react-icons/md";

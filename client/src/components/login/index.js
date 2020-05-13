@@ -40,9 +40,11 @@ function Login() {
       try {
         const result = await axios(url);
         setData(result.data);
-        setIsLoading(false);
         console.log(isLoading, data)
-        renderRedirect();
+        setTimeout(() => {
+          setIsLoading(false);
+          renderRedirect();
+        }, 1500)
       }
       catch (error){
         setTimeout(() => {

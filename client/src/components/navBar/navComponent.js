@@ -43,11 +43,11 @@ export default function NavBar() {
                             </Link>
 
                             <Link to="/login" className="hamLinks" onClick={() => { hamChecker() }}>
-                                <p> Login </p>
+                                <p> Login with google! </p>
                             </Link>
 
-                            <Link to="/signup" className="hamLinks" onClick={() => { hamChecker() }}>
-                                <p> Sign Up </p>
+                            <Link to="/profile" className="hamLinks" onClick={() => { hamChecker() }}>
+                                <p> Profile </p>
                             </Link>
 
                         </div>
@@ -65,23 +65,23 @@ export default function NavBar() {
                     <div className="navBarContainer">
                         <div className="homeIcon">
                             <Link to="/">
-                                <img src={homeIcon} alt="EK logo "/>
+                                <img src={homeIcon} alt="EK logo " />
                             </Link>
                         </div>
                         <div className="routeIcons">
                             <button className="navButton">
                                 <Link to="/login" className="links">
                                     <MdAccountCircle />
-                                    <p> Login </p>
+                                    <p> Login with google! </p>
                                 </Link>
                             </button>
 
-                            <button className="navButton">
+                            {  /* <button className="navButton">
                                 <Link to="/signup" className="links">
                                     <MdPersonAdd />
                                     <p> Sign Up </p>
                                 </Link>
-                            </button>
+                                 </button> */}
 
                             <button className="navButton">
                                 <Link to="/shop" className="links">

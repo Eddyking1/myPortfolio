@@ -4,7 +4,7 @@ import { Route, BrowserRouter as Router } from 'react-router-dom'
 import StoreProvider from './contextApi/index.js';
 import WebbApp from './components/app/index.js';
 import Login from './components/login/index';
-import Signup from './components/signUp/index';
+import Profile from './components/profile/index';
 import NavBar from './components/navBar/navComponent.js';
 import Shop from './components/shop/index.js'
 import { IconContext } from 'react-icons/lib';
@@ -21,7 +21,7 @@ ReactDOM.render(
                     <div name="Component routes">
                          <Route exact path="/" component={WebbApp} />
                          <Route path="/login" component={Login} />
-                         <Route path="/signUp" component={Signup} />
+                         <Route path="/profile" component={Profile}/>
                          <Route path="/shop" component={Shop} />
                     </div>
                </IconContext.Provider>

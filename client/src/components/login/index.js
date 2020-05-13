@@ -32,7 +32,7 @@ function Login() {
     'https://fathomless-wildwood-66414.herokuapp.com/api/user',
   );
   const [isError, setIsError] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -41,6 +41,7 @@ function Login() {
         const result = await axios(url);
         setData(result.data);
         setIsLoading(false);
+        console.log(isLoading, data)
         renderRedirect();
       }
       catch (error){

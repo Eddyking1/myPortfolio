@@ -32,7 +32,7 @@ function Login() {
     'https://fathomless-wildwood-66414.herokuapp.com/api/user',
   );
   const [isError, setIsError] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -40,16 +40,19 @@ function Login() {
       try {
         const result = await axios(url);
         setData(result.data);
-        console.log(isLoading, data)
-        setTimeout(() => {
-          setIsLoading(false);
-          renderRedirect();
-        }, 1500)
+        console.log(data)
+        if(data.id){
+          setTimeout(() => {
+            setIsLoading(false);
+            setRedirect(true);
+          }, 1500)
+        }
       }
       catch (error){
         setTimeout(() => {
           setIsLoading(false);
           setRedirect(true);
+          setIsError(true);
         }, 1500)
         fetchData();
       }   
@@ -58,12 +61,13 @@ function Login() {
   }, [url]);
 
   const renderRedirect = () => {
-    if (redirect) {
+    if (redirect && isError) {
       window.history.pushState(null,null,'/auth/google');
       window.location.reload();
     }
-    if(data.id) {
+    else{
       window.history.pushState(null,null,'/profile');
+      window.location.reload();
     }
   }
 

@@ -1,13 +1,9 @@
-import React, {useState, createContext, useReducer} from 'react';
-import {reducer, initialState} from './reducers';
-import { useActions } from './actions';
-import { applyMiddleware } from './middleware';
+import React, {useState, createContext} from 'react';
 
-export const StoreContext = createContext(initialState);
+
+export const StoreContext = createContext(null);
 
 export default ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);      
-
   const [isOnline, setIsOnline] = useState(false);
   const [registeredUser, setRegisteredUser] = useState([]);
   const [loadpage, setPage] = useState({});
@@ -16,11 +12,6 @@ export default ({ children }) => {
   i store objeckt arrayen som ett objeckt, sedan använd useContext(StoreContext) och 
   destructa ut objektet som behövs användas.  som det görs i storen 
   ( const {objeckt: [hook, sethook]} = useContext(StoreContext)*/
-
-  const enhancedDispatch = applyMiddleware(dispatch);
-  
-  const actions = useActions(state, enhancedDispatch);
-  
   const store = {
     onlineState: [isOnline, setIsOnline],
     isRegistered: [registeredUser, setRegisteredUser],

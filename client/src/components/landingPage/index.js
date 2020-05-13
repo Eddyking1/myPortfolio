@@ -10,26 +10,20 @@ import { landingPageImages } from '../slider/sliderData.js'
 import './index.scss';
 
 const LandingPage = () => {
-    const [onload, setOnload] = useState(false);
 
     function pageLoad() {
         setTimeout(() => {
-            setOnload(true)
             isLoaded();
-
         }, 1000)
     }
     function isLoaded() {
         const sliderClass = document.getElementsByClassName('sliderLandingPage')[0];
         sliderClass.classList.remove('sliderLandingPage');
         sliderClass.classList.add('sliderLandingPageTransform');
-
     }
 
     useEffect(() => {
         pageLoad();
-
-
     }, [])
 
     return (

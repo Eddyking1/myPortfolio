@@ -1,6 +1,6 @@
-import React, { useReducer, useState, useEffect } from "react";
-import "./style.scss";
-
+import React, { useContext, useReducer, useState, useEffect } from "react";
+import "./index.scss";
+import { StoreContext } from '../../contextApi/'
 
 
 function reducer(state, action) {
@@ -26,7 +26,8 @@ function reducer(state, action) {
   }
 }
 
-function SignUp() {
+function Form() {
+  const { onlineState: [isOnline, setIsOnline] } = useContext(StoreContext)
 
   const [{ userList }, dispatch] = useReducer(reducer, { userList: [""] });
 
@@ -37,6 +38,7 @@ function SignUp() {
 
   useEffect(() => {
     console.log(userList);
+    console.log(isOnline)
   });
 
   return (
@@ -88,11 +90,15 @@ function SignUp() {
           </div>
           <button className="buttonSubmit" type="submit" onClick={() => (setCounter(counter + 1))}> <p>Submit</p> </button>
           </form>
-        </div>
-    /*  {JSON.stringify(list)} */ 
+        <div className="googleLogin">
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
 
+        </div>
+     {/*  {JSON.stringify(list)} */ }
+
+    </div>
   );
 }
 
-export default SignUp;
+export default Form;
 

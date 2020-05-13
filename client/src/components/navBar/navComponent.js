@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from 'react';
+import React, { useState } from 'react';
 import homeIcon from '../../assets/Images/homeIcon.png';
 import { MdReorder, MdShoppingCart, MdPersonAdd, MdAccountCircle } from "react-icons/md";
 import { Link } from "react-router-dom";
@@ -7,7 +7,6 @@ import './nav.scss';
 
 export default function NavBar() {
     const [showHamburger, setShowHamburger] = useState(false);
-    const [screenWidth, setScreenWidth] = useState(0);
 
     function hamChecker() {
         var x = document.getElementsByClassName('hamContainer')[0];
@@ -66,7 +65,7 @@ export default function NavBar() {
                     <div className="navBarContainer">
                         <div className="homeIcon">
                             <Link to="/">
-                                <img src={homeIcon} />
+                                <img src={homeIcon} alt="EK logo "/>
                             </Link>
                         </div>
                         <div className="routeIcons">

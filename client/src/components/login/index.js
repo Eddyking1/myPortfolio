@@ -55,7 +55,7 @@ function Login() {
     };
 
     const checkData = () => {
-      if (data.length < 1) {
+      if (data.length > 1) {
         setTimeout(() => {
           setIsOnline(true);
           setIsLoading(false);

@@ -39,7 +39,7 @@ export const Profile = () => {
                 <div className="profileData">
                     {data.map((item, index) => (
                         <li key={index}>
-                            <p>{item}</p>
+                            <p>{...item}</p>
                         </li>
                     ))}
                 </div>

@@ -40,8 +40,8 @@ function Login() {
       setIsLoading(true);
       try {
         const result = await axios(url);
-        setData(result.data);
-        console.log(result.data)
+        setData(result);
+        console.log(result)
       }
       catch (error) {
         setTimeout(() => {
@@ -50,10 +50,6 @@ function Login() {
           setIsError(true);
         }, 1500)
       }
-      setIsOnline(true);
-      setIsLoading(false);
-      setIsOnline(true);
-      setRedirect(true);
     };
     fetchData();
 

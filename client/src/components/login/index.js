@@ -47,6 +47,7 @@ function Login() {
             setIsLoading(false);
             setRedirect(true);
             setIsError(true);
+            console.log(isOnline,isLoading,data,redirect,isError, "request did run but empty data");
           }, 1500)
         }
       }
@@ -55,6 +56,7 @@ function Login() {
           setIsLoading(false);
           setRedirect(true);
           setIsError(true);
+          console.log(isOnline,isLoading,data,redirect,isError, "error");
         }, 1500)
       }
     };

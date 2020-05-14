@@ -42,9 +42,9 @@ function Login() {
         const result = await axios(url);
         setData(result.data);
         setTimeout(() => {
-          console.log(result.data);
+          console.log(result.data, 'no data for some reason', data);
           checkData();
-        }, 2000);
+        }, 3000);
       }
       catch (error) {
         setTimeout(() => {

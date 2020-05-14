@@ -21,7 +21,9 @@ export const Profile = () => {
                 const result = await axios(url);
                 setData(result.data);
                 console.log(result.data)
-
+                if (response) {
+                    setIsOnline(true);
+                }
             }
             catch (error) {
                 setTimeout(() => {
@@ -36,7 +38,7 @@ export const Profile = () => {
 
     return (
         <div className="wrapper">
-            {(isOnline ? <div> online </div> :
+            {(!isOnline ? <div> offline </div> :
                 <div className="profileData">
                     {data.map((item, index) => (
                         <li key={index}>

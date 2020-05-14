@@ -19,7 +19,7 @@ export const Profile = () => {
             setIsLoading(true);
             try {
                 const result = await axios(url);
-                setData(result.data);
+                setData(result);
                 setIsOnline(true);
             }
             catch (error) {

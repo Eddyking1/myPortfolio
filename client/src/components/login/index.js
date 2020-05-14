@@ -40,7 +40,7 @@ function Login() {
       setIsLoading(true);
       try {
         const result = await axios(url);
-        setData(result.data);
+        setData(result);
         console.log(data);
       }
       catch (error) {

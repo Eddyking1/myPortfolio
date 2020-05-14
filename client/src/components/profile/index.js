@@ -1,4 +1,6 @@
-import React, { useState, useContext, } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
+import { StoreContext } from '../../contextApi/index.js';
+import axios from 'axios';
 import './index.scss';
 
 export const Profile = () => {
@@ -30,18 +32,17 @@ export const Profile = () => {
             }
         };
         fetchData();
-
-        const mapProfileData = () => {
-
-        };
-
     }, [url]);
 
     return (
         <div className="wrapper">
             {(isOnline ? <div> online </div> :
                 <div className="profileData">
-
+                    {data.hits.map(item => (
+                        <li key={item.objectID}>
+                            <a href={item.url}>{item.title}</a>
+                        </li>
+                    ))}
                 </div>
             )}
 

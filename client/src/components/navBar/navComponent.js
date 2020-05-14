@@ -53,11 +53,6 @@ export default function NavBar() {
                                 <Link to="/login" className="hamLinks" onClick={() => { hamChecker() }}>
                                     <p> Login with google! </p>
                                 </Link>)}
-
-                            <Link to="/profile" className="hamLinks" onClick={() => { hamChecker() }}>
-                                <p> Profile </p>
-                            </Link>
-
                         </div>
 
                         <div className="socialIcons">
@@ -78,19 +73,19 @@ export default function NavBar() {
                         </div>
                         <div className="routeIcons">
 
-                            {(!isOnline ? 
-                            <button className="navButton">
-                                <Link to="/login" className="links">
-                                    <MdAccountCircle />
-                                    <p> Login with google! </p>
-                                </Link>
-                            </button> :
-                            <button className="navButton">
-                                <Link to="/profile" className="links">
-                                    <MdAccountCircle />
-                                    <p> Profile </p>
-                                </Link>
-                            </button>
+                            {(!isOnline ?
+                                <button className="navButton">
+                                    <Link to="/login" className="links">
+                                        <MdAccountCircle />
+                                        <p> Login with google! </p>
+                                    </Link>
+                                </button> :
+                                <button className="navButton">
+                                    <Link to="/profile" className="links">
+                                        <MdAccountCircle />
+                                        <p> Profile </p>
+                                    </Link>
+                                </button>
                             )}
 
                             {  /* <button className="navButton">

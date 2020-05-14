@@ -36,22 +36,50 @@ function Login() {
 
   useEffect(() => {
 
-    const fetchData = () => {
-      setIsError(false);
+    const fetchData = async () => {
       setIsLoading(true);
-      try {
-        const result = axios(url).then(result = () => {
-          setData(result.data);
-          console.log(data);
+
+      axios.get(url)
+        .then(function (response) {
+          setData(response);
+          console.log(response);
         })
-      } catch (error) {
-        setIsError(true);
-      }
-      setIsLoading(false);
-      setRedirect(true);
+        .catch(function (error) {
+          console.log(error);
+          setTimeout(() => {
+            setIsLoading(false);
+            setRedirect(true);
+            setIsError(true);
+            console.log(isOnline, isLoading, data, redirect, isError, "error");
+          }, 1500)
+        });
+
+
     };
 
+    const checkData = () => {
+      if (data.length > 1) {
+        setTimeout(() => {
+          setIsOnline(true);
+          setIsLoading(false);
+          setRedirect(true);
+          setIsError(false);
+          console.log(isOnline, isLoading, data, redirect, isError, "request did run");
+        }, 1500)
+      }
+      else {
+        setTimeout(() => {
+          setIsLoading(false);
+          setRedirect(true);
+          setIsError(true);
+          console.log(isOnline, isLoading, data, redirect, isError, "request did but no user online");
+        }, 1500)
+      }
+    }
+
+
     fetchData();
+    checkData();
   }, [url]);
 
   const renderRedirect = () => {
@@ -74,3 +102,4 @@ function Login() {
 }
 
 export default Login;
+

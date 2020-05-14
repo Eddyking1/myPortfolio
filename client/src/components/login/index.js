@@ -42,30 +42,20 @@ function Login() {
         const result = await axios(url);
         setData(result.data);
         console.log(result.data);
-        if (result.data === "") {
-          setTimeout(() => {
-            setIsLoading(false);
-            setRedirect(true);
-            setIsError(true);
-            console.log(isOnline,isLoading,data,redirect,isError, "request did run but empty data");
-          }, 1500)
-        }else {
-          setTimeout(() => {
-            setIsLoading(false);
-            setRedirect(true);
-            setIsError(false);
-            setIsOnline(true);
-            setData(result.data);
-            console.log(isOnline,isLoading,data,redirect,isError, "request did run with data");
-          }, 1500)
-        }
+        setTimeout(() => {
+          setIsLoading(false);
+          setRedirect(true);
+          setIsError(false);
+          console.log(isOnline, isLoading, data, redirect, isError, "request did run but empty data");
+        }, 1500)
       }
+
       catch (error) {
         setTimeout(() => {
           setIsLoading(false);
           setRedirect(true);
           setIsError(true);
-          console.log(isOnline,isLoading,data,redirect,isError, "error");
+          console.log(isOnline, isLoading, data, redirect, isError, "error");
         }, 1500)
       }
     };

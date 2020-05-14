@@ -43,6 +43,11 @@ export const Profile = () => {
                     <p> credits:</p>
                     {data.hits.credits}
                     </p>
+                    {data.hits.map(item => (
+                        <li key={item.googleId}>
+                          <a href={item.credits}>{item.googleId}</a>
+                        </li>
+                      ))}
                     <button>
                         <a href="/api/logout">
                         logout

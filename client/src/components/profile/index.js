@@ -20,10 +20,7 @@ export const Profile = () => {
             try {
                 const result = await axios(url);
                 setData(result.data);
-                console.log(result.data)
-                if (!error) {
-                    setIsOnline(true);
-                }
+                setIsOnline(true);
             }
             catch (error) {
                 setTimeout(() => {

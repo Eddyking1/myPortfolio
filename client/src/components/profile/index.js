@@ -37,11 +37,7 @@ export const Profile = () => {
         <div className="wrapper">
             {(!isOnline ? <div> offline </div> :
                 <div className="profileData">
-                    {data.map((item, index) => (
-                        <li key={index}>
-                            <p>{item}</p>
-                        </li>
-                    ))}
+                    {data._id, data.credits}
                 </div>
             )}
 

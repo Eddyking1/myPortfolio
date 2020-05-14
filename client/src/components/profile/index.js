@@ -39,7 +39,9 @@ export const Profile = () => {
                 <div className="profileData">
                     <p>
                         this is the data
-                    {data.googleId, 'credits:', data.credits}
+                    {data.hits.googleId}
+                    <p> credits:</p>
+                    {data.hits.credits}
                     </p>
                     <button>
                         <a href="/api/logout">

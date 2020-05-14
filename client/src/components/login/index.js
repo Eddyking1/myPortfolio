@@ -42,10 +42,10 @@ function Login() {
         const result = await axios(url);
         setData(result);
         console.log(result)
-        if (result.data = null){
-          setIsOnline(true);
+        if (result.data === ""){
           setIsLoading(false);
           setRedirect(true);
+          setIsError(true);
         }
       }
       catch (error) {

@@ -8,7 +8,7 @@ import './nav.scss';
 
 export default function NavBar() {
     const [showHamburger, setShowHamburger] = useState(false);
-    const { loginData: [data, setData] } = useContext(StoreContext);
+    const { isOnline: [isOnline, setIsOnline] } = useContext(StoreContext);
 
     function hamChecker() {
         var x = document.getElementsByClassName('hamContainer')[0];
@@ -23,7 +23,7 @@ export default function NavBar() {
     }
 
     useEffect(() => {
-        console.log(data)
+        console.log(isOnline);
     }, [])
 
     return (
@@ -47,7 +47,7 @@ export default function NavBar() {
                             <Link to="./" className="hamLinks" onClick={() => { hamChecker() }}>
                                 <p> Home </p>
                             </Link>
-                            {(data ? <Link to="/Profile" className="hamLinks" onClick={() => { hamChecker() }}>
+                            {(isOnline ? <Link to="/Profile" className="hamLinks" onClick={() => { hamChecker() }}>
                                 <p> Profile </p>
                             </Link> :
                                 <Link to="/login" className="hamLinks" onClick={() => { hamChecker() }}>
@@ -78,7 +78,7 @@ export default function NavBar() {
                         </div>
                         <div className="routeIcons">
 
-                            {(!data ? 
+                            {(!isOnline ? 
                             <button className="navButton">
                                 <Link to="/login" className="links">
                                     <MdAccountCircle />

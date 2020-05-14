@@ -40,10 +40,11 @@ function Login() {
       try {
         const result = await axios(url);
         setData(result.data);
-        console.log(result)
+        console.log(data)
         if (data) {
           setTimeout(() => {
             setIsLoading(false);
+            setIsOnline(true);
             setRedirect(true);
           }, 1500)
         }

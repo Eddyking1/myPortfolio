@@ -39,24 +39,12 @@ function Login() {
     const fetchData = async () => {
       setIsLoading(true);
 
-      axios.get(url)
-        .then(function (response) {
-          setData(response.data);
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-          setTimeout(() => {
-            setIsLoading(false);
-            setRedirect(true);
-            setIsError(true);
-            console.log(isOnline, isLoading, data, redirect, isError, "error");
-          }, 1500)
-        });
+      const result = await axios(url);
 
-
+      setData(result.data);
+      console.log(data, result.data);
+      setIsLoading(false);
     };
-
     const checkData = () => {
       if (data.length > 1) {
         setTimeout(() => {
@@ -79,8 +67,8 @@ function Login() {
 
 
     fetchData();
-    checkData();
   }, [url]);
+
 
   const renderRedirect = () => {
     if (redirect && isError) {
@@ -94,10 +82,12 @@ function Login() {
   }
 
   return (
-    (isLoading ? <div className="loading"> <img src={homeIcon} /> Loading..</div> :
-      <div className="wrapper">
-        {renderRedirect()}
-      </div>)
+    <div>
+      {(isLoading ? <div className="loading"> <img src={homeIcon} /> Loading..</div> :
+        <div className="wrapper">
+          {renderRedirect()}
+        </div>)}
+    </div>
   );
 }
 

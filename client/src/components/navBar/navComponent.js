@@ -8,7 +8,7 @@ import './nav.scss';
 
 export default function NavBar() {
     const [showHamburger, setShowHamburger] = useState(false);
-    const { isOnline: [isOnline, setIsOnline] } = useContext(StoreContext);
+    const { onlineState: [isOnline, setIsOnline] } = useContext(StoreContext);
 
     function hamChecker() {
         var x = document.getElementsByClassName('hamContainer')[0];

@@ -21,7 +21,7 @@ export const Profile = () => {
                 const result = await axios(url);
                 setData(result.data);
                 console.log(result.data)
-                if (response) {
+                if (!error) {
                     setIsOnline(true);
                 }
             }

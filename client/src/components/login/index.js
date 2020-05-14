@@ -67,7 +67,7 @@ function Login() {
 
 
     fetchData();
-  }, [url, data, setData, setIsOnline, isOnline]);
+  }, [url, data]);
 
 
   const renderRedirect = () => {

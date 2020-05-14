@@ -1,4 +1,4 @@
-import React, {useState, createContext} from 'react';
+import React, { useState, createContext } from 'react';
 
 
 export const StoreContext = createContext(null);
@@ -8,7 +8,7 @@ export default ({ children }) => {
   const [registeredUser, setRegisteredUser] = useState([]);
   const [loadpage, setPage] = useState({});
   const [sliderData, setSliderData] = useState([]);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState({ hits: [] });
 
   /*  lägg till flera hooks om det behövs för till globala storen - lägg till hooken
   i store objeckt arrayen som ett objeckt, sedan använd useContext(StoreContext) och 
@@ -18,7 +18,7 @@ export default ({ children }) => {
     onlineState: [isOnline, setIsOnline],
     isRegistered: [registeredUser, setRegisteredUser],
     landingpage: [loadpage, setPage],
-    slideShowData : [sliderData, setSliderData],
+    slideShowData: [sliderData, setSliderData],
     loginData: [data, setData],
   }
   /* returnera contextets values och children vilket gör så att allt som finns innuti
@@ -45,22 +45,22 @@ export default ({ children }) => {
   const [loadpage, setPage] = useState({});
   const [sliderData, setSliderData] = useState([]);
   /*  lägg till flera hooks om det behövs för till globala storen - lägg till hooken
-  i store objeckt arrayen som ett objeckt, sedan använd useContext(StoreContext) och 
-  destructa ut objektet som behövs användas.  som det görs i storen 
+  i store objeckt arrayen som ett objeckt, sedan använd useContext(StoreContext) och
+  destructa ut objektet som behövs användas.  som det görs i storen
   ( const {objeckt: [hook, sethook]} = useContext(StoreContext)*/
 
-  /*const enhancedDispatch = applyMiddleware(dispatch);
+/*const enhancedDispatch = applyMiddleware(dispatch);
 
-  const actions = useActions(state, enhancedDispatch);
+const actions = useActions(state, enhancedDispatch);
 
-  const store = {
-    onlineState: [isOnline, setIsOnline],
-    isRegistered: [registeredUser, setRegisteredUser],
-    landingpage: [loadpage, setPage],
-    slideShowData: [sliderData, setSliderData],
-  }
-  /* returnera contextets values och children vilket gör så att allt som finns innuti
-  storeContextet visas t.ex app.js när contexten wrappas
-  runt index.js   så render ( <storeContext> <app/>  <storecontext/> ) */
-  /*return <StoreContext.Provider value={store, enhancedDispatch, actions}>{children}</StoreContext.Provider> 
+const store = {
+  onlineState: [isOnline, setIsOnline],
+  isRegistered: [registeredUser, setRegisteredUser],
+  landingpage: [loadpage, setPage],
+  slideShowData: [sliderData, setSliderData],
+}
+/* returnera contextets values och children vilket gör så att allt som finns innuti
+storeContextet visas t.ex app.js när contexten wrappas
+runt index.js   så render ( <storeContext> <app/>  <storecontext/> ) */
+/*return <StoreContext.Provider value={store, enhancedDispatch, actions}>{children}</StoreContext.Provider>
 }  */

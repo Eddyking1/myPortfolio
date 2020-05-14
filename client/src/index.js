@@ -9,6 +9,7 @@ import NavBar from './components/navBar/navComponent.js';
 import Shop from './components/shop/index.js'
 import { IconContext } from 'react-icons/lib';
 import './main.scss';
+
 // Development only axios helpers!
 import axios from 'axios';
 window.axios = axios;

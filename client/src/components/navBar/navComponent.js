@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import homeIcon from '../../assets/Images/homeIcon.png';
 import { StoreContext } from '../../contextApi/index.js';
 import { MdReorder, MdShoppingCart, MdPersonAdd, MdAccountCircle } from "react-icons/md";
@@ -22,6 +22,9 @@ export default function NavBar() {
         }
     }
 
+    useEffect(() => {
+        console.log(data)
+    }, [])
 
     return (
         <div>
@@ -44,7 +47,7 @@ export default function NavBar() {
                             <Link to="./" className="hamLinks" onClick={() => { hamChecker() }}>
                                 <p> Home </p>
                             </Link>
-                            {(data.data ? <Link to="/Profile" className="hamLinks" onClick={() => { hamChecker() }}>
+                            {(data ? <Link to="/Profile" className="hamLinks" onClick={() => { hamChecker() }}>
                                 <p> Profile </p>
                             </Link> :
                                 <Link to="/login" className="hamLinks" onClick={() => { hamChecker() }}>
@@ -74,12 +77,21 @@ export default function NavBar() {
                             </Link>
                         </div>
                         <div className="routeIcons">
+
+                            {(!data ? 
                             <button className="navButton">
                                 <Link to="/login" className="links">
                                     <MdAccountCircle />
                                     <p> Login with google! </p>
                                 </Link>
+                            </button> :
+                            <button className="navButton">
+                                <Link to="/profile" className="links">
+                                    <MdAccountCircle />
+                                    <p> Profile </p>
+                                </Link>
                             </button>
+                            )}
 
                             {  /* <button className="navButton">
                                 <Link to="/signup" className="links">

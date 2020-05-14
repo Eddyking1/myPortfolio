@@ -35,19 +35,20 @@ export const Profile = () => {
 
     return (
         <div className="wrapper">
-        {(isOnline ?
-            <div className="profileData">
-                <p>
+            {(isOnline ?
+                <div className="profileData">
+                    <p>
+                        this is the data
                     {data._id, data.credits}
-                </p>
-            </div>
-            :
-            <div>
-                <p> offline</p>
-            </div>
-        )}
+                    </p>
+                </div>
+                :
+                <div>
+                    <p> offline</p>
+                </div>
+            )}
 
-    </div>
+        </div>
     )
 }
 

@@ -42,15 +42,8 @@ function Login() {
         const result = await axios(url);
         setData(result.data);
         console.log(result.data);
-        setTimeout(() => {
-          setIsOnline(true);
-          setIsLoading(false);
-          setRedirect(true);
-          setIsError(false);
-          console.log(isOnline, isLoading, data , redirect, isError, "request did run");
-        }, 1500)
+        checkData();
       }
-
       catch (error) {
         setTimeout(() => {
           setIsLoading(false);
@@ -60,6 +53,23 @@ function Login() {
         }, 1500)
       }
     };
+
+    const checkData = () => {
+      if (data.length < 1) {
+        setTimeout(() => {
+          setIsOnline(true);
+          setIsLoading(false);
+          setRedirect(true);
+          setIsError(false);
+          console.log(isOnline, isLoading, data, redirect, isError, "request did run");
+        }, 1500)
+      }
+      else {
+        return;
+      }
+    }
+
+
     fetchData();
 
   }, [url]);

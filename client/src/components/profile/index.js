@@ -39,8 +39,13 @@ export const Profile = () => {
                 <div className="profileData">
                     <p>
                         this is the data
-                    {data._id, data.credits}
+                    {data.googleId, data.credits}
                     </p>
+                    <button>
+                        <a href="/api/logout">
+                        logout
+                        </a>
+                    </button>
                 </div>
                 :
                 <div>

@@ -39,7 +39,7 @@ function Login() {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        const result = await axios(url);
+        const result = await axios.get(url);
         setData(...result.data);
         console.log(result.data);
         setTimeout(() => {

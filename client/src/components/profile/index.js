@@ -13,11 +13,15 @@ export const Profile = () => {
 
     return (
         <div className="wrapper">
-            {(!isOnline ? <div> offline </div> :
+            {(isOnline ?
                 <div className="profileData">
                     <p>
                         {data._id, data.credits}
                     </p>
+                </div>
+                :
+                <div>
+                    <p> offline</p>
                 </div>
             )}
 

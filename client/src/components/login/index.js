@@ -35,7 +35,6 @@ function Login() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const { loginData: [data, setData] } = useContext(StoreContext);
     const fetchData = async () => {
       setIsLoading(true);
       try {

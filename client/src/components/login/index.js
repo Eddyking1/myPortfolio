@@ -68,7 +68,6 @@ function Login() {
     }
     else {
       window.history.pushState(null, null, '/profile');
-      window.location.reload();
     }
   }
 

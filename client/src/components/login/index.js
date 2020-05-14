@@ -38,37 +38,30 @@ function Login() {
 
     const fetchData = async () => {
       setIsLoading(true);
-
-      const result = await axios(url);
-
-      setData(...result.data);
-      console.log('hookdata',data, 'apidata', result.data);
-      setIsLoading(false);
-    };
-    const checkData = () => {
-      if (data.length > 1) {
-        setTimeout(() => {
-          setIsOnline(true);
-          setIsLoading(false);
-          setRedirect(true);
-          setIsError(false);
-          console.log(isOnline, isLoading, data, redirect, isError, "request did run");
-        }, 1500)
-      }
-      else {
+      try {
+        const result = await axios(url);
+        setData(...result.data);
+        console.log(result.data);
         setTimeout(() => {
           setIsLoading(false);
           setRedirect(true);
           setIsError(true);
-          console.log(isOnline, isLoading, data, redirect, isError, "request did but no user online");
+          console.log(isOnline, isLoading, data, redirect, isError, "request did run but empty data");
+        }, 2000)
+      }
+
+      catch (error) {
+        setTimeout(() => {
+          setIsLoading(false);
+          setRedirect(true);
+          setIsError(true);
+          console.log(isOnline, isLoading, data, redirect, isError, "error");
         }, 1500)
       }
-    }
-
-
+    };
     fetchData();
-  }, [url,data]);
 
+  }, [url]);
 
   const renderRedirect = () => {
     if (redirect && isError) {
@@ -77,17 +70,14 @@ function Login() {
     }
     else {
       window.history.pushState(null, null, '/profile');
-      window.location.reload();
     }
   }
 
   return (
-    <div>
-      {(isLoading ? <div className="loading"> <img src={homeIcon} /> Loading..</div> :
-        <div className="wrapper">
-          {renderRedirect()}
-        </div>)}
-    </div>
+    (isLoading ? <div className="loading"> <img src={homeIcon} /> Loading..</div> :
+      <div className="wrapper">
+        {renderRedirect()}
+      </div>)
   );
 }
 

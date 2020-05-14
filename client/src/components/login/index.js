@@ -43,11 +43,11 @@ function Login() {
         setData(result.data);
         console.log(result.data);
         setTimeout(() => {
+          setIsOnline(true);
           setIsLoading(false);
           setRedirect(true);
           setIsError(false);
-          setIsOnline(true);
-          console.log(isOnline, isLoading, {loginData: data} , redirect, isError, "request did run");
+          console.log(isOnline, isLoading, {loginData: [data] } , redirect, isError, "request did run");
         }, 1500)
       }
 

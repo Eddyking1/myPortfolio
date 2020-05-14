@@ -46,7 +46,7 @@ function Login() {
           setIsLoading(false);
           setRedirect(true);
           setIsError(false);
-          console.log(isOnline, isLoading, data, redirect, isError, "request did run but empty data");
+          console.log(isOnline, isLoading, {loginData: data} , redirect, isError, "request did run");
         }, 1500)
       }
 
@@ -70,6 +70,7 @@ function Login() {
     }
     else {
       window.history.pushState(null, null, '/profile');
+      window.location.reload();
     }
   }
 

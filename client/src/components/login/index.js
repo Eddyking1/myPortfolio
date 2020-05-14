@@ -49,6 +49,13 @@ function Login() {
             setIsError(true);
             console.log(isOnline,isLoading,data,redirect,isError, "request did run but empty data");
           }, 1500)
+        }else {
+          setTimeout(() => {
+            setIsLoading(false);
+            setRedirect(true);
+            setIsError(false);
+            console.log(isOnline,isLoading,data,redirect,isError, "request did run with data");
+          }, 1500)
         }
       }
       catch (error) {

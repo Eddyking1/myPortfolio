@@ -64,12 +64,19 @@ function Login() {
           console.log(isOnline, isLoading, data, redirect, isError, "request did run");
         }, 1500)
       }
+      else {
+        setTimeout(() => {
+          setIsLoading(false);
+          setRedirect(true);
+          setIsError(true);
+          console.log(isOnline, isLoading, data, redirect, isError, "request did but no user online");
+        }, 1500)
+      }
     }
 
 
     fetchData();
     checkData();
-
   }, [url]);
 
   const renderRedirect = () => {

@@ -8,7 +8,7 @@ export default ({ children }) => {
   const [registeredUser, setRegisteredUser] = useState([]);
   const [loadpage, setPage] = useState({});
   const [sliderData, setSliderData] = useState([]);
-  const [data, setData] = useState({hits:[]});
+  const [data, setData] = useState();
 
   /*  lägg till flera hooks om det behövs för till globala storen - lägg till hooken
   i store objeckt arrayen som ett objeckt, sedan använd useContext(StoreContext) och 

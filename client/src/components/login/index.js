@@ -41,7 +41,7 @@ function Login() {
 
       const result = await axios(url);
 
-      setData(result.data);
+      setData(...result.data);
       console.log('hookdata',data, 'apidata', result.data);
       setIsLoading(false);
     };
@@ -67,7 +67,7 @@ function Login() {
 
 
     fetchData();
-  }, [url]);
+  }, [url,data]);
 
 
   const renderRedirect = () => {

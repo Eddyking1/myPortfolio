@@ -47,7 +47,7 @@ function Login() {
           setIsLoading(false);
           setRedirect(true);
           setIsError(false);
-          console.log(isOnline, isLoading, {loginData: [data] } , redirect, isError, "request did run");
+          console.log(isOnline, isLoading, data , redirect, isError, "request did run");
         }, 1500)
       }
 

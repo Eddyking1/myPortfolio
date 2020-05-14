@@ -4,7 +4,7 @@ import React, { useState, createContext } from 'react';
 export const StoreContext = createContext(null);
 
 export default ({ children }) => {
-  const [isOnline, setIsOnline] = useState(false);
+  const [isOnline, setIsOnline] = useState();
   const [registeredUser, setRegisteredUser] = useState([]);
   const [loadpage, setPage] = useState({});
   const [sliderData, setSliderData] = useState([]);

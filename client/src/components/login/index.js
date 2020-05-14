@@ -40,12 +40,14 @@ function Login() {
       setIsLoading(true);
       try {
         const result = await axios(url);
-        setData(result);
-        console.log(result)
-        if (result.data === ""){
-          setIsLoading(false);
-          setRedirect(true);
-          setIsError(true);
+        setData(result.data);
+        console.log(result.data);
+        if (result.data === "") {
+          setTimeout(() => {
+            setIsLoading(false);
+            setRedirect(true);
+            setIsError(true);
+          }, 1500)
         }
       }
       catch (error) {

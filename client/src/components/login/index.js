@@ -65,7 +65,7 @@ function Login() {
         }, 1500)
       }
       else {
-        return;
+        fetchData();
       }
     }
 

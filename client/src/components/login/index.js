@@ -41,7 +41,7 @@ function Login() {
 
       axios.get(url)
         .then(function (response) {
-          setData(response);
+          setData(response.data);
           console.log(response);
         })
         .catch(function (error) {

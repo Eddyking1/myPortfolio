@@ -13,27 +13,6 @@ export const Profile = () => {
     const [isError, setIsError] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(() => {
-
-        const fetchData = async () => {
-            setIsLoading(true);
-            try {
-                const result = await axios(url);
-                setData(result);
-            }
-            catch (error) {
-                setTimeout(() => {
-                    setIsLoading(false);
-                    setRedirect(true);
-                    setIsError(true);
-                }, 1500)
-            }
-            setIsLoading(false);
-            setIsOnline(true);
-        };
-        fetchData();
-    }, [url]);
-
     return (
         <div className="wrapper">
             {(isOnline ?

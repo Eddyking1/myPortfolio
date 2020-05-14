@@ -33,47 +33,21 @@ function Login() {
   );
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-
+  
   useEffect(() => {
-
     const fetchData = async () => {
+      setIsError(false);
       setIsLoading(true);
+
       try {
         const result = await axios(url);
-        setData(result);
-        console.log(data);
+        setData(result.data);
+      } catch (error) {
+        setIsError(true);
       }
-      catch (error) {
-        setTimeout(() => {
-          setIsLoading(false);
-          setRedirect(true);
-          setIsError(true);
-          console.log(isOnline, isLoading, data, redirect, isError, "error");
-        }, 1500)
-      }
-
+      setIsLoading(false);
+      setRedirect(true);
     };
-
-    const checkData = () => {
-      if (data.length > 1) {
-        setTimeout(() => {
-          setIsOnline(true);
-          setIsLoading(false);
-          setRedirect(true);
-          setIsError(false);
-          console.log(isOnline, isLoading, data, redirect, isError, "request did run");
-        }, 1500)
-      }
-      else {
-        setTimeout(() => {
-          setIsLoading(false);
-          setRedirect(true);
-          setIsError(true);
-          console.log(isOnline, isLoading, data, redirect, isError, "request did but no user online");
-        }, 1500)
-      }
-    }
-
 
     fetchData();
   }, [url]);
@@ -98,4 +72,3 @@ function Login() {
 }
 
 export default Login;
-

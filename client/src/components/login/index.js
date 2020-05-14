@@ -76,7 +76,6 @@ function Login() {
 
 
     fetchData();
-    checkData();
   }, [url]);
 
   const renderRedirect = () => {

@@ -33,15 +33,17 @@ function Login() {
   );
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  
+
   useEffect(() => {
-    const fetchData = async () => {
+
+    const fetchData = () => {
       setIsError(false);
       setIsLoading(true);
-
       try {
-        const result = await axios(url);
-        setData(result.data);
+        const result = axios(url).then(result = () => {
+          setData(result.data);
+          console.log(data);
+        })
       } catch (error) {
         setIsError(true);
       }

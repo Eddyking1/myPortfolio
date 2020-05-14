@@ -38,9 +38,9 @@ export const Profile = () => {
         <div className="wrapper">
             {(isOnline ? <div> online </div> :
                 <div className="profileData">
-                    {data.hits.map(item => (
-                        <li key={item.objectID}>
-                            <a href={item.url}>{item.title}</a>
+                    {data.map((item, index) => (
+                        <li key={index}>
+                            <p>{item}</p>
                         </li>
                     ))}
                 </div>

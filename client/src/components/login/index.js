@@ -47,8 +47,9 @@ function Login() {
           setIsLoading(false);
           setRedirect(true);
           setIsError(true);
-          console.log(isOnline, isLoading, data, redirect, isError, "error");
+          console.log(isOnline, isLoading, data, redirect, isError, "error", error);
         }, 1500)
+        
       }
     };
     fetchData();

@@ -63,7 +63,7 @@ function Form() {
         }}
       >
         <h1> Send your website request here</h1>
-        <div className="signLogin">
+        <div className="formInputs">
           <p> Email address</p>
           <input
             className="input"
@@ -82,19 +82,20 @@ function Form() {
             onChange={e => setData1(e.target.value)}
             required={true}
           />
-          <p>Ärende</p>
+          <p>Vilket webbpaket är intressant?</p>
           <input
             className="input"
             type="text"
+            placeholder="Webbpaket Mini"
             value={data2}
             onChange={e => setData2(e.target.value)}
             required={true}
           />
           <p>Kravspecifikation</p>
-          <input
+          <textarea
             className="input"
-            type="textfield"
-            size="50"
+            type="text"
+            placeholder="Skriv in lista på viktiga funktioner du behöver, Exempel behöver Sliders och inlogg med profilhantering osv"
             value={data3}
             onChange={e => setData3(e.target.value)}
             required={true}

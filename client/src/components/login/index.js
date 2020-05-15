@@ -38,18 +38,10 @@ function Login() {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        const result = axios(url);
+        const result = await axios(url);
         setData(result.data);
         console.log(result.data);
-        setTimeout(() => {
-          setIsLoading(false);
-          setRedirect(true);
-          setIsError(true);
-          setIsOnline(true);
-          console.log(isOnline, isLoading, data, redirect, isError, "request did run but empty data");
-        }, 2000)
       }
-
       catch (error) {
         setTimeout(() => {
           setIsLoading(false);

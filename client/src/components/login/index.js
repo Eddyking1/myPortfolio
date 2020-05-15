@@ -38,9 +38,9 @@ function Login() {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        const result = await axios(url);
-        setData(result.data);
-        console.log(result.data);
+        const {data} = await axios(url);
+        setData(data);
+        console.log(data);
       }
       catch (error) {
         setTimeout(() => {
@@ -50,7 +50,7 @@ function Login() {
           console.log(isOnline, isLoading, data, redirect, isError, "error", error);
         }, 1500)
         
-      }
+      } 
     };
     fetchData();
     console.log(data);

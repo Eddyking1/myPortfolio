@@ -54,7 +54,7 @@ function Login() {
     };
     fetchData();
     console.log(data);
-  }, [url]);
+  }, [url,data]);
 
   const renderRedirect = () => {
     if (redirect && isError) {

@@ -25,7 +25,9 @@ export const Profile = () => {
                     </p>
                     {data.hits.map(item => (
                         <li key={item.googleId}>
-                          <a href={item.credits}>{item.googleId}</a>
+                          <p>
+                          {item.credits}{item.googleId}
+                          </p>
                         </li>
                       ))}
                     <button>

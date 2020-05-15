@@ -4,6 +4,7 @@ import { Route, BrowserRouter as Router } from 'react-router-dom'
 import StoreProvider from './contextApi/index.js';
 import WebbApp from './components/app/index.js';
 import Login from './components/login/index';
+import Form from './components/form/index';
 import Profile from './components/profile/index';
 import NavBar from './components/navBar/navComponent.js';
 import Shop from './components/shop/index.js'
@@ -24,6 +25,7 @@ ReactDOM.render(
                          <Route path="/login" component={Login} />
                          <Route path="/profile" component={Profile}/>
                          <Route path="/shop" component={Shop} />
+                         <Route path="/form" component={Form} />
                     </div>
                </IconContext.Provider>
           </Router>

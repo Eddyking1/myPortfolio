@@ -13,8 +13,9 @@ function reducer(state, action) {
           {
             user: {
               Email: action.data[0],
-              pw1: action.data[1],
-              pw2: action.data[2]
+              Name: action.data[1],
+              Job: action.data[2],
+              Specifikation: action.data[3]
             }
 
           }
@@ -34,6 +35,8 @@ function Form() {
   const [data, setData] = useState("");
   const [data1, setData1] = useState("");
   const [data2, setData2] = useState("");
+  const [data3, setData3] = useState("");
+
   const [counter, setCounter] = useState(0);
 
   useEffect(() => {
@@ -56,9 +59,10 @@ function Form() {
           setData("");
           setData1("");
           setData2("");
+          setData3("");
         }}
       >
-        <h1> Sign up here!</h1>
+        <h1> Send your website request here</h1>
         <div className="signLogin">
           <p> Email address</p>
           <input
@@ -69,31 +73,35 @@ function Form() {
             onChange={e => setData(e.target.value)}
             required={true}
           />
-          <p> Password</p>
+          <p> Namn </p>
           <input
             className="input"
-            placeholder="Password"
-            type="password"
+            placeholder="Namn"
+            type="text"
             value={data1}
             onChange={e => setData1(e.target.value)}
             required={true}
           />
-          <p>Password Repeat</p>
+          <p>Ärende</p>
           <input
             className="input"
-            placeholder="Password repeat"
-            type="password"
+            type="text"
             value={data2}
             onChange={e => setData2(e.target.value)}
+            required={true}
+          />
+          <p>Kravspecifikation</p>
+          <input
+            className="input"
+            type="textfield"
+            size="50"
+            value={data3}
+            onChange={e => setData3(e.target.value)}
             required={true}
           />
           </div>
           <button className="buttonSubmit" type="submit" onClick={() => (setCounter(counter + 1))}> <p>Submit</p> </button>
           </form>
-        <div className="googleLogin">
-        <div class="g-signin2" data-onsuccess="onSignIn"></div>
-
-        </div>
      {/*  {JSON.stringify(list)} */ }
 
     </div>

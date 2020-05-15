@@ -14,8 +14,9 @@ export default function Footer() {
 
             <div className="fContact">
                 <p>
-                    Email: Edward.kumerius@gmail.com
-                    </p>
+                    Email: Edward.kumerius@gmail.com <br/>
+                     Svarar alltid på mail!
+                </p>
             </div>
         </div>
     )

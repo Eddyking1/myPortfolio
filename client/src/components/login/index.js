@@ -45,6 +45,7 @@ function Login() {
           setIsLoading(false);
           setRedirect(true);
           setIsError(true);
+          setIsOnline(true);
           console.log(isOnline, isLoading, data, redirect, isError, "request did run but empty data");
         }, 2000)
       }

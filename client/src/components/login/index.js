@@ -52,7 +52,7 @@ function Login() {
       }
     };
     fetchData();
-
+    console.log(data);
   }, [url]);
 
   const renderRedirect = () => {

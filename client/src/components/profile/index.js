@@ -4,6 +4,7 @@ import axios from 'axios';
 import './index.scss';
 
 export const Profile = () => {
+    const [state, dispatch] = useContext(Context);
 
     return (
         <div className="wrapper">
@@ -11,12 +12,12 @@ export const Profile = () => {
                 <div className="profileData">
                     <p>
                         this is the data
-                    {data.googleId}
+                    {state.user.googleId}
                     <p> credits:</p>
-                    {data.credits}
+                    {state.user.credits}
                     </p>
-                    {data.map(item => (
-                        <li key={item.googleId}>
+                    {data.map(item, index) = () => (
+                        <li key={index}>
                           <p>
                           {item.credits}{item.googleId}
                           </p>

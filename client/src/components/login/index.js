@@ -23,8 +23,8 @@ export default function Login() {
       try {
         const result = await axios(url);
         if (result.data) {
-         Object.keys(result.data).map((items) => (
-           dispatch({ type: FETCH_USER, payload: [items] })
+         Object.keys(result.data).map((items, index) => (
+           dispatch({ type: FETCH_USER, payload: items })
            ));
         }
       }

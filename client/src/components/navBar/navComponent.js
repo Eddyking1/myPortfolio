@@ -47,9 +47,12 @@ export default function NavBar() {
                             <Link to="./" className="hamLinks" onClick={() => { hamChecker() }}>
                                 <p> Home </p>
                             </Link>
-                            {(state.isOnline ? <Link to="/Profile" className="hamLinks" onClick={() => { hamChecker() }}>
+                            {(state.isOnline ? <div> <Link to="/Profile" className="hamLinks" onClick={() => { hamChecker() }}>
                                 <p> Profile </p>
-                            </Link> :
+                            </Link>
+                                <Link to="/api/logout" className="hamLinks" onClick={() => { hamChecker() }}>
+                                    <p> Logout </p>
+                                </Link> <div/> :
                                 <Link to="/login" className="hamLinks" onClick={() => { hamChecker() }}>
                                     <p> Login with google! </p>
                                 </Link>)}

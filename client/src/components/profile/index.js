@@ -8,7 +8,7 @@ export const Profile = () => {
 
     return (
         <div className="wrapper">
-            {(!isOnline ?
+            {(!state.isOnline ?
                 <div className="profileData">
                     <p>
                         this is the data

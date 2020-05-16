@@ -34,15 +34,18 @@ export default function Login() {
     };
     fetchData();
     console.log(state.user);
-    checkData();
+    return () => {
+      checkData();
+
+    }
   }, [url]);
 
   const checkData = () => {
     if (state.user.googleId) {
-      setTimeout(() => {
         console.log("request did run and will redirect to profile");
         setIsError(false)
-      }, 1500)
+        setIsLoading(false);
+        console.log(state.user)
     }
   }
 
@@ -51,7 +54,7 @@ export default function Login() {
       window.history.pushState(null, null, '/auth/google');
       window.location.reload();
     }
-    if(!isError) {
+    if (!isError) {
       window.history.pushState(null, null, '/profile');
     }
   }

@@ -16,7 +16,7 @@ export const Profile = () => {
                     <p> credits:</p>
                     {state.user.credits}
                     </p>
-                    {data.map(item, index) = () => (
+                    {state.user.map(item, index) = () => (
                         <li key={index}>
                           <p>
                           {item.credits}{item.googleId}

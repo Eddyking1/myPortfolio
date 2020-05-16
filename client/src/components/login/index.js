@@ -1,36 +1,19 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useState, useEffect, useReducer, useContext } from "react";
 import { Redirect } from "react-router-dom";
 import "./index.scss";
-import { StoreContext } from '../../contextApi/index.js';
+import { Context } from '../../contextApi/newIndex.js';
 import homeIcon from '../../assets/Images/homeIcon.png';
 import axios from 'axios';
+import { FETCH_USER } from "../../actions/types";
 
 
-function reducer(state, action) {
-  console.log(state);
-  switch (action.type) {
-    case "login-data":
-      return {
-      };
+export default function Login() {
+  const [state, dispatch] = useContext(Context);
 
-    case "wrong-Data":
-      return {
-
-      }
-
-    default:
-      return state;
-  }
-}
-
-
-function Login() {
-  const { onlineState: [isOnline, setIsOnline] } = useContext(StoreContext);
-  const { loginData: [data, setData] } = useContext(StoreContext);
-  const [redirect, setRedirect] = useState(false);
   const [url, setUrl] = useState(
     'https://fathomless-wildwood-66414.herokuapp.com/api/user',
   );
+
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -38,26 +21,31 @@ function Login() {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        const {data} = await axios(url);
-        setData(data);
-        console.log(data);
+        const result = await axios(url);
+        if (result) {
+          dispatch({ type: FETCH_USER, payload: result.data});
+        }
       }
       catch (error) {
         setTimeout(() => {
-          setIsLoading(false);
-          setRedirect(true);
-          setIsError(true);
-          console.log(isOnline, isLoading, data, redirect, isError, "error", error);
+          console.log( "error", error);
         }, 1500)
         
       } 
     };
     fetchData();
-    console.log(data);
-  }, [url,data]);
+    console.log(state.user);
+  }, [url]);
+
+  const checkData = () => {
+    if (2 > 1) {
+      setTimeout(() => {
+        console.log( "request did run");
+      }, 1500)
+    }}
 
   const renderRedirect = () => {
-    if (redirect && isError) {
+    if (isError) {
       window.history.pushState(null, null, '/auth/google');
       window.location.reload();
     }
@@ -72,7 +60,4 @@ function Login() {
         {renderRedirect()}
       </div>)
   );
-}
-
-export default Login;
-
+  }

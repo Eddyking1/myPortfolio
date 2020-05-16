@@ -16,13 +16,6 @@ export const Profile = () => {
                     <p> credits:</p>
                     {state.user.credits}
                     </p>
-                    {state.user.map(item, index) = () => (
-                        <li key={index}>
-                          <p>
-                          {item.credits}{item.googleId}
-                          </p>
-                        </li>
-                      ))}
                     <button>
                         <a href="/api/logout">
                         logout

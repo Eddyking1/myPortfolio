@@ -6,15 +6,20 @@ import './index.scss';
 export const Profile = () => {
     const [state, dispatch] = useContext(Context);
 
+    useEffect(() => {
+        
+        return () => {
+            
+        }
+    }, [])
+
     return (
         <div className="wrapper">
             {(!state.isOnline ?
                 <div className="profileData">
                     <p>
                         this is the data
-                    {state.user.googleId}
                     <p> credits:</p>
-                    {state.user.credits}
                     </p>
                     <button>
                         <a href="/api/logout">

@@ -22,8 +22,11 @@ export default function Login() {
       setIsLoading(true);
       try {
         const result = await axios(url);
-        dispatch({ type: FETCH_USER, payload: result.data });
-        console.log(result);
+        if (result.data) {
+         Object.keys(result.data).map((items) => (
+           dispatch({ type: FETCH_USER, payload: [items] })
+           ));
+        }
       }
       catch (error) {
         setTimeout(() => {
@@ -42,10 +45,10 @@ export default function Login() {
 
   const checkData = () => {
     if (state.user.googleId) {
-        console.log("request did run and will redirect to profile");
-        setIsError(false)
-        setIsLoading(false);
-        console.log(state.user)
+      console.log("request did run and will redirect to profile");
+      setIsError(false)
+      setIsLoading(false);
+      console.log(state.user)
     }
   }
 

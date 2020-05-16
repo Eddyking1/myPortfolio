@@ -34,6 +34,7 @@ export default function Login() {
     };
     fetchData();
     console.log(state.user);
+    checkData();
   }, [url]);
 
   const checkData = () => {

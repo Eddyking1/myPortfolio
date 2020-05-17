@@ -5,7 +5,7 @@ const Reducer = (state, action) => {
     case FETCH_USER:
       return {
         ...state,
-        user: payload,
+        user: state.data,
         isOnline: true,
       };
     default:

@@ -39,7 +39,7 @@ export default function Login() {
   }, [url]);
 
   const checkData = () => {
-    if (state.user.iD.length < 3) {
+    if (state.user.iD.length > 3) {
       console.log("request did run and will redirect to profile");
       setIsError(false)
       setIsLoading(false);

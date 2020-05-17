@@ -23,11 +23,7 @@ export default function Login() {
       try {
         const result = await axios(url);
         if (result.data) {
-          let data = Object.entries(result.data);
-            console.log( data)
             dispatch({ type: FETCH_USER, payload: result.data.googleId })
-
-          console.log('that was userdata', result.data.googleId, data, state.user);
         }
       }
       catch (error) {
@@ -38,14 +34,12 @@ export default function Login() {
       }
     };
     fetchData();
-    console.log(state.user);
-
     checkData();
 
   }, [url]);
 
   const checkData = () => {
-    if (state.user.googleId) {
+    if (state.user.iD.length < 3) {
       console.log("request did run and will redirect to profile");
       setIsError(false)
       setIsLoading(false);

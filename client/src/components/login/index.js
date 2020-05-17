@@ -25,9 +25,9 @@ export default function Login() {
         if (result.data) {
           let data = Object.entries(result.data);
             console.log( data)
-            dispatch({ type: FETCH_USER, payload: data.googleId })
+            dispatch({ type: FETCH_USER, payload: result.data.googleId })
 
-          console.log('that was userdata', result.data, data, state.user);
+          console.log('that was userdata', result.data.googleId, data, state.user);
         }
       }
       catch (error) {

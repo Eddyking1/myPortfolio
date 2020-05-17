@@ -23,17 +23,13 @@ export default function Login() {
       try {
         const result = await axios(url);
         if (result.data) {
-         let data = Object.keys(result.data);
-         data.forEach(items => {
-           
-           dispatch({ type: FETCH_USER, ...data[items] })
-         });
-           
-          })
+          let data = Object.keys(result.data);
+          data.forEach(items => {
+
+            dispatch({ type: FETCH_USER, ...data[items] })
+          });
           console.log(items);
-
-
-          console.log(userData, 'that was userdata', result.data);
+          console.log(userData, 'that was userdata', result.data, data);
         }
       }
       catch (error) {
@@ -45,7 +41,7 @@ export default function Login() {
     };
     fetchData();
     console.log(state.user);
-  
+
     checkData();
 
   }, [url]);

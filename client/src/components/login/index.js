@@ -25,11 +25,10 @@ export default function Login() {
         if (result.data) {
           let data = Object.keys(result.data);
           data.forEach(items => {
-
+            console.log(items)
             dispatch({ type: FETCH_USER, ...data[items] })
           });
-          console.log(items);
-          console.log(userData, 'that was userdata', result.data, data);
+          console.log( 'that was userdata', result.data, );
         }
       }
       catch (error) {

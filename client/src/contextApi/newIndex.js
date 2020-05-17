@@ -2,7 +2,7 @@ import React, { createContext, useReducer } from 'react';
 import Reducer from '../reducers/authReducer'
 
 const initialState = {
-  user: [],
+  user: {},
   isOnline: false,
 };
 

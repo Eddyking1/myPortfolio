@@ -45,7 +45,7 @@ export default function Login() {
       setIsLoading(false);
     }
     else {
-      return setIsError(true);
+      setIsError(true);
     }
   }
 

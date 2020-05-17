@@ -28,7 +28,7 @@ export default function Login() {
             console.log(items, data)
             dispatch({ type: FETCH_USER, ...data[items] })
           });
-          console.log('that was userdata', result.data, data);
+          console.log('that was userdata', result.data, data, state.user);
         }
       }
       catch (error) {

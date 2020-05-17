@@ -43,6 +43,7 @@ export default function Login() {
       console.log("request did run and will redirect to profile");
       setIsError(false)
       setIsLoading(false);
+      renderRedirect();
     }
     else {
       setIsError(true);
@@ -51,11 +52,11 @@ export default function Login() {
   }
 
   const renderRedirect = () => {
-    if (isError) {
+    if (isError === true) {
       window.history.pushState(null, null, '/auth/google');
       window.location.reload();
     }
-    if (!isError) {
+    if (isError === false) {
       return <Redirect to='/profile'/>;
     }
   }

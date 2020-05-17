@@ -23,11 +23,12 @@ export default function Login() {
       try {
         const result = await axios(url);
         if (result.data) {
-         const userData = Object.keys(result.data)
-         userData.forEach(items => {
-
+         result.data.map(items = {
+           
            dispatch({ type: FETCH_USER, ...items })
-         });
+          })
+          console.log(items);
+
 
           console.log(userData, 'that was userdata', result.data);
         }

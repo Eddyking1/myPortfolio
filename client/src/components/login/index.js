@@ -55,7 +55,7 @@ export default function Login() {
       window.location.reload();
     }
     if (!isError) {
-      window.history.pushState(null, null, '/profile');
+      return <Redirect to='/profile'/>;
     }
   }
 

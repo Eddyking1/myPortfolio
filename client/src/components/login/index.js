@@ -9,13 +9,12 @@ import { FETCH_USER } from "../../actions/types";
 
 export default function Login() {
   const [state, dispatch] = useContext(Context);
+  const [isError, setIsError] = useState();
+  const [isLoading, setIsLoading] = useState(true);
 
   const [url, setUrl] = useState(
-    'https://fathomless-wildwood-66414.herokuapp.com/api/user',
+    '/api/user',
   );
-
-  const [isError, setIsError] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,41 +22,46 @@ export default function Login() {
       try {
         const result = await axios(url);
         if (result.data) {
-            dispatch({ type: FETCH_USER, payload: result.data })
+          dispatch({ type: FETCH_USER, payload: result.data })
+          setTimeout(() => {
+            checkData();
+          }, 1500)
+        } else {
+          setIsError(true);
+          setIsLoading(false);
+          checkData();
         }
       }
       catch (error) {
         setTimeout(() => {
           console.log("error", error);
+          console.log(isError);
         }, 1500)
 
       }
     };
-    fetchData();
-    checkData();
 
+    fetchData();
   }, [url]);
 
   const checkData = () => {
-    if (state.user.iD.length < 3) {
+    if (state.isOnline === true) {
       console.log("request did run and will redirect to profile");
       setIsError(false)
       setIsLoading(false);
-      renderRedirect();
     }
     else {
+      setIsLoading(false);
       setIsError(true);
-      renderRedirect();
     }
   }
-
   const renderRedirect = () => {
-    if (isError === true) {
+    if (isError) {
       window.history.pushState(null, null, '/auth/google');
       window.location.reload();
     }
-    if (isError === false) {
-      return <Redirect to='/profile'/>;
+    if (!isError) {
+      return <Redirect to='/profile' />;
     }
   }
 

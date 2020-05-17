@@ -33,7 +33,7 @@ passport.use(
         return done(null, existingUser);
       }
       //om inte finns user Skapa ny user
-      const user = await new User({ googleId: profile.id }).save();
+      const user = await new User({ googleId: profile.id, email: profile.email }).save();
       done(null, user);
     }
   )

@@ -2,10 +2,8 @@ import React, { createContext, useReducer } from 'react';
 import Reducer from '../reducers/authReducer'
 
 const initialState = {
-  user: {
-    iD: '',
-    credits: 0,
-  },
+  userId:'',
+  userCredits:10,
   isOnline: false,
 };
 

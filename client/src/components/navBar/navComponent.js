@@ -49,7 +49,7 @@ export default function NavBar() {
                             </Link>
                             {(state.isOnline ?
                                 <div>
-                                    <Link to="/Profile" className="hamLinks" onClick={() => { hamChecker() }}>
+                                    <Link to="/login" className="hamLinks" onClick={() => { hamChecker() }}>
                                         <p> Profile </p>
                                     </Link>
                                     <Link to="/api/logout" className="hamLinks" onClick={() => { hamChecker() }}>
@@ -87,7 +87,7 @@ export default function NavBar() {
                                     </Link>
                                 </button> :
                                 <button className="navButton">
-                                    <Link to="/profile" className="links">
+                                    <Link to="/login" className="links">
                                         <MdAccountCircle />
                                         <p> Profile </p>
                                     </Link>

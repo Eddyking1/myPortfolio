@@ -20,6 +20,8 @@ export const Profile = () => {
                 <div className="profileData">
                     <p>
                         this is your unique id {state.userId}
+                        <br/>
+                        and this is your used Email {state.userEmail}
                         
                     </p>
 

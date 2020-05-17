@@ -1,4 +1,5 @@
 import { FETCH_USER } from '../actions/types';
+import { MdSettingsApplications } from 'react-icons/md';
 
 const Reducer = (state, action) => {
   switch (action.type) {
@@ -7,6 +8,7 @@ const Reducer = (state, action) => {
         ...state,
         userId: action.payload.googleId,
         userCredits: action.payload.credits,
+        userEmail: action.payload.email,
         isOnline: true,
       };
     default:

@@ -23,9 +23,13 @@ export default function Login() {
       try {
         const result = await axios(url);
         if (result.data) {
-         const userData = Object.values(result.data)
+         const userData = Object.keys(result.data)
+         userData.forEach(items => {
+
+           dispatch({ type: FETCH_USER, ...items })
+         });
+
           console.log(userData, 'that was userdata', result.data);
-          dispatch({ type: FETCH_USER, ...userData })
         }
       }
       catch (error) {

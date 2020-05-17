@@ -23,7 +23,7 @@ export default function NavBar() {
     }
 
     useEffect(() => {
-        console.log('happytimes');
+        console.log('happytimes', state.user);
     }, [])
 
     return (

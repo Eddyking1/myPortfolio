@@ -43,7 +43,6 @@ export default function Login() {
       console.log("request did run and will redirect to profile");
       setIsError(false)
       setIsLoading(false);
-      console.log(state.user)
     }
   }
 

@@ -5,7 +5,8 @@ const Reducer = (state, action) => {
     case FETCH_USER:
       return {
         ...state,
-        user: state.user.iD = action.payload,
+        user: state.user.iD = action.payload.googleId,
+        user: state.user.credits = action.payload.credits,
         isOnline: true,
       };
     default:

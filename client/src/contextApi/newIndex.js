@@ -3,7 +3,7 @@ import Reducer from '../reducers/authReducer'
 
 const initialState = {
   user: {
-    iD: null,
+    iD: '',
     credits: 0,
   },
   isOnline: false,

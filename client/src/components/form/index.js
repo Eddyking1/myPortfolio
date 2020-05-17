@@ -1,6 +1,6 @@
-import React, { useContext, useReducer, useState, useEffect } from "react";
+import React, { useReducer, useState, useEffect } from "react";
 import "./index.scss";
-import { StoreContext } from '../../contextApi/'
+import { Context } from '../../contextApi/newIndex'
 
 
 function reducer(state, action) {
@@ -28,9 +28,7 @@ function reducer(state, action) {
 }
 
 function Form() {
-  const { onlineState: [isOnline, setIsOnline] } = useContext(StoreContext)
-
-  const [{ userList }, dispatch] = useReducer(reducer, { userList: [""] });
+  const [action, dispatch] = useReducer(Context)
 
   const [data, setData] = useState("");
   const [data1, setData1] = useState("");
@@ -40,8 +38,7 @@ function Form() {
   const [counter, setCounter] = useState(0);
 
   useEffect(() => {
-    console.log(userList);
-    console.log(isOnline)
+
   });
 
   return (

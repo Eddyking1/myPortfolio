@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Context } from '../../contextApi/newIndex.js';
+import { Redirect } from "react-router-dom";
 import './index.scss';
 
 export const Profile = () => {
@@ -37,7 +38,7 @@ export const Profile = () => {
                 </div>
                 :
                 <div>
-                    <p> offline</p>
+                 <Redirect to='/login' />;
                 </div>
             )}
 

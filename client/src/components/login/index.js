@@ -23,7 +23,7 @@ export default function Login() {
       try {
         const result = await axios(url);
         if (result.data) {
-          let data = Object.keys(result.data);
+          let data = Object.entries(result.data);
           data.forEach(items => {
             console.log(items, data)
             dispatch({ type: FETCH_USER, ...data[items] })

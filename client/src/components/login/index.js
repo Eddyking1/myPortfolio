@@ -25,7 +25,7 @@ export default function Login() {
         if (result.data) {
           let data = Object.entries(result.data);
             console.log( data)
-            dispatch({ type: FETCH_USER, ...data })
+            dispatch({ type: FETCH_USER, payload:data })
 
           console.log('that was userdata', result.data, data, state.user);
         }

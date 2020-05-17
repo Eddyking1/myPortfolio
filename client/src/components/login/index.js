@@ -24,9 +24,9 @@ export default function Login() {
         const result = await axios(url);
         if (result.data) {
           let data = Object.entries(result.data);
-            console.log(items, data)
+            console.log( data)
             dispatch({ type: FETCH_USER, data })
-            
+
           console.log('that was userdata', result.data, data, state.user);
         }
       }

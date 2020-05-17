@@ -1,17 +1,9 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Context } from '../../contextApi/newIndex.js';
-import axios from 'axios';
 import './index.scss';
 
 export const Profile = () => {
     const [state, dispatch] = useContext(Context);
-
-    useEffect(() => {
-        
-        return () => {
-            
-        }
-    }, [])
 
     return (
         <div className="wrapper">
@@ -19,7 +11,9 @@ export const Profile = () => {
                 <div className="profileData">
                     <p>
                         this is the data
-                    <p> credits:</p>
+                    <p> credits: {state.user.credits}</p>
+                     {state.user.isOnline}
+                     {state.user.iD}
                     </p>
                     <button>
                         <a href="/api/logout">

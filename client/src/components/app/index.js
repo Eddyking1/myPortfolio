@@ -15,7 +15,7 @@ function WebbApp() {
       setTimeout(() => {
         let x = document.getElementById('popUp').style.display = 'flex';
       }, 1000);
-    }else {
+    } else {
       setVisited(true);
     }
   }

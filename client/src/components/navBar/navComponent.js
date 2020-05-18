@@ -40,11 +40,11 @@ export default function NavBar() {
                     <div className="hamContainer">
                         <div className="linkContainer">
 
+                        <Link to="./" className="hamLinks" onClick={() => { hamChecker() }}>
+                            <p> Home </p>
+                        </Link>
                             <Link to="/shop" className="hamLinks" onClick={() => { hamChecker() }}>
-                                <p> Store </p>
-                            </Link>
-                            <Link to="./" className="hamLinks" onClick={() => { hamChecker() }}>
-                                <p> Home </p>
+                                <p> Services </p>
                             </Link>
                             {(state.isOnline ?
                                 <div>
@@ -95,7 +95,7 @@ export default function NavBar() {
                             <button className="navButton">
                                 <Link to="/shop" className="links">
                                     <MdShoppingCart />
-                                    <p> Store </p>
+                                    <p> Services </p>
                                 </Link>
                             </button>
                         </div>

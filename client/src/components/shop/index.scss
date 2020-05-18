@@ -1,9 +1,6 @@
 .shopWrapper {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
     align-items: center;
-    padding: 100px 0;
+    padding: 70px 0;
     height: 100%;
     min-width: 100vw;
     background-color: rgb(241, 245, 255);
@@ -15,7 +12,8 @@
     background-color: rgb(17, 24, 39);
     color:white;
     text-align: center;
-    font-size:2em;
+    width:200px;
+    font-size:1em;
 }
 
 .infoCards {
@@ -24,6 +22,20 @@
     background-color: rgb(17, 24, 39);
     color:white;
     text-align: center;
-    font-size:2em;
+    font-size:1em;
 
+}
+
+.cardWrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+@media only screen and (max-width: 900px) {
+
+    .cardWrapper{
+        flex-wrap:wrap;
+        justify-content: center;
+    }
 }

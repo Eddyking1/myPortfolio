@@ -1,34 +1,10 @@
-import React, { useReducer, useState, useEffect } from "react";
+import React, { useReducer, useState, useEffect, useContext } from "react";
 import "./index.scss";
 import { Context } from '../../contextApi/newIndex'
-
-
-function reducer(state, action) {
-  console.log(state);
-  switch (action.type) {
-    case "submit-data":
-      return {
-        userList: [
-          ...state.userList,
-          {
-            user: {
-              Email: action.data[0],
-              Name: action.data[1],
-              Job: action.data[2],
-              Specifikation: action.data[3]
-            }
-
-          }
-        ]
-      };
-
-    default:
-      return state;
-  }
-}
+import { SUBMIT_FORM } from "../../actions/types";
 
 function Form() {
-  const [action, dispatch] = useReducer(Context)
+  const [state, dispatch] = useContext(Context);
 
   const [data, setData] = useState("");
   const [data1, setData1] = useState("");
@@ -38,7 +14,7 @@ function Form() {
   const [counter, setCounter] = useState(0);
 
   useEffect(() => {
-
+    console.log(state);
   });
 
   return (
@@ -49,8 +25,8 @@ function Form() {
           console.log("submit did run");
           e.preventDefault();
           dispatch({
-            type: "submit-data",
-            data: [data, data1, data2],
+            type: SUBMIT_FORM,
+            payload: [data, data1, data2],
             counter,
           });
           setData("");
@@ -80,14 +56,17 @@ function Form() {
             required={true}
           />
           <p>Vilket webbpaket är intressant?</p>
-          <input
+          <select
             className="input"
             type="text"
             placeholder="Webbpaket Mini"
             value={data2}
             onChange={e => setData2(e.target.value)}
-            required={true}
-          />
+            required={true}>
+            <option> WebbSimple</option>
+            <option> WebbMidi</option>
+            <option> WebbAdvanced</option>
+            </select>
           <p>Kravspecifikation</p>
           <textarea
             className="input"

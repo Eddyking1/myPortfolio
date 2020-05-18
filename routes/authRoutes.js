@@ -1,4 +1,5 @@
 const passport = require('passport');
+const User = mongoose.model('users');
 
 module.exports = (app) => {
     app.get('/auth/google', passport.authenticate('google', 
@@ -20,5 +21,9 @@ module.exports = (app) => {
     app.get('/api/user',(req, res) => {
         res.send(req.user);
     });  
+
+    app.post('/api/post',(req, res) => {
+      
+    });
 
 };

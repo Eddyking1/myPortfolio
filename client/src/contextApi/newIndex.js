@@ -6,6 +6,7 @@ const initialState = {
   userEmail:'',
   userCredits:10,
   isOnline: false,
+  formAnswers:[],
 };
 
 

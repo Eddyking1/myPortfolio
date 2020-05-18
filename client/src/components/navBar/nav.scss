@@ -153,6 +153,11 @@ $linkColor: rgb(216, 223, 221);
     @extend .linkContainer;
     justify-items: center;
     align-items: center;
+    color:white;
+    p{
+      padding:0;
+      margin:2px;
+    }
   }
 
   .navBarFade {

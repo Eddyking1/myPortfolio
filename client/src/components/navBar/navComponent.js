@@ -33,21 +33,21 @@ export default function NavBar() {
                         <MdReorder />
                     </button>
                     <div className="hamHomeIcon">
-                    <Link to="/">
-                    <img src={homeIcon} />
+                        <Link to="/">
+                            <img src={homeIcon} />
                         </Link>
                     </div>
                     <div className="hamContainer">
                         <div className="linkContainer">
 
-                        <Link to="./" className="hamLinks" onClick={() => { hamChecker() }}>
-                            <p> Home </p>
-                        </Link>
-                            <Link to="/shop" className="hamLinks" onClick={() => { hamChecker() }}>
-                                <p> Services </p>
+                            <Link to="./" className="hamLinks" onClick={() => { hamChecker() }}>
+                                <p> Home </p>
                             </Link>
                             {(state.isOnline ?
                                 <div>
+                                    <Link to="/shop" className="hamLinks" onClick={() => { hamChecker() }}>
+                                        <p> Services </p>
+                                    </Link>
                                     <Link to="/login" className="hamLinks" onClick={() => { hamChecker() }}>
                                         <p> Profile </p>
                                     </Link>
@@ -61,7 +61,8 @@ export default function NavBar() {
                                 </Link>)}
                         </div>
                         <div className="socialIcons">
-                        <p> Checkout this repo</p>
+                            <p> Checkout this repo</p>
+                            <p> v </p>
                             <a href="https://github.com/Eddyking1/examProjectv1.0">
                                 <i className="fab fa-github-square fa-3x"></i>
                             </a>
@@ -86,19 +87,21 @@ export default function NavBar() {
                                         <p> Login with google </p>
                                     </Link>
                                 </button> :
+                                <>
                                 <button className="navButton">
                                     <Link to="/login" className="links">
                                         <MdAccountCircle />
                                         <p> Profile </p>
                                     </Link>
                                 </button>
+                                <button className="navButton">
+                                    <Link to="/shop" className="links">
+                                        <MdShoppingCart />
+                                        <p> Services </p>
+                                    </Link>
+                                </button>
+                                </>
                             )}
-                            <button className="navButton">
-                                <Link to="/shop" className="links">
-                                    <MdShoppingCart />
-                                    <p> Services </p>
-                                </Link>
-                            </button>
                         </div>
                     </div>
                 </div>

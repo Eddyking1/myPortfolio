@@ -7,10 +7,10 @@ export default function Footer() {
 
     return (
         <div className="footer">
-            <div className="slideShow">
+{/*             <div className="slideShow">
                 <h1>Kolla igenom WebbDev Dealsen!</h1>
                 {Slider(footerImages)}
-            </div>
+    </div> */}
 
             <div className="fContact">
                 <p>

@@ -33,8 +33,8 @@ export default function NavBar() {
                         <MdReorder />
                     </button>
                     <div className="hamHomeIcon">
+                    <Link to="/">
                     <img src={homeIcon} />
-                        <Link to="/">
                         </Link>
                     </div>
                     <div className="hamContainer">
@@ -61,7 +61,8 @@ export default function NavBar() {
                                 </Link>)}
                         </div>
                         <div className="socialIcons">
-                            <a href="https://github.com/eddyking1">
+                        <p> Checkout this repo</p>
+                            <a href="https://github.com/Eddyking1/examProjectv1.0">
                                 <i className="fab fa-github-square fa-3x"></i>
                             </a>
                         </div>

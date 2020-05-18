@@ -23,9 +23,7 @@ export const Profile = () => {
                         this is your unique id {state.userId}
                         <br/>
                         and this is your used Email {state.userEmail}
-                        
                     </p>
-
                     <p>
                         Amount of credits: {state.userCredits}
                     </p>

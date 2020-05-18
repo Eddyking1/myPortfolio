@@ -10,7 +10,7 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser((id, done) => {
-      //turn to an model instance
+      //turn to a model instance
   User.findById(id).then(user => {
     done(null, user);
   });

@@ -23,7 +23,6 @@ export default function NavBar() {
     }
 
     useEffect(() => {
-        console.log('happytimes', state.user);
     }, [])
 
     return (
@@ -58,7 +57,7 @@ export default function NavBar() {
                                 </div>
                                 :
                                 <Link to="/login" className="hamLinks" onClick={() => { hamChecker() }}>
-                                    <p> Login with google! </p>
+                                    <p> Login with google </p>
                                 </Link>)}
                         </div>
                         <div className="socialIcons">
@@ -83,7 +82,7 @@ export default function NavBar() {
                                 <button className="navButton">
                                     <Link to="/login" className="links">
                                         <MdAccountCircle />
-                                        <p> Login with google! </p>
+                                        <p> Login with google </p>
                                     </Link>
                                 </button> :
                                 <button className="navButton">
@@ -93,14 +92,6 @@ export default function NavBar() {
                                     </Link>
                                 </button>
                             )}
-
-                            {  /* <button className="navButton">
-                                <Link to="/signup" className="links">
-                                    <MdPersonAdd />
-                                    <p> Sign Up </p>
-                                </Link>
-                                 </button> */}
-
                             <button className="navButton">
                                 <Link to="/shop" className="links">
                                     <MdShoppingCart />

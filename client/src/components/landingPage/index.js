@@ -20,6 +20,10 @@ const LandingPage = () => {
         const sliderClass = document.getElementsByClassName('sliderLandingPage')[0];
         sliderClass.classList.remove('sliderLandingPage');
         sliderClass.classList.add('sliderLandingPageTransform');
+       let firstVisit = localStorage.getItem('firstTime');
+       if (!firstVisit){
+           localStorage.setItem('firstTime', true);
+       }
     }
 
     useEffect(() => {
@@ -40,7 +44,7 @@ const LandingPage = () => {
                 </div>
                 <div className="landingPageText">
                     <p> Edward Kumerius </p>
-                    <p> Front-end utvecklare</p>
+                    <p> Front-end Developer</p>
                 </div>
 
                 <div className="skillImageContainer">

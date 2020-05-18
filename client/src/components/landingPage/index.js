@@ -20,10 +20,6 @@ const LandingPage = () => {
         const sliderClass = document.getElementsByClassName('sliderLandingPage')[0];
         sliderClass.classList.remove('sliderLandingPage');
         sliderClass.classList.add('sliderLandingPageTransform');
-       let firstVisit = localStorage.getItem('firstTime');
-       if (!firstVisit){
-           localStorage.setItem('firstTime', true);
-       }
     }
 
     useEffect(() => {
@@ -74,13 +70,13 @@ const LandingPage = () => {
                 <div className="cards">
                     <div className="infoCard">
                         <h1>Hej!</h1>
-                        <p>Jag erbjuder hemsidor/ webbappar från enklare landnings sidor till webbapp med E-commerce store</p>
-                        <p>Testa några funktioner på denna sida som E-commerce store funktionen eller signa up med eller utan Google!</p>
+                        <p>Jag erbjuder hemsidor/ webbappar från enklare landnings sidor till webbapp med "E-commerce" flow</p>
+                        <p>Testa några funktioner på denna sida som signa up med Google kolla profilen, formulär hantering</p>
                     </div>
                     <div className="infoCard">
                         <h1> Vad gör jag? </h1>
                         <p>Jag erbjuder dynamisk samt statiska
-                            desktop och mobilanpassade webbappar med både enkla och avancerade JavaScript funktioner med user experience och user interface (UX-UI) i åtanke</p>
+                            desktop och mobilanpassade webbappar med både enkla och avancerade JavaScript funktioner med senaste trenderna i UX-UI </p>
                         <p>Jag arbetar utifrån en krav specifikation från dig som behöver en hemsida/webbapp</p>
                     </div>
                 </div>

@@ -33,8 +33,8 @@ export default function NavBar() {
                         <MdReorder />
                     </button>
                     <div className="hamHomeIcon">
+                    <img src={homeIcon} />
                         <Link to="/">
-                            <img src={homeIcon} />
                         </Link>
                     </div>
                     <div className="hamContainer">

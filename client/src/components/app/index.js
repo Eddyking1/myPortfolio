@@ -32,7 +32,10 @@ function WebbApp() {
         <div id="popUp">
           <div id="popUpMessage">
             <p>
-              Friendly reminder that this website is under construction and will probably look different when done.
+              Friendly reminder that this website is under construction and will change under time and most likely have different look/feel when done.
+            </p>
+            <p>
+              This site does not offer any services at this moment, its just for demonstration purposes
             </p>
             <p> This website uses cookies/localStorage if you continue to use this site you agree the usage of cookies </p>
             <button onClick={() => {

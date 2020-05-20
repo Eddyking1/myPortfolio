@@ -11,7 +11,7 @@ import './index.scss';
 
 const LandingPage = () => {
 
-    function pageLoad() {
+    function pageLoads() {
         setTimeout(() => {
             isLoaded();
         }, 1000)
@@ -23,8 +23,40 @@ const LandingPage = () => {
     }
 
     useEffect(() => {
-        pageLoad();
+        pageLoads();
     }, [])
+
+    let logoData = {
+        images: [reactLogo, jsLogo, cssLogo, htmlLogo, nodejsLogo],
+        imageAlts: ['Javascript react Logo', 'javaScript Logo', 'css3 Logo', 'html5 Logo', 'nodeJs Logo']
+    }
+
+    let textData = {
+        textHeadline: ['Hello!', 'What to do here?'],
+        text: ['I offer dynamic as well as static webbapplications with advanced Javascript features and performance in mind aswell including the latest trends in UX-UI flow and design.',
+            'If you choose me to be your Webdeveloper i would need a descriptive specification of functions and flow of the desired app.',
+            'Sign up with google to check the service tab in navigation menue and you will be presented with three standard packages i provide, if those is not to your liking you will be able to fill out a form where you explain more about what you need.',
+            'When you sign up your profile you will be able to monitor your request and chat with me.']
+    }
+
+    const renderLogos = logoData.images.map((img, index) => {
+        return <img key={index} src={img} alt={logoData.imageAlts[index]}></img>
+    });
+
+    const renderText = textData.text.splice(0, 1).map((texts, index) => {
+        return (<div className="cardText"> <p key={index}> {texts} </p> </div>)
+    });
+    const renderTextTwo = textData.text.splice(0, 3).map((texts, index) => {
+        return (<div className="cardText"> <p key={index}> {texts} </p> </div>)
+    });
+
+    const renderTextCard = textData.textHeadline.splice(0, 1).map((headLine, index) => {
+        return (<div key={index} className="infoCard"> <h1> {headLine} </h1>  {renderText}</div>)
+    });
+
+    const renderTextCardTwo = textData.textHeadline.splice(0, 1).map((headLine, index) => {
+        return (<div key={index} className="infoCard"> <h1> {headLine} </h1>  {renderTextTwo}</div>)
+    });
 
     return (
         <div className="landingPageContainer">
@@ -44,42 +76,15 @@ const LandingPage = () => {
                 </div>
 
                 <div className="skillImageContainer">
-                    <div>
-                        <img src={reactLogo}
-                            alt="JavaScript React logo" />
-                    </div>
-                    <div>
-                        <img src={jsLogo}
-                            alt="JavaScript logo" />
-                    </div>
-                    <div>
-                        <img src={cssLogo}
-                            alt="Css3 Logo" />
-                    </div>
-
-                    <div>
-                        <img src={htmlLogo}
-                            alt="HTML5 Logo" />
-                    </div>
-                    <div>
-                        <img src={nodejsLogo}
-                            alt="Nodejs Logo" />
-                    </div>
+                    {renderLogos}
                 </div>
-
                 <div className="cards">
-                    <div className="infoCard">
-                        <h1>Hej!</h1>
-                        <p>Jag erbjuder hemsidor/ webbappar från enklare landnings sidor till webbapp med "E-commerce" flow</p>
-                        <p>Testa några funktioner på denna sida som signa up med Google kolla profilen, formulär hantering</p>
-                    </div>
-                    <div className="infoCard">
-                        <h1> Vad gör jag? </h1>
-                        <p>Jag erbjuder dynamisk samt statiska
-                            desktop och mobilanpassade webbappar med både enkla och avancerade JavaScript funktioner med senaste trenderna i UX-UI </p>
-                        <p>Jag arbetar utifrån en krav specifikation från dig som behöver en hemsida/webbapp</p>
-                    </div>
+                    {renderTextCard}
+                    {renderTextCardTwo}
                 </div>
+                <div>
+                </div>
+
             </div>
         </div>
     );

@@ -79,25 +79,33 @@
 }
 
 .infoCard {
-  height: 50%;
-  padding: 15px;
-  background-color: beige;
+  display: flex;
+  justify-content: center;
   font-size: 16px;
-  width: 60%;
-  border-radius: 15px;
-  margin: 15px;
+  width: 40%;
+  border-radius:30px;
+  margin: 5px;
+  padding:0 15px ;
   border: 2px solid teal;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  align-content: center;
   align-self: center;
 }
 
-.infoCardRight {
-  @extend .infoCard;
+.cards {
+  width: 100%;
+  display: flex;
   justify-content: center;
-  align-self: flex-end;
+  align-items: center;
+  align-self: center;
+  flex-direction: column;
 }
 
-.cards {
-  flex-direction: column;
-  display: flex;
-  flex-wrap: wrap;
+@media only screen and (max-width: 800px) {
+  .infoCard{
+    width:80%
+  }
+
 }

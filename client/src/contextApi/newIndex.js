@@ -4,7 +4,7 @@ import Reducer from '../reducers/authReducer'
 const initialState = {
   userId:'',
   userEmail:'',
-  userCredits:10,
+  userCredits:0,
   isOnline: false,
   formAnswers:[],
 };

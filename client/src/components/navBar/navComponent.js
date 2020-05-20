@@ -61,7 +61,7 @@ export default function NavBar() {
                                 </Link>)}
                         </div>
                         <div className="socialIcons">
-                            <p> Checkout this repo</p>
+                            <p> Checkout this repository</p>
                             <p> v </p>
                             <a href="https://github.com/Eddyking1/examProjectv1.0">
                                 <i className="fab fa-github-square fa-3x"></i>

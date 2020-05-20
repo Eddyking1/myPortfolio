@@ -38,7 +38,7 @@
   background-color:#f5f5f5;
   border: 2px solid rgb(17,24,39);
   padding:5px 20px;
-  max-width:60%;
+  max-width:30%;
   font-family: Helvetica;
   button{
     padding:10px 10px;
@@ -55,4 +55,36 @@
       font-size:1.2em;
     }
   }
+}
+
+.profileWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+
+  .profileWrapper {
+    display: flex;
+    align-items: center;
+    top:0;
+  }
+
+  .profileInfo {
+    margin-top:100px;
+    max-width: 80%;
+  }
+
+  .profileData{
+    max-width:80%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    left:0;
+    button {
+      max-width: 20%;
+    }
+  }
+
 }

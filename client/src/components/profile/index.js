@@ -18,7 +18,7 @@ export const Profile = () => {
     return (
         <div className="wrapper">
             {(state.isOnline ?
-                <>
+                <div className="profileWrapper">
                     <div className="profileData">
                         <p> Email: {state.userEmail} </p>
                         <p> Amount of credits: {state.userCredits}</p>
@@ -34,7 +34,7 @@ export const Profile = () => {
                             <a href="/shop">Services</a>
                         </button>
                     </div>
-                </>
+                </div>
                 :
                 <div>
                     <Redirect to='/login' />;

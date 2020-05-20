@@ -35,9 +35,9 @@ function WebbApp() {
               Friendly reminder that this website is under construction and will change under time and most likely have different look/feel when done.
             </p>
             <p>
-              This site does not offer any services at this moment, its just for demonstration purposes
+              This website does not offer any services at this moment, its just for demonstration purposes
             </p>
-            <p> This website uses cookies/localStorage if you continue to use this site you agree the usage of cookies </p>
+            <p> This website uses cookies/localStorage if you continue to use this website you agree the usage of cookies </p>
             <button onClick={() => {
               closePopup();
             }}>

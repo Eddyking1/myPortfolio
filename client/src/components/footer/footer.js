@@ -1,24 +1,29 @@
 import React from 'react';
-import Slider from '../slider/slider.js'
-import { footerImages } from '../slider/sliderData.js'
+import { FaLinkedin, FaGithubSquare } from 'react-icons/fa';
 import './footer.scss';
 
 export default function Footer() {
+    let footerData = {
+        contactInfo: ['Email: Edward.kumerius@gmail.com', 'Mobile: 0763379509 Text'],
+        urls: ['https://www.linkedin.com/in/edward-kumerius-921a621a7', 'https://github.com/Eddyking1'],
+    }
+
+    const footerContact = footerData.contactInfo.map((texts, index) => {
+        return (<div className="footerContact"> <p key={index}> {texts} </p> </div>)
+    });
 
     return (
         <div className="footer">
-{/*             <div className="slideShow">
-                <h1>Kolla igenom WebbDev Dealsen!</h1>
-                {Slider(footerImages)}
-    </div> */}
-    <p> Certificate </p>
-    <a href="https://www.testdome.com/cert/2c13697ff13e4fbcb542f1ca0e22bfc4" class="testdome-certificate-stamp silver"><span class="testdome-certificate-name">Edward kumerius</span><span class="testdome-certificate-test-name">JavaScript </span><span class="testdome-certificate-card-logo">TestDome<br />Certificate</span></a>
-            <div className="fContact">
-                <p>
-                    Email: Edward.kumerius@gmail.com <br/>
-                     Svarar alltid på mail!
-                </p>
+            <a href="https://www.testdome.com/cert/2c13697ff13e4fbcb542f1ca0e22bfc4" class="testdome-certificate-stamp silver"><span class="testdome-certificate-name">Edward kumerius</span><span class="testdome-certificate-test-name">JavaScript </span><span class="testdome-certificate-card-logo">TestDome<br />Certificate</span></a>
+            <div className="icons">
+                <a href={footerData.urls[0]}>
+                    <FaLinkedin />
+                </a>
+                <a href={footerData.urls[1]}>
+                    <FaGithubSquare />
+                </a>
             </div>
+            {footerContact}
         </div>
     )
 

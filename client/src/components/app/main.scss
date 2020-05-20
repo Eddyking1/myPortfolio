@@ -61,3 +61,10 @@ ul {
     padding:0 20px;
   }
 }
+
+
+@media only screen and (max-width: 400px) {
+  #popUpMessage {
+    width:95%;
+  }
+}

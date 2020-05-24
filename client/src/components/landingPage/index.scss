@@ -11,12 +11,15 @@
 
 .landingPageText {
   p {
-    font-size: 42px;
-    font-family: "Crimson Text", serif;
+    font-size: 2.4rem;
     text-align: center;
     margin: 0;
-    padding: 15px;
+  } 
+  :nth-last-child(1){
+    font-size:30px;
+    color:#666;
   }
+
 }
 
 .sliderLandingPage {
@@ -62,7 +65,7 @@
   align-content: center;
   flex-direction: row;
   flex-wrap: wrap;
-  padding: 20px;
+  padding: 100px 0 0 0;
 
   img {
     width: 70px;
@@ -101,6 +104,14 @@
   align-items: center;
   align-self: center;
   flex-direction: column;
+  h1{
+    color:#000;
+    font-size:2.2em;
+  }
+  p{
+    margin:10px 0;
+      font-size:0.9em;
+    }
 }
 
 @media only screen and (max-width: 800px) {

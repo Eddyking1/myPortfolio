@@ -35,17 +35,8 @@ function Form() {
           setData3("");
         }}
       >
-        <h1> Send your website request here</h1>
         <div className="formInputs">
-          <p> Email address</p>
-          <input
-            className="input"
-            placeholder="Email"
-            type="text"
-            value={data}
-            onChange={e => setData(e.target.value)}
-            required={true}
-          />
+          <h1> Submit your website request here!</h1>
           <p> Namn </p>
           <input
             className="input"
@@ -53,6 +44,15 @@ function Form() {
             type="text"
             value={data1}
             onChange={e => setData1(e.target.value)}
+            required={true}
+          />
+          <p> Email address</p>
+          <input
+            className="input"
+            placeholder="Email"
+            type="text"
+            value={data}
+            onChange={e => setData(e.target.value)}
             required={true}
           />
           <p>Vilket webbpaket är intressant?</p>
@@ -66,7 +66,7 @@ function Form() {
             <option> WebbSimple</option>
             <option> WebbMidi</option>
             <option> WebbAdvanced</option>
-            </select>
+          </select>
           <p>Kravspecifikation</p>
           <textarea
             className="input"
@@ -76,10 +76,10 @@ function Form() {
             onChange={e => setData3(e.target.value)}
             required={true}
           />
-          </div>
           <button className="buttonSubmit" type="submit" onClick={() => (setCounter(counter + 1))}> <p>Submit</p> </button>
-          </form>
-     {/*  {JSON.stringify(list)} */ }
+        </div>
+      </form>
+      {/*  {JSON.stringify(list)} */}
 
     </div>
   );

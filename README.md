@@ -4,6 +4,8 @@ As it is deployed to heroku rest of these command will not work as many variable
 
 This project is made to experiment with techniques and methods in both backend and frontend and to showcase what i can do.
 
+It is build from barebones of react create app.
+
 Google api developer console,
 Mongodb - as database nonrelation,
 Heroku - as temporary deployment,

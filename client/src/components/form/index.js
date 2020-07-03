@@ -1,4 +1,5 @@
 import React, { useReducer, useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
 import "./index.scss";
 import { Context } from '../../contextApi/newIndex'
 import { SUBMIT_FORM } from "../../actions/types";

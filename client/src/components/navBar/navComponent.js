@@ -57,7 +57,7 @@ export default function NavBar() {
                                 </div>
                                 :
                                 <Link to="/login" className="hamLinks" onClick={() => { hamChecker() }}>
-                                    <p> Login with google </p>
+                                    <p> Login </p>
                                 </Link>)}
                         </div>
                         <div className="socialIcons">

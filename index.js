@@ -4,8 +4,8 @@ const cookieSession = require('cookie-session');
 const passport = require('passport');
 const bodyParser = require('body-parser');
 const keys = require('./config/keys');
-require('./models/googleUser');
-require('./models/user');
+require('./models/googleUserModel');
+require('./models/userModel');
 require('./services/passport');
 
 mongoose.Promise = global.Promise;

@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import axios from 'axios';
 import "../form/index.scss";
 import { Context } from '../../contextApi/newIndex'
-import { SUBMIT_SIGNUP_FORM } from "../../actions/types";
-import { set } from "lodash";
+
 
 function SignUp() {
   const [state, dispatch] = useContext(Context);

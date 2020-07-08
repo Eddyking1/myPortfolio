@@ -56,9 +56,14 @@ export default function NavBar() {
                                     </Link>
                                 </div>
                                 :
-                                <Link to="/login" className="hamLinks" onClick={() => { hamChecker() }}>
-                                    <p> Login </p>
-                                </Link>)}
+                                <div>
+                                    <Link to="/login" className="hamLinks" onClick={() => { hamChecker() }}>
+                                        <p> Login </p>
+                                    </Link>
+                                    <Link to="/signup" className="hamLinks" onClick={() => { hamChecker() }}>
+                                        <p> Sign up </p>
+                                    </Link>
+                                </div>)}
                         </div>
                         <div className="socialIcons">
                             <p> Checkout this repository</p>
@@ -81,25 +86,30 @@ export default function NavBar() {
                         <div className="routeIcons">
 
                             {(!state.isOnline ?
-                                <button className="navButton">
+                                <> <button className="navButton">
                                     <Link to="/login" className="links">
-                                        <MdAccountCircle />
-                                        <p> Login with google </p>
+                                        <p> Login </p>
                                     </Link>
-                                </button> :
+                                </button>
+                                    <p> or </p>
+                                    <button className="navButton">
+                                        <Link to="/signup" className="links">
+                                            <p> Sign up </p>
+                                        </Link>
+                                    </button> </> :
                                 <>
-                                <button className="navButton">
-                                    <Link to="/login" className="links">
-                                        <MdAccountCircle />
-                                        <p> Profile </p>
-                                    </Link>
-                                </button>
-                                <button className="navButton">
-                                    <Link to="/shop" className="links">
-                                        <MdShoppingCart />
-                                        <p> Services </p>
-                                    </Link>
-                                </button>
+                                    <button className="navButton">
+                                        <Link to="/login" className="links">
+                                            <MdAccountCircle />
+                                            <p> Profile </p>
+                                        </Link>
+                                    </button>
+                                    <button className="navButton">
+                                        <Link to="/shop" className="links">
+                                            <MdShoppingCart />
+                                            <p> Services </p>
+                                        </Link>
+                                    </button>
                                 </>
                             )}
                         </div>

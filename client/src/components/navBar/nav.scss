@@ -21,6 +21,7 @@ $linkColor: rgb(216, 223, 221);
   display: flex;
   justify-content: flex-end;
   width: 100%;
+  align-items: center;
 }
 .homeIcon{
   border-radius:5px;
@@ -44,19 +45,20 @@ $linkColor: rgb(216, 223, 221);
   p {
     padding: 0 5px;
     font-size: 14px;
+    margin:0;
+    color:white;
   }
 }
 
 .navButton {
   display: flex;
   flex-direction: row;
-  align-items: center;
   font-family: "Roboto Mono", monospace;
-  border-radius: 6px;
   color: white;
   background-color: rgb(0, 0, 0);
-  box-shadow: 10px 11px 10px #3333;
   margin: 10px;
+  padding:10px;
+  align-items: center;
   outline: 0;
   .links {
     display: flex;
@@ -64,6 +66,7 @@ $linkColor: rgb(216, 223, 221);
     text-decoration: none;
     align-items: center;
     color: $linkColor;
+    margin:0;
   }
   
 }

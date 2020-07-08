@@ -20,8 +20,4 @@ module.exports = (app) => {
         res.send(req.user);
     });  
 
-/*   will add soon  app.post('/api/post',(req, res) => {
-      
-    }); */
-
 };

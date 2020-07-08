@@ -45,7 +45,7 @@ export default function Login() {
   }, [url]);
 
   const checkData = () => {
-    if (state.isOnline === true) {
+    if (state.isOnline) {
       console.log("request did run and will redirect to profile");
       setIsError(false)
       setIsLoading(false);

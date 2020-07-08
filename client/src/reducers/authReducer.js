@@ -1,4 +1,4 @@
-import { FETCH_USER, SUBMIT_FORM } from '../actions/types';
+import { FETCH_USER, SUBMIT_FORM, SUBMIT_SIGNUP_FORM } from '../actions/types';
 import { MdSettingsApplications } from 'react-icons/md';
 
 const Reducer = (state, action) => {
@@ -21,6 +21,14 @@ const Reducer = (state, action) => {
           specifikation: action.data3,
         }
       };
+    case SUBMIT_SIGNUP_FORM:
+      return {
+        ...state,
+        signUpAnswers: {
+          email: action.payload.data,
+          password: action.payload.data1,
+        }
+      }
     default:
       return state;
   }

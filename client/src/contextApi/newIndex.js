@@ -7,6 +7,7 @@ const initialState = {
   userCredits:0,
   isOnline: false,
   formAnswers:[],
+  signUpAnswers:[],
 };
 
 

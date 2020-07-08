@@ -61,7 +61,7 @@ const LandingPage = () => {
     return (
         <div className="landingPageContainer">
             <div className="sliderLandingPage">
-                {Slider(landingPageImages)}
+            {/*  {Slider(landingPageImages)}*/}
             </div>
             <div className="transformFade">
                 <div className="profileImg">

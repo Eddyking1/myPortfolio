@@ -7,7 +7,8 @@ import Login from './components/login/index';
 import Form from './components/form/index';
 import Profile from './components/profile/index';
 import NavBar from './components/navBar/navComponent.js';
-import Shop from './components/shop/index.js'
+import Shop from './components/shop/index.js';
+import SignUp from './components/signUp/index.js';
 import { IconContext } from 'react-icons/lib';
 import './main.scss';
 import axios from 'axios';
@@ -20,6 +21,7 @@ ReactDOM.render(
                     <NavBar />
                     <div name="Component routes">
                          <Route exact path="/" component={WebbApp} />
+                         <Route exact path="/signup" component={SignUp}/>
                          <Route path="/login" component={Login} />
                          <Route path="/profile" component={Profile} />
                          <Route path="/shop" component={Shop} />

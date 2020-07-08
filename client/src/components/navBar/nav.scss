@@ -23,7 +23,6 @@ $linkColor: rgb(216, 223, 221);
   width: 100%;
 }
 .homeIcon{
-  border: 1px solid white;
   border-radius:5px;
   display: flex;
   align-items: center;
@@ -66,13 +65,7 @@ $linkColor: rgb(216, 223, 221);
     align-items: center;
     color: $linkColor;
   }
-  :active {
-    transform: translateY(4px);
-  }
-  :hover {
-    transform: scale(1.1);
-    transition: 0.2s;
-  }
+  
 }
 
 @media only screen and (max-width: 900px) {
@@ -84,14 +77,10 @@ $linkColor: rgb(216, 223, 221);
     right: 5px;
     margin: 0 !important;
     display: flex;
-    border:1px solid white;
     position: absolute;
     justify-content: center;
     margin: 10px;
-    :hover {
-      transform: scale(1.1);
-      transition: 0.2s;
-    }
+
   }
   
   .hamNav {

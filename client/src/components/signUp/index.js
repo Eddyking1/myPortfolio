@@ -11,27 +11,27 @@ function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const [url, setUrl] = useState('/signup');
-  
+  const [url, setUrl] = useState('/api/signup');
+
   const postData = async (email, password) => {
     axios({
       method: 'post',
       url: url,
-      data: {email: email, password: password},
-      headers: {'Content-Type': 'multipart/form-data' }
-      })
+      data: {
+        email: email,
+        password: password
+      },
+      headers: {'Content-Type' : 'application/json; charset=UTF-8' }
+    })
       .then(function (response) {
-          //handle success
-          console.log(response);
+        //handle success
+        console.log(response);
       })
       .catch(function (response) {
-          //handle error
-          console.log(response);
+        //handle error
+        console.log(response);
       });
   };
-  useEffect(() => {
-    console.log(state);
-  });
 
   return (
     <div className="wrapper">

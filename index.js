@@ -14,7 +14,6 @@ mongoose.connect(keys.mongoURI);
 const app = express();
 
 app.use(bodyParser.json());
-require('./routes/userLogic')(app);
 
 app.use(
   cookieSession({
@@ -25,7 +24,8 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-require('./routes/authRoutes')(app);
+require('./routes/userLogic')(app);
+require('./routes/googleRoutes')(app);
 
 
 if (process.env.NODE_ENV === 'production') {

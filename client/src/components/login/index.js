@@ -10,65 +10,72 @@ import { FETCH_USER } from "../../actions/types";
 export default function Login() {
   const [state, dispatch] = useContext(Context);
   const [isError, setIsError] = useState();
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const [url, setUrl] = useState(
-    '/api/user',
-  );
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [url, setUrl] = useState('/api/login');
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true);
-      try {
-        const result = await axios(url);
-        if (result.data) {
-          dispatch({ type: FETCH_USER, payload: result.data })
-          setTimeout(() => {
-            checkData();
-          }, 1500)
-        } else {
-          setIsError(true);
-          setIsLoading(false);
-          checkData();
-        }
-      }
-      catch (error) {
-        setTimeout(() => {
-          console.log("error", error);
-          console.log(isError);
-        }, 1500)
-
-      }
-    };
-
-    fetchData();
-  }, [url]);
-
-  const checkData = () => {
-    if (state.isOnline) {
-      console.log("request did run and will redirect to profile");
-      setIsError(false)
-      setIsLoading(false);
-    }
-    else {
-      setIsLoading(false);
-      setIsError(true);
-    }
-  }
-  const renderRedirect = () => {
-    if (isError) {
-      window.history.pushState(null, null, '/auth/google');
-      window.location.reload();
-    }
-    if (!isError) {
-      return <Redirect to='/profile' />;
-    }
-  }
-
+  const checkLoginData = async (email, password) => {
+    axios({
+      method: 'post',
+      url: url,
+      data: {
+        email: email,
+        password: password
+      },
+      headers: { 'Content-Type': 'application/json; charset=UTF-8' }
+    })
+      .then(function (response) {
+        setIsLoading(true);
+        console.log(response);
+      })
+      .catch(function (response) {
+        //handle error
+        setIsError(true)
+        console.log(response);
+      });
+  };
   return (
     (isLoading ? <div className="loading"> <img src={homeIcon} /> Loading..</div> :
       <div className="wrapper">
-        {renderRedirect()}
+        <form
+          className="formStyle"
+          onSubmit={e => {
+            console.log("submit did run");
+            e.preventDefault();
+            checkLoginData(email, password);
+            setEmail("");
+            setPassword("");
+          }}
+        >
+          <div className="formInputs">
+            <h1>Login</h1>
+            {(isError ? <p> wrong credentials </p> : " ")}
+            <p> Email address</p>
+            <input
+              className="input"
+              placeholder="Email"
+              type="text"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              required={true}
+            />
+            <p> Password </p>
+            <input
+              className="input"
+              placeholder="Password"
+              type="password"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+              required={true}
+            />
+            <button className="buttonSubmit" type="submit"> <p>Submit</p> </button>
+          </div>
+        </form>
+        {/*  {JSON.stringify(list)} */}
+
       </div>)
   );
 }
+

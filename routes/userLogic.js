@@ -2,28 +2,32 @@ const express = require("express");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/userModel");
-const keys = require('../config/keys');
+const bodyParser = require('body-parser');
+const { jwtKey } = require("../config/keys");
+const auth = require("../middlewares/auth");
 
 module.exports = (app) => {
 
-app.post('/signup', async (req, res) => {
+app.post('/api/signup', async (req, res) => {
+
+    const { email, password } = req.body;
         try {
             let user = await User.findOne({
-                email: req.body.email
+                email
             });
             if (user) {
                 return res.status(400).json({
                     msg: "User Already Exists"
                 });
             }
-            user = new User({
-                email: req.body.email,
-                password: req.body.password
-            });
 
+            user = new User({
+                email,
+                password
+            });
             const salt = await bcrypt.genSalt(10);
             user.password = await bcrypt.hash(password, salt);
-
+            
             await user.save();
 
             const payload = { user: { id: user.id } };
@@ -42,21 +46,14 @@ app.post('/signup', async (req, res) => {
             );
         } catch (err) {
             console.log(err.message);
-            res.status(500).send("Error in Saving");
+            res.status(500).send("Error not saved");
         }
     }
 );
 
-}
-/* 
 
-router.post("/login",async (req, res) => {
 
-        if (!errors.isEmpty()) {
-            return res.status(400).json({
-                errors: errors.array()
-            });
-        }
+app.post("/api/login",async (req, res) => {
 
         const { email, password } = req.body;
         try {
@@ -71,7 +68,7 @@ router.post("/login",async (req, res) => {
             const isMatch = await bcrypt.compare(password, user.password);
             if (!isMatch)
                 return res.status(400).json({
-                    message: "Incorrect Password !"
+                    message: "Incorrect Password!"
                 });
 
             const payload = {
@@ -82,7 +79,7 @@ router.post("/login",async (req, res) => {
 
             jwt.sign(
                 payload,
-                "randomString",
+                jwtKey,
                 {
                     expiresIn: 3600
                 },
@@ -100,4 +97,16 @@ router.post("/login",async (req, res) => {
             });
         }
     }
-); */
+); 
+
+app.get("/api/me", auth, async (req, res) => {
+    try {
+      // request.user is getting fetched from Middleware after token authentication
+      const user = await User.findById(req.user.id);
+      res.json(user);
+    } catch (e) {
+      res.send({ message: "Error in Fetching user" });
+    }
+  });
+
+}

@@ -5,7 +5,7 @@ import { Context } from '../../contextApi/newIndex.js';
 import homeIcon from '../../assets/Images/homeIcon.png';
 import axios from 'axios';
 import { FETCH_USER } from "../../actions/types";
-
+import cookie from 'js-cookie';
 
 export default function Login() {
   const [state, dispatch] = useContext(Context);
@@ -28,7 +28,9 @@ export default function Login() {
     })
       .then(function (response) {
         setIsLoading(true);
-        console.log(response);
+        let JWtoken = response.data.token;
+        cookie.set('jwToken', JWtoken, { expires: 2 });
+        
       })
       .catch(function (response) {
         //handle error
@@ -51,7 +53,7 @@ export default function Login() {
         >
           <div className="formInputs">
             <h1>Login</h1>
-            {(isError ? <p> wrong credentials </p> : " ")}
+            {(isError ? <p style={{color: 'red'}}> Wrong credentials </p> : " ")}
             <p> Email address</p>
             <input
               className="input"

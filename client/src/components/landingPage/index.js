@@ -35,7 +35,7 @@ const LandingPage = () => {
         textHeadline: ['Hello!', 'What to do here?'],
         text: ['I offer dynamic as well as static webbapplications with advanced Javascript features and performance in mind aswell including the latest trends in UX-UI flow and design.',
             'If you choose me to be your Webdeveloper i would need a descriptive specification of functions and flow of the desired app.',
-            'Sign up with google to check the service tab in navigation menue and you will be presented with three standard packages i provide, if those is not to your liking you will be able to fill out a form where you explain more about what you need.',
+            'Sign up and check the service tab in navigation menue and you will be presented with three standard packages i provide, if those is not to your liking you will be able to fill out a form where you explain more about what you need.',
             'When you sign up your profile you will be able to monitor your request and chat with me.']
     }
 

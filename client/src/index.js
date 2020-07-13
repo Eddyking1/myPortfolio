@@ -20,12 +20,14 @@ ReactDOM.render(
                <IconContext.Provider value={{ color: 'white', className: 'react-icons' }}>
                     <NavBar />
                     <div name="Component routes">
-                         <Route exact path="/" component={WebbApp} />
-                         <Route exact path="/signup" component={SignUp}/>
-                         <Route path="/login" component={Login} />
-                         <Route path="/profile" component={Profile} />
-                         <Route path="/shop" component={Shop} />
-                         <Route path="/form" component={Form} />
+                         <switch>
+                              <Route exact path="/" component={WebbApp} />
+                              <Route exact path="/signup" component={SignUp} />
+                              <Route path="/login" component={Login} />
+                              <Route path="/profile" component={Profile} />
+                              <Route path="/shop" component={Shop} />
+                              <Route path="/form" component={Form} />
+                         </switch>
                     </div>
                </IconContext.Provider>
           </Router>

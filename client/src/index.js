@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Route, BrowserRouter as Router } from 'react-router-dom'
+import { Route, Switch, BrowserRouter as Router } from 'react-router-dom'
 import Store, { Context } from './contextApi/newIndex.js';
 import WebbApp from './components/app/index.js';
 import Login from './components/login/index';
@@ -9,6 +9,7 @@ import Profile from './components/profile/index';
 import NavBar from './components/navBar/navComponent.js';
 import Shop from './components/shop/index.js';
 import SignUp from './components/signUp/index.js';
+import fetchAuthorizedUser from './actions/index.js';
 import { IconContext } from 'react-icons/lib';
 import './main.scss';
 import axios from 'axios';
@@ -20,14 +21,14 @@ ReactDOM.render(
                <IconContext.Provider value={{ color: 'white', className: 'react-icons' }}>
                     <NavBar />
                     <div name="Component routes">
-                         <switch>
+                         <Switch>
                               <Route exact path="/" component={WebbApp} />
                               <Route exact path="/signup" component={SignUp} />
                               <Route path="/login" component={Login} />
-                              <Route path="/profile" component={Profile} />
                               <Route path="/shop" component={Shop} />
+                              <Route path="/profile" component={Profile} />
                               <Route path="/form" component={Form} />
-                         </switch>
+                         </Switch>
                     </div>
                </IconContext.Provider>
           </Router>

@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useReducer, useContext } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, Route } from "react-router-dom";
 import "./index.scss";
 import { Context } from '../../contextApi/newIndex.js';
 import homeIcon from '../../assets/Images/homeIcon.png';
 import axios from 'axios';
-import { FETCH_USER } from "../../actions/types";
+import { fetchAuthorizedUser } from "../../actions/index";
 import cookie from 'js-cookie';
 
 export default function Login() {
@@ -28,9 +28,14 @@ export default function Login() {
     })
       .then(function (response) {
         setIsLoading(true);
-        let JWtoken = response.data.token;
-        cookie.set('jwToken', JWtoken, { expires: 2 });
-        
+        let jwToken = response.data.token;
+        cookie.set('jwToken', jwToken, { expires: 2 });
+        fetchAuthorizedUser();
+        setTimeout(() => {
+          setIsLoading(false);
+          
+        }, 1500);
+
       })
       .catch(function (response) {
         //handle error
@@ -53,7 +58,7 @@ export default function Login() {
         >
           <div className="formInputs">
             <h1>Login</h1>
-            {(isError ? <p style={{color: 'red'}}> Wrong credentials </p> : " ")}
+            {(isError ? <p style={{ color: 'red' }}> Wrong credentials </p> : " ")}
             <p> Email address</p>
             <input
               className="input"

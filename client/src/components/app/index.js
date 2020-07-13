@@ -5,8 +5,8 @@ import Footer from '../footer/footer.js';
 import './main.scss';
 
 function WebbApp() {
-  const [visited, setVisited] = useState(null);
-
+  const [visited, setVisited] = useState(true);
+/* 
   const popup = () => {
     let firstVisit = localStorage.getItem('firstTime');
     if (firstVisit === null) {
@@ -24,7 +24,7 @@ function WebbApp() {
   }
   useEffect(() => {
     popup();
-  }, [])
+  }, []) */
 
   return (
     <div className="Main">
@@ -39,7 +39,6 @@ function WebbApp() {
             </p>
             <p> This website uses cookies/localStorage if you continue to use this website you agree the usage of cookies </p>
             <button onClick={() => {
-              closePopup();
             }}>
               <p>close</p>
             </button>

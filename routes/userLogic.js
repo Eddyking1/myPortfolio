@@ -7,10 +7,8 @@ const { jwtKey } = require("../config/keys");
 const auth = require("../middlewares/auth");
 
 module.exports = (app) => {
-
-app.post('/api/signup', async (req, res) => {
-
-    const { email, password } = req.body;
+    app.post('/api/signup', async (req, res) => {
+        const { email, password } = req.body;
         try {
             let user = await User.findOne({
                 email
@@ -20,14 +18,13 @@ app.post('/api/signup', async (req, res) => {
                     msg: "User Already Exists"
                 });
             }
-
             user = new User({
                 email,
                 password
             });
             const salt = await bcrypt.genSalt(10);
             user.password = await bcrypt.hash(password, salt);
-            
+
             await user.save();
 
             const payload = { user: { id: user.id } };
@@ -49,11 +46,9 @@ app.post('/api/signup', async (req, res) => {
             res.status(500).send("Error not saved");
         }
     }
-);
+    );
 
-
-
-app.post("/api/login",async (req, res) => {
+    app.post("/api/login", async (req, res) => {
 
         const { email, password } = req.body;
         try {
@@ -71,18 +66,9 @@ app.post("/api/login",async (req, res) => {
                     message: "Incorrect Password!"
                 });
 
-            const payload = {
-                user: {
-                    id: user.id
-                }
-            };
+            const payload = { user: { id: user.id } };
 
-            jwt.sign(
-                payload,
-                jwtKey,
-                {
-                    expiresIn: 3600
-                },
+            jwt.sign(payload, jwtKey, { expiresIn: 3600 },
                 (err, token) => {
                     if (err) throw err;
                     res.status(200).json({
@@ -97,16 +83,16 @@ app.post("/api/login",async (req, res) => {
             });
         }
     }
-); 
+    );
 
-app.get("/api/me", auth, async (req, res) => {
-    try {
-      // request.user is getting fetched from Middleware after token authentication
-      const user = await User.findById(req.user.id);
-      res.json(user);
-    } catch (e) {
-      res.send({ message: "Error in Fetching user" });
-    }
-  });
+    app.get("/api/me", auth, async (req, res) => {
+        try {
+            // request.user is getting fetched from Middleware after token authentication
+            const user = await User.findById(req.user.id);
+            res.json(user.id);
+        } catch (e) {
+            res.send({ message: "Error in Fetching user" });
+        }
+    });
 
 }

@@ -27,6 +27,7 @@ const Reducer = (state, action) => {
         ...state,
         isAuthorized: {
           data:[action.data],
+          bool: true,
         }
       }
     default:

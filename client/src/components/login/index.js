@@ -31,11 +31,15 @@ export default function Login() {
         setIsLoading(true);
         let jwToken = response.data.token;
         cookie.set('jwToken', jwToken, { expires: 2 });
-        fetchAuthorizedUser().then(data => dispatch({ type: AUTHORIZE_USER, data }));
+        // sets cookie to jwToken and then data. 
+        fetchAuthorizedUser().then(data => dispatch({ type: AUTHORIZE_USER, data },cookie.set('isAuthorized', data)));
+
+        // fetches /api/me to authorize user with stored token.
         setTimeout(() => {
           setIsLoading(false);
           setIsError(false);
         }, 1500);
+        // animation and redirect
       })
       .catch(function (response) {
         //handle error
@@ -45,7 +49,7 @@ export default function Login() {
   };
 
   const renderRedirect = () => {
-    if (isError === false) {
+    if (state.isAuthorized.bool === true) {
       return <Redirect to='/profile' />
     }
   }
@@ -88,7 +92,6 @@ export default function Login() {
             <button className="buttonSubmit" type="submit" >  <p>Submit</p>  </button>
           </div>
         </form>
-        {/*  {JSON.stringify(list)} */}
         {renderRedirect()}
       </div>)
   );

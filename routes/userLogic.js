@@ -15,7 +15,7 @@ module.exports = (app) => {
             });
             if (user) {
                 return res.status(400).json({
-                    msg: "User Already Exists"
+                    msg: "Email already exists"
                 });
             }
             user = new User({

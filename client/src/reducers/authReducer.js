@@ -1,4 +1,4 @@
-import { FETCH_USER, SUBMIT_FORM, SUBMIT_SIGNUP_FORM } from '../actions/types';
+import { FETCH_USER, SUBMIT_FORM, SUBMIT_SIGNUP_FORM, AUTHORIZE_USER } from '../actions/types';
 import { MdSettingsApplications } from 'react-icons/md';
 
 const Reducer = (state, action) => {
@@ -11,6 +11,7 @@ const Reducer = (state, action) => {
         userEmail: action.payload.email,
         isOnline: true,
       };
+      
     case SUBMIT_FORM:
       return {
         ...state,
@@ -21,12 +22,11 @@ const Reducer = (state, action) => {
           specifikation: action.data3,
         }
       };
-    case SUBMIT_SIGNUP_FORM:
+    case AUTHORIZE_USER:
       return {
         ...state,
-        signUpAnswers: {
-          email: action.payload.data,
-          password: action.payload.data1,
+        isAuthorized: {
+          data:[action.data],
         }
       }
     default:

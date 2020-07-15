@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom'
-import Store, { Context } from './contextApi/newIndex.js';
+import Store from './contextApi/newIndex.js';
 import WebbApp from './components/app/index.js';
 import Login from './components/login/index';
 import Form from './components/form/index';
@@ -9,12 +9,15 @@ import Profile from './components/profile/index';
 import NavBar from './components/navBar/navComponent.js';
 import Shop from './components/shop/index.js';
 import SignUp from './components/signUp/index.js';
-import fetchAuthorizedUser from './actions/index.js';
+import ProtectedRoute from './protectedRoute/protectedRoute.js';
 import { IconContext } from 'react-icons/lib';
 import './main.scss';
 import axios from 'axios';
 window.axios = axios;
 
+
+/*                               <Route path="/profile" component={Profile} />
+                              <Route path="/form" component={Form} /> */
 ReactDOM.render(
      <Store>
           <Router>
@@ -24,10 +27,10 @@ ReactDOM.render(
                          <Switch>
                               <Route exact path="/" component={WebbApp} />
                               <Route exact path="/signup" component={SignUp} />
-                              <Route path="/login" component={Login} />
-                              <Route path="/shop" component={Shop} />
-                              <Route path="/profile" component={Profile} />
-                              <Route path="/form" component={Form} />
+                              <Route exact path="/login" component={Login} />
+                              <Route exact path="/shop" component={Shop} />
+                              <ProtectedRoute exact path="/profile" component={Profile} />
+                              <ProtectedRoute exact path="/form" component={Form} />
                          </Switch>
                     </div>
                </IconContext.Provider>

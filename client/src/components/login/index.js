@@ -1,15 +1,16 @@
 import React, { useState, useEffect, useReducer, useContext } from "react";
-import { Redirect, Route } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import "./index.scss";
 import { Context } from '../../contextApi/newIndex.js';
 import homeIcon from '../../assets/Images/homeIcon.png';
 import axios from 'axios';
 import { fetchAuthorizedUser } from "../../actions/index";
 import cookie from 'js-cookie';
+import { AUTHORIZE_USER } from "../../actions/types";
 
 export default function Login() {
   const [state, dispatch] = useContext(Context);
-  const [isError, setIsError] = useState();
+  const [isError, setIsError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
   const [email, setEmail] = useState("");
@@ -30,12 +31,11 @@ export default function Login() {
         setIsLoading(true);
         let jwToken = response.data.token;
         cookie.set('jwToken', jwToken, { expires: 2 });
-        fetchAuthorizedUser();
+        fetchAuthorizedUser().then(data => dispatch({ type: AUTHORIZE_USER, data }));
         setTimeout(() => {
           setIsLoading(false);
-          
+          setIsError(false);
         }, 1500);
-
       })
       .catch(function (response) {
         //handle error
@@ -43,6 +43,14 @@ export default function Login() {
         console.log(response);
       });
   };
+
+  const renderRedirect = () => {
+    if (isError === false) {
+      return <Redirect to='/profile' />
+    }
+  }
+  console.log(state.isAuthorized);
+
   return (
     (isLoading ? <div className="loading"> <img src={homeIcon} /> Loading..</div> :
       <div className="wrapper">
@@ -77,11 +85,11 @@ export default function Login() {
               onChange={e => setPassword(e.target.value)}
               required={true}
             />
-            <button className="buttonSubmit" type="submit"> <p>Submit</p> </button>
+            <button className="buttonSubmit" type="submit" >  <p>Submit</p>  </button>
           </div>
         </form>
         {/*  {JSON.stringify(list)} */}
-
+        {renderRedirect()}
       </div>)
   );
 }

@@ -16,7 +16,7 @@ export const fetchUser = () => async dispatch => {
       let result = await axios({
         url: '/api/me',
         method: 'get',
-        timeout: 8000,
+        timeout: 6000,
         headers: { 'token': jwToken, 'Content-Type': 'application/json; charset=UTF-8' }
       })
       if (result.status == 200) {

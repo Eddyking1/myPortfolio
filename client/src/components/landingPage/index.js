@@ -1,19 +1,24 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect, useReducer, useContext } from "react";
 import reactLogo from '../../assets/Images/reactlogo.png';
 import jsLogo from '../../assets/Images/jsLogo.png';
 import cssLogo from '../../assets/Images/cssLogo.png';
 import htmlLogo from '../../assets/Images/htmlLogo.png';
 import picOfMe from '../../assets/Images/PicMe.WebP';
 import nodejsLogo from '../../assets/Images/nodejsLogo.png';
-import Slider from '../slider/slider.js';
-import { landingPageImages } from '../slider/sliderData.js'
+import cookie from 'js-cookie';
 import './index.scss';
+import { fetchAuthorizedUser } from '../../actions/index.js'
+import { AUTHORIZE_USER } from "../../actions/types";
+import { Context } from '../../contextApi/newIndex.js';
+
 
 const LandingPage = () => {
+    const [state, dispatch] = useContext(Context);
 
     function pageLoads() {
         setTimeout(() => {
             isLoaded();
+            fetchAuthorizedUser().then(data => dispatch({ type: AUTHORIZE_USER, data }, cookie.set('isAuthorized', data)));
         }, 1000)
     }
     function isLoaded() {
@@ -24,6 +29,7 @@ const LandingPage = () => {
 
     useEffect(() => {
         pageLoads();
+        cookie.get("isAuthorized")
     }, [])
 
     let logoData = {
@@ -61,7 +67,7 @@ const LandingPage = () => {
     return (
         <div className="landingPageContainer">
             <div className="sliderLandingPage">
-            {/*  {Slider(landingPageImages)}*/}
+                {/*  {Slider(landingPageImages)}*/}
             </div>
             <div className="transformFade">
                 <div className="profileImg">

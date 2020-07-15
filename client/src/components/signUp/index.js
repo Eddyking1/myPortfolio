@@ -68,7 +68,6 @@ function SignUp() {
           <button className="buttonSubmit" type="submit"> <p>Submit</p> </button>
         </div>
       </form>
-      {/*  {JSON.stringify(list)} */}
 
     </div>
   );

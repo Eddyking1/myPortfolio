@@ -3,13 +3,17 @@ import homeIcon from '../../assets/Images/homeIcon.png';
 import { Context } from '../../contextApi/newIndex.js';
 import { MdReorder, MdShoppingCart, MdPersonAdd, MdAccountCircle } from "react-icons/md";
 import { Link } from "react-router-dom";
+import cookie from 'js-cookie';
 import './nav.scss';
 
 
 export default function NavBar() {
     const [state, dispatch] = useContext(Context);
     const [showHamburger, setShowHamburger] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
+    /*     let cookie.get("isAuthorized");
+     */
     function hamChecker() {
         var x = document.getElementsByClassName('hamContainer')[0];
         if (showHamburger === false) {
@@ -22,9 +26,7 @@ export default function NavBar() {
         }
     }
 
-    useEffect(() => {
-    }, [])
-
+  
     return (
         <div>
             <div className="hamNav">
@@ -33,9 +35,16 @@ export default function NavBar() {
                         <MdReorder />
                     </button>
                     <div className="hamHomeIcon">
-                        <Link to="/">
+                        {(!state.isAuthorized ?
+                            <Link to="/">
+                                <img src={homeIcon} />
+                            </Link>
+                            :
+
+                            <Link to="/profile">
                             <img src={homeIcon} />
-                        </Link>
+                        </Link>)}
+
                     </div>
                     <div className="hamContainer">
                         <div className="linkContainer">

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useReducer, useContext } from "react";
+import React, { useState, useReducer, useContext } from "react";
 import { Redirect } from "react-router-dom";
 import "./index.scss";
 import { Context } from '../../contextApi/newIndex.js';

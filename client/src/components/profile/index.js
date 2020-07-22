@@ -1,11 +1,14 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import { Context } from '../../contextApi/newIndex.js';
 import { Redirect } from "react-router-dom";
 import homeIcon from '../../assets/Images/homeIcon.png';
 import cookie from 'js-cookie';
-
 import './index.scss';
-import { FaLongArrowAltUp } from 'react-icons/fa';
+
+function logout() {
+    cookie.remove("jwToken");
+    cookie.remove("isAuthorized");
+}
 
 export const Profile = () => {
     const [state, dispatch] = useContext(Context);
@@ -13,20 +16,16 @@ export const Profile = () => {
     setTimeout(() => {
         setIsLoading(false);
     }, 1100);
-    const logout = () => {
-        cookie.remove("jwToken");
-        cookie.remove("isAuthorized");
-    }
     return (
         (isLoading ? <div className="loading"> <img src={homeIcon} /> Loading..</div> :
             <div className="wrapper">
-                {(state.isAuthorized.bool ?
+                {(state.isAuthorized ?
                     <div className="profileWrapper">
                         <div className="profileData">
                             <p> Email: </p>
                             <p> Amount of credits:</p>
                             <p> !Disclaimer! Credit system is yet to be applied</p>
-                            <button onClick={logout()}>
+                            <button onClick={() => logout()}>
                                 <a href="/api/logout">Logout</a>
                             </button>
                         </div>
@@ -40,7 +39,7 @@ export const Profile = () => {
                     </div>
                     : <div> <p>Error</p> <Redirect to="/" /> </div>)}
             </div>)
-        )
+    )
 }
 
 export default Profile;

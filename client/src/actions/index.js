@@ -1,17 +1,15 @@
 import axios from 'axios';
-import React, { useContext, useEffect } from "react";
 import cookie from 'js-cookie';
-import { FETCH_USER, AUTHORIZE_USER } from './types';
-import { Context } from '../contextApi/newIndex.js';
+import { FETCH_USER } from './types';
 
 export const fetchUser = () => async dispatch => {
   const res = await axios.get('/api/user');
-
   dispatch({ type: FETCH_USER, payload: res.data });
 };
 
- export async function fetchAuthorizedUser() {
-    let jwToken = cookie.getJSON('jwToken')
+export async function fetchAuthorizedUser() {
+  let jwToken = cookie.getJSON('jwToken');
+  if (!jwToken == undefined) {
     try {
       let result = await axios({
         url: '/api/me',
@@ -19,12 +17,15 @@ export const fetchUser = () => async dispatch => {
         timeout: 6000,
         headers: { 'token': jwToken, 'Content-Type': 'application/json; charset=UTF-8' }
       })
-      if (result.status == 200) {
+      if (result.status === 200) {
         console.log(result)
+        return result.data;
       }
-      return result.data;
     }
     catch (error) {
       console.error(error);
     }
   }
+}
+
+

@@ -1,19 +1,13 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import homeIcon from '../../assets/Images/homeIcon.png';
 import { Context } from '../../contextApi/newIndex.js';
-import { MdReorder, MdShoppingCart, MdPersonAdd, MdAccountCircle } from "react-icons/md";
+import { MdReorder, MdShoppingCart, MdAccountCircle } from "react-icons/md";
 import { Link } from "react-router-dom";
-import cookie from 'js-cookie';
 import './nav.scss';
-
 
 export default function NavBar() {
     const [state, dispatch] = useContext(Context);
     const [showHamburger, setShowHamburger] = useState(false);
-    const [isLoading, setIsLoading] = useState(false);
-
-    /*     let cookie.get("isAuthorized");
-     */
     function hamChecker() {
         var x = document.getElementsByClassName('hamContainer')[0];
         if (showHamburger === false) {
@@ -26,7 +20,6 @@ export default function NavBar() {
         }
     }
 
-  
     return (
         <div>
             <div className="hamNav">
@@ -35,30 +28,22 @@ export default function NavBar() {
                         <MdReorder />
                     </button>
                     <div className="hamHomeIcon">
-                        {(!state.isAuthorized ?
-                            <Link to="/">
-                                <img src={homeIcon} />
-                            </Link>
-                            :
-
-                            <Link to="/profile">
+                        <Link to="/">
                             <img src={homeIcon} />
-                        </Link>)}
-
+                        </Link>
                     </div>
                     <div className="hamContainer">
                         <div className="linkContainer">
-
-                            <Link to="./" className="hamLinks" onClick={() => { hamChecker() }}>
+                            <Link to="/" className="hamLinks" onClick={() => { hamChecker() }}>
                                 <p> Home </p>
                             </Link>
-                            {(state.isOnline ?
+                            {(state.isAuthorized.bool ?
                                 <div>
+                                    <Link to="/profile" className="hamLinks" onClick={() => { hamChecker() }}>
+                                        <p> Profile </p>
+                                    </Link>
                                     <Link to="/shop" className="hamLinks" onClick={() => { hamChecker() }}>
                                         <p> Services </p>
-                                    </Link>
-                                    <Link to="/login" className="hamLinks" onClick={() => { hamChecker() }}>
-                                        <p> Profile </p>
                                     </Link>
                                     <Link to="/api/logout" className="hamLinks" onClick={() => { hamChecker() }}>
                                         <p> Logout </p>
@@ -66,12 +51,15 @@ export default function NavBar() {
                                 </div>
                                 :
                                 <div>
-                                    <Link to="/login" className="hamLinks" onClick={() => { hamChecker() }}>
-                                        <p> Login </p>
-                                    </Link>
-                                    <Link to="/signup" className="hamLinks" onClick={() => { hamChecker() }}>
-                                        <p> Sign up </p>
-                                    </Link>
+                                    <div>
+                                        <Link to="/login" className="hamLinks" onClick={() => { hamChecker() }}>
+                                            <p> Login </p>
+                                        </Link>
+
+                                        <Link to="/signup" className="hamLinks" onClick={() => { hamChecker() }}>
+                                            <p> Sign up </p>
+                                        </Link>
+                                    </div>
                                 </div>)}
                         </div>
                         <div className="socialIcons">
@@ -94,7 +82,7 @@ export default function NavBar() {
                         </div>
                         <div className="routeIcons">
 
-                            {(!state.isOnline ?
+                            {(!state.isAuthorized.bool ?
                                 <> <button className="navButton">
                                     <Link to="/login" className="links">
                                         <p> Login </p>

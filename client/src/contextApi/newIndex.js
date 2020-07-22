@@ -3,7 +3,7 @@ import Reducer from '../reducers/authReducer'
 
 const initialState = {
   isAuthorized: {},
-  formAnswers: {},
+  formAnswer: {},
 };
 
 

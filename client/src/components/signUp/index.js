@@ -1,17 +1,20 @@
 import React, { useReducer, useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import axios from 'axios';
 import "../form/index.scss";
-import { Context } from '../../contextApi/newIndex'
 
 
 function SignUp() {
-  const [state, dispatch] = useContext(Context);
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const [success, setSuccess] = useState(null);
   const [url, setUrl] = useState('/api/signup');
+  
+  const reDirect = () => {
+    setTimeout(() => {
+        return <Redirect to ="/profile"/>
+    }, 1000);
+  }
 
   const postData = async (email, password) => {
     axios({
@@ -21,20 +24,23 @@ function SignUp() {
         email: email,
         password: password
       },
-      headers: {'Content-Type' : 'application/json; charset=UTF-8' }
+      headers: { 'Content-Type': 'application/json; charset=UTF-8' }
     })
       .then(function (response) {
         //handle success
+        setSuccess(true);
         console.log(response);
       })
       .catch(function (response) {
         //handle error
+        setSuccess(false);
         console.log(response);
       });
   };
 
   return (
     <div className="wrapper">
+    {(success ? <p> Success! {reDirect()}</p> : <p> Error try again </p>)}
       <form
         className="formStyle"
         onSubmit={e => {

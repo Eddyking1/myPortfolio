@@ -1,4 +1,4 @@
-import React, { useState, useReducer, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Redirect } from "react-router-dom";
 import "./index.scss";
 import { Context } from '../../contextApi/newIndex.js';
@@ -32,8 +32,8 @@ export default function Login() {
         let jwToken = response.data.token;
         cookie.set('jwToken', jwToken, { expires: 2 });
         // sets cookie to jwToken and then data. 
-        fetchAuthorizedUser().then(data => dispatch({ type: AUTHORIZE_USER, data },cookie.set('isAuthorized', data)));
-
+        fetchAuthorizedUser().then(data => (dispatch({ type: AUTHORIZE_USER, data })));
+        cookie.set('isAuthorized', state.isAuthorized, { expires: 2 });
         // fetches /api/me to authorize user with stored token.
         setTimeout(() => {
           setIsLoading(false);

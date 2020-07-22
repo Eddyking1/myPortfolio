@@ -5,10 +5,7 @@ import cssLogo from '../../assets/Images/cssLogo.png';
 import htmlLogo from '../../assets/Images/htmlLogo.png';
 import picOfMe from '../../assets/Images/PicMe.WebP';
 import nodejsLogo from '../../assets/Images/nodejsLogo.png';
-import cookie from 'js-cookie';
 import './index.scss';
-import { fetchAuthorizedUser } from '../../actions/index.js'
-import { AUTHORIZE_USER } from "../../actions/types";
 import { Context } from '../../contextApi/newIndex.js';
 
 
@@ -17,19 +14,11 @@ const LandingPage = () => {
 
     function pageLoads() {
         setTimeout(() => {
-            isLoaded();
-            fetchAuthorizedUser().then(data => dispatch({ type: AUTHORIZE_USER, data }, cookie.set('isAuthorized', data)));
         }, 1000)
-    }
-    function isLoaded() {
-        const sliderClass = document.getElementsByClassName('sliderLandingPage')[0];
-        sliderClass.classList.remove('sliderLandingPage');
-        sliderClass.classList.add('sliderLandingPageTransform');
     }
 
     useEffect(() => {
         pageLoads();
-        cookie.get("isAuthorized")
     }, [])
 
     let logoData = {

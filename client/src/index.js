@@ -16,8 +16,7 @@ import axios from 'axios';
 window.axios = axios;
 
 
-/*                               <Route path="/profile" component={Profile} />
-                              <Route path="/form" component={Form} /> */
+
 ReactDOM.render(
      <Store>
           <Router>

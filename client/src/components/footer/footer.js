@@ -9,7 +9,7 @@ export default function Footer() {
     }
 
     const footerContact = footerData.contactInfo.map((texts, index) => {
-        return (<div className="footerContact"> <p key={index}> {texts} </p> </div>)
+        return (<div className="footerContact"> <p key={index.length}> {texts} </p> </div>)
     });
 
     return (

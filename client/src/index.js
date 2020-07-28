@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom'
 import Store from './contextApi/newIndex.js';
+import CheckCookies from './contextApi/checkCookies.js';
 import WebbApp from './components/app/index.js';
 import Login from './components/login/index';
 import Form from './components/form/index';

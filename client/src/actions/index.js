@@ -9,7 +9,7 @@ export const fetchUser = () => async dispatch => {
 
 export async function fetchAuthorizedUser() {
   let jwToken = cookie.getJSON('jwToken');
-  if (!jwToken == undefined) {
+  if (!jwToken === undefined) {
     try {
       let result = await axios({
         url: '/api/me',

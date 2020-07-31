@@ -11,9 +11,12 @@
     "react-dom": "^16.12.0",
     "react-icons": "^3.10.0",
     "react-image-gallery": "^1.0.7",
+    "react-particles-js": "^3.3.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.4.0",
-    "sass": "^1.23.7"
+    "react-skillbars": "^1.6.1",
+    "sass": "^1.23.7",
+    "smooth-scroll": "^16.1.3"
   },
   "scripts": {
     "start": "react-scripts start",

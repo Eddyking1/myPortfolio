@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap');
-* {
-    font-family: 'Open Sans Condensed', cursive;
-  }
+
 
 
 body {
   margin: 0;
   padding: 0;
+  font-family: 'Open Sans Condensed', cursive;
+
 }
 
 ul {
@@ -15,14 +15,8 @@ ul {
 
 .Main {
   min-width: 100vw;
-  background-color: rgb(230, 230, 230);
   overflow-y: scroll;
   overflow-x: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  align-self: center;
   flex-wrap: wrap;
 }
 ::-webkit-scrollbar {

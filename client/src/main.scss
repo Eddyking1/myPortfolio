@@ -1,12 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+/* font-family: 'Raleway', sans-serif;
+ */
 $menuColor: rgb(17, 24, 39);
+* {
+    scroll-behavior: smooth;
+    h1 {
+        text-transform: uppercase;
+    }
+}
 
-html{
+html {
     background-color: #f1f5ff;
-    overflow-x:hidden;
+    overflow-x: hidden;
 }
 
 .react-icons {
     vertical-align: middle;
     width: 2em;
     height: 2em;
+}
+
+.flex {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 10;
+}
+
+.text {
+    font-size: 36px;
+    line-height: 36pt;
+    color: #fdc273;
+}
+.headText {
+    @extend .text;
+}
+
+.highlight {
+    color: #e31b6d;
+}
+
+.home {
+    color: #616161;
+    line-height: 11pt;
+    padding: 70px 0 70px 0;
+    position: relative;
+}
+
+section {
+    height: calc(100vh);
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#about {
+    height: 100%;
+    margin: 100px 0 0 0;
+    align-self: center;
+    align-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#tsparticles {
+    position: absolute;
+    z-index: -1;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }

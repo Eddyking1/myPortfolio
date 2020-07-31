@@ -13,18 +13,20 @@ export default function Footer() {
     });
 
     return (
-        <div className="footer">
-            <a href="https://www.testdome.com/cert/2c13697ff13e4fbcb542f1ca0e22bfc4" class="testdome-certificate-stamp silver"><span class="testdome-certificate-name">Edward kumerius</span><span class="testdome-certificate-test-name">JavaScript </span><span class="testdome-certificate-card-logo">TestDome<br />Certificate</span></a>
-            <div className="icons">
-                <a href={footerData.urls[0]}>
-                    <FaLinkedin />
-                </a>
-                <a href={footerData.urls[1]}>
-                    <FaGithubSquare />
-                </a>
+        <footer id="footer">
+            <div className="footer">
+                <a href="https://www.testdome.com/cert/2c13697ff13e4fbcb542f1ca0e22bfc4" class="testdome-certificate-stamp silver"><span class="testdome-certificate-name">Edward kumerius</span><span class="testdome-certificate-test-name">JavaScript </span><span class="testdome-certificate-card-logo">TestDome<br />Certificate</span></a>
+                <div className="icons">
+                    <a href={footerData.urls[0]}>
+                        <FaLinkedin />
+                    </a>
+                    <a href={footerData.urls[1]}>
+                        <FaGithubSquare />
+                    </a>
+                </div>
+                {footerContact}
             </div>
-            {footerContact}
-        </div>
+        </footer>
     )
 
 }

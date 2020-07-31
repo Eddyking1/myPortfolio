@@ -1,60 +1,49 @@
-  .landingPageContainer {
-  width: 100%;
-  margin-top: 10px;
-}
-
-.smallImage {
-  width: 300px;
-  height: auto;
-  border-radius: 30%;
-}
-
-.landingPageText {
-  p {
-    font-size: 2.4rem;
-    text-align: center;
-    margin: 0;
-  } 
-  :nth-last-child(1){
-    font-size:30px;
-    color:#666;
-  }
-
-}
-
-.sliderLandingPage {
-  transform: translateY(-100%);
-  transition: 1s;
-  background-color: black;
-  min-width: 100%;
-  min-height: 100%;
-}
-
-.sliderLandingPageTransform {
-  transition: 2s;
-  background-color: beige;
-
-}
 .transformFade {
   animation-name: fade-in;
   animation-fill-mode: both;
   animation-duration: 2s;
   animation-delay: 1s;
-  animation-iteration-count:1;
+  animation-iteration-count: 1;
   $animationDelay: 1;
-    @for $i from 1 through 3 {
-      .transformFade:nth-of-type(#{$i}) {
-        animation-delay: #{0.3+($i)/30}s;
-      }
+  @for $i from 1 through 3 {
+    .transformFade:nth-of-type(#{$i}) {
+      animation-delay: #{0.3+ ($i)/30}s;
     }
+  }
 }
 
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
+.item-wrapper {
+  align-content: center;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.columnItems {
+  align-content: center;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.items {
+  display: flex;
+  justify-self: center;
+  flex-direction: column;
+  background-color: #04c2c9 !important;
+  align-items: center;
+  padding: 40px;
+  max-width: 100px;
+  min-width: 100px;
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  .react-icons {
+    width: 4em;
+    height: 4em;
   }
 }
 
@@ -66,9 +55,11 @@
   flex-direction: row;
   flex-wrap: wrap;
   padding: 100px 0 0 0;
+  margin: 20px 0;
 
   img {
-    width: 70px;
+    max-width: 50px;
+    max-width: 50px;
   }
 }
 
@@ -81,41 +72,83 @@
   margin: 80px 0 0 0;
 }
 
-.infoCard {
-  display: flex;
-  justify-content: center;
-  width: 40%;
-  border-radius:15px;
-  margin: 20px;
-  padding:0 15px ;
-  border: 2px solid teal;
-  flex-direction: column;
-  text-align: center;
-  align-items: center;
-  align-content: center;
-  align-self: center;
+.skillBox {
+  width: 80vw;
+  margin: 0 auto;
+  .skillbar {
+    margin: 0;
+  }
+  .skillbar-percent {
+    font-size: 18px;
+    color: black;
+  }
+  .skillbar-bar {
+    background-color: #04c2c9 !important;
+    height: 28px;
+  }
+  .skillbar-title {
+    @extend .skillbar-bar;
+    font-size: 11pt;
+    text-align: center;
+    align-self: center;
+    span {
+      line-height: 30px;
+    }
+  }
 }
 
-.cards {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.aboutWrapper {
   align-self: center;
-  flex-direction: column;
-  h1{
-    color:#000;
-    font-size:2.2em;
+}
+.item-flex {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  p {
+    width: 60%;
+    font-size: 22px;
   }
-  p{
-    margin:10px 0;
-      font-size:1.2em;
-    }
+}
+
+#contact {
+  height: calc(50vh);
 }
 
 @media only screen and (max-width: 800px) {
-  .infoCard{
-    width:78%
+  .item-flex {
+    p {
+      font-size: 16px;
+    }
   }
+  .items {
+    padding: 15px;
+    .react-icons {
+      height: 3em;
+      width: 3em;
+    }
+  }
+}
 
+@media only screen and (max-width: 500px) {
+  .columnItems {
+    max-width: 200px;
+  }
+  .items {
+    p {
+      font-size: 9px;
+    }
+    .react-icons {
+      height: 2em;
+      width: 2em;
+    }
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

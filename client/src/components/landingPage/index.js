@@ -1,16 +1,40 @@
-import React, { useState, useEffect, useReducer, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import Particles from 'react-particles-js';
 import reactLogo from '../../assets/Images/reactlogo.png';
 import jsLogo from '../../assets/Images/jsLogo.png';
 import cssLogo from '../../assets/Images/cssLogo.png';
 import htmlLogo from '../../assets/Images/htmlLogo.png';
 import picOfMe from '../../assets/Images/PicMe.WebP';
 import nodejsLogo from '../../assets/Images/nodejsLogo.png';
+import ReactSkillbar from 'react-skillbars';
+import { Link } from "react-router-dom";
 import './index.scss';
+import '../../main.scss';
+import '../navBar/nav.scss';
+import { GiSpeedometer } from "react-icons/gi";
+import { IoIosRocket } from "react-icons/io";
+import { MdPhonelink } from "react-icons/md";
+import { RiLightbulbFlashLine } from "react-icons/ri";
+
 import { Context } from '../../contextApi/newIndex.js';
 
 
 const LandingPage = () => {
     const [state, dispatch] = useContext(Context);
+
+    const skills = [
+        { type: "CSS", level: 70 },
+        { type: "HTML", level: 70 },
+        { type: "REACT", level: 70 },
+        { type: "REACT-NATIVE", level: 50 },
+        { type: "Javascript", level: 75 },
+        { type: "NODE.JS", level: 65 },
+        { type: "GIT", level: 65 },
+        { type: "UI DESIGN", level: 50 },
+        { type: "Photoshop", level: 40 },
+    ];
+
+
 
     function pageLoads() {
         setTimeout(() => {
@@ -21,69 +45,138 @@ const LandingPage = () => {
         pageLoads();
     }, [])
 
+    function offsets(props) {
+        if (props === "about") {
+            window.scrollTo(0, document.getElementById("about").offsetTop);
+        }
+    }
+
     let logoData = {
         images: [reactLogo, jsLogo, cssLogo, htmlLogo, nodejsLogo],
         imageAlts: ['Javascript react Logo', 'javaScript Logo', 'css3 Logo', 'html5 Logo', 'nodeJs Logo']
-    }
 
-    let textData = {
-        textHeadline: ['Hello!', 'What to do here?'],
-        text: ['I offer dynamic as well as static webbapplications with advanced Javascript features and performance in mind aswell including the latest trends in UX-UI flow and design.',
-            'If you choose me to be your Webdeveloper i would need a descriptive specification of functions and flow of the desired app.',
-            'Sign up and check the service tab in navigation menue and you will be presented with three standard packages i provide, if those is not to your liking you will be able to fill out a form where you explain more about what you need.',
-            'When you sign up your profile you will be able to monitor your request and chat with me.']
     }
-
     const renderLogos = logoData.images.map((img, index) => {
         return <img key={index} src={img} alt={logoData.imageAlts[index]}></img>
     });
 
-    const renderText = textData.text.splice(0, 1).map((texts, index) => {
-        return (<div className="cardText"> <p key={index}> {texts} </p> </div>)
-    });
-    const renderTextTwo = textData.text.splice(0, 3).map((texts, index) => {
-        return (<div className="cardText"> <p key={index}> {texts} </p> </div>)
-    });
-
-    const renderTextCard = textData.textHeadline.splice(0, 1).map((headLine, index) => {
-        return (<div key={index} className="infoCard"> <h1> {headLine} </h1>  {renderText}</div>)
-    });
-
-    const renderTextCardTwo = textData.textHeadline.splice(0, 1).map((headLine, index) => {
-        return (<div key={index} className="infoCard"> <h1> {headLine} </h1>  {renderTextTwo}</div>)
-    });
 
     return (
-        <div className="landingPageContainer">
-            <div className="sliderLandingPage">
-                {/*  {Slider(landingPageImages)}*/}
-            </div>
-            <div className="transformFade">
-                <div className="profileImg">
-                    <img className="smallImage"
-                        src={picOfMe}
-                        alt="profile"
-                    />
-                </div>
-                <div className="landingPageText">
-                    <p> Edward Kumerius </p>
-                    <p> Front-end Developer</p>
-                </div>
+        <div>
+            <section id="home" classname="flex">
+                <Particles
+                    width="100vw"
+                    height="100vh"
+                    params={{
+                        background: { color: { value: "#252934", } },
 
-                <div className="skillImageContainer">
-                    {renderLogos}
-                </div>
-                <div className="cards">
-                    {renderTextCard}
-                    {renderTextCardTwo}
-                </div>
-                <div>
-                </div>
+                        interactivity: {
+                            detectsOn: "canvas", events: {
+                                onClick: { enable: true, mode: "push" },
+                                onHover: { enable: true, mode: "repulse" },
+                                resize: true,
+                            },
+                            modes: {
+                                bubble: { distance: 200, duration: 2, opacity: 0.8, size: 20 },
+                                push: { quantity: 2 },
+                                repulse: { distance: 100, duration: 0.4 },
+                            }
+                        },
+                        particles: {
+                            color: { value: "#4D5059" },
+                            line_linked: { color: { value: "#fff" } },
+                            number: { value: 60 },
+                            size: { value: 3 },
+                        },
+                    }} />
+                <div className="flex">
+                    <div class="text">
+                        <p> Hello, I'm
+                    <span class="highlight"> Edward Kumerius</span>.
+                    <br />
+                    I'm a front-end web developer. </p>
+                    </div>
+                    <div >
+                        <Link onClick={() => offsets("about")} className="link"> <p> About </p> </Link>
+                    </div>
 
-            </div>
+                </div>
+            </section>
+            <section id="about">
+                <div className="headText">
+                    <h1> About </h1>
+                </div>
+                <div className="content">
+                    <div className="aboutWrapper">
+                        <div className="item-flex">
+                            <div className="columnItems">
+                                <div className="items">
+                                    <GiSpeedometer />
+                                    <p> Optimised </p>
+                                </div>
+                                <p>
+                                    Fast load times and lag free interaction,
+                                    my highest priority.
+                            </p>
+                                <div className="items">
+                                    <IoIosRocket />
+                                    <p> Dynamic </p>
+                                </div>
+                                <p>
+                                    Websites don't have to be static,
+                                    I love making pages come to life.
+                                </p>
+                            </div>
+                            <div className="columnItems">
+                                <div className="items">
+                                    <MdPhonelink />
+                                    <p> Responsive</p>
+                                </div>
+                                <p> My layouts will work on any device, big or small. </p>
+
+                                <div className="items">
+                                    <RiLightbulbFlashLine />
+                                    <p> Creative </p>
+                                </div>
+                                <p> Strong preference for easy to use, intuitive UX/UI. </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div >
+                    </div>
+                    <div className="skillWrapper">
+                        <div className="profile">
+                            {}
+                        </div>
+                        <div className="skillBox ">
+                            <div className="skillImageContainer">
+                                {renderLogos}
+                            </div>
+                            <ReactSkillbar classname="skillBar" skills={skills} height={50} />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact">
+                <div classname="flex ">
+                    <h1> contact</h1>
+                </div>
+            </section>
         </div>
     );
 }
 
 export default LandingPage;
 
+
+/*
+<div className="cards">
+{renderTextCard}
+  {renderTextCardTwo}
+ </div>
+
+ <div className="skillImageContainer">
+ {renderLogos}
+ </div>
+*/

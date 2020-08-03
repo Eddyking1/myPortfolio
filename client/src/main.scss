@@ -55,6 +55,7 @@ section {
     justify-content: center;
     flex-direction: column;
 }
+
 #about {
     height: 100%;
     margin: 100px 0 0 0;
@@ -63,8 +64,10 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-top:30px;
 }
 #contact {
+    padding-top:30px;
     p{
         color:rgb(4,194,201);
         font-size:1.2rem;

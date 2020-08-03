@@ -92,26 +92,26 @@ const LandingPage = () => {
                         },
                     }} />
                 <div className="flex">
-                    <div class="text">
+                    <div class="text slideInLeftTilt">
                         <p> Hello, I'm
                     <span class="highlight"> Edward Kumerius</span>.
                     <br />
                     I'm a front-end web developer. </p>
                     </div>
                     <div >
-                        <Link onClick={() => offsets("about")} className="link"> <p> About </p> </Link>
+                        <Link onClick={() => offsets("about")} className="link slideInRightTilt"> <p> About </p> </Link>
                     </div>
 
                 </div>
             </section>
             <section id="about">
-                <div className="headText">
+                <div className="headText slideInLeft">
                     <h1> About </h1>
                 </div>
                 <div className="content">
                     <div className="aboutWrapper">
-                        <div className="item-flex">
-                            <div className="columnItems">
+                        <div className="item-flex slideInRight">
+                            <div className="columnItems ">
                                 <div className="items">
                                     <GiSpeedometer />
                                     <p> Optimised </p>

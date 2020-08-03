@@ -4,11 +4,12 @@ import './footer.scss';
 
 export default function Footer() {
     let footerData = {
-        contactInfo: ['Email: Edward.kumerius@gmail.com', 'Mobile: 0763379509 Text'],
+        contactInfo: ['Email: Edward.kumerius@gmail.com', 'Mobile: 0763379509'],
+        copyRight: ['Edward Kumerius ©'],
         urls: ['https://www.linkedin.com/in/edward-kumerius-921a621a7', 'https://github.com/Eddyking1'],
     }
 
-    const footerContact = footerData.contactInfo.map((texts, index) => {
+    const footerContact = footerData.copyRight.map((texts, index) => {
         return (<div className="footerContact"> <p key={index.length}> {texts} </p> </div>)
     });
 
@@ -24,7 +25,7 @@ export default function Footer() {
                         <FaGithubSquare />
                     </a>
                 </div>
-                {footerContact}
+                { footerContact }
             </div>
         </footer>
     )

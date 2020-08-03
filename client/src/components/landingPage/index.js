@@ -142,8 +142,12 @@ const LandingPage = () => {
                             </div>
                         </div>
                     </div>
-                    <div >
-                    </div>
+                    {/*<div >
+                        <div className="items">
+                            <img src={picOfMe}  />
+                            <p>Profile</p>
+                        </div>
+                </div> */}
                     <div className="skillWrapper">
                         <div className="profile">
                             {}

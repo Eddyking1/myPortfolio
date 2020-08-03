@@ -143,6 +143,30 @@ export function NavDropDown() {
 		}
 	}
 
+
+	function offsets(props) {
+		const header = document.getElementById("header");
+		const hamheader = document.getElementById("hamHeader");
+
+		if (props === "home") {
+			hamheader.classList.add("sticky");
+			header.classList.add("sticky");
+			window.scrollTo(0, document.getElementById("home").offsetTop);
+		}
+		if (props === "about") {
+			window.scrollTo(0, document.getElementById("about").offsetTop);
+		}
+
+		if (props === "contact") {
+			window.scrollTo(0, document.getElementById("contact").offsetTop);
+		}
+
+		if (props === "footer") {
+			window.scrollTo(0, document.getElementById("footer").offsetTop);
+		}
+
+	}
+
 	return (
 		<nav id="hamHeader" className="hamNav">
 			<div className="navBarFade">
@@ -156,13 +180,13 @@ export function NavDropDown() {
 				</div>
 				<div className="hamContainer">
 					<div className="hamLinkContainer">
-						<Link to="/" className="link" onClick={() => { hamChecker() }}>
+						<Link to="/" className="link" onClick={() => { offsets("home"); hamChecker() }}>
 							<p> Home </p>
 						</Link>
-						<Link className="link" onClick={() => { hamChecker() }}>
+						<Link className="link" onClick={() => { hamChecker(); offsets("about") }}>
 							<p> About </p>
 						</Link>
-						<Link className="link" onClick={() => { hamChecker() }}>
+						<Link className="link" onClick={() => { hamChecker(); offsets("contact") }}>
 							<p> Contact </p>
 						</Link>
 						{

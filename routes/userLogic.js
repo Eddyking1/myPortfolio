@@ -2,6 +2,7 @@ const express = require("express");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/userModel");
+const Contact = require("../models/contactModel");
 const bodyParser = require('body-parser');
 const { jwtKey } = require("../config/keys");
 const auth = require("../middlewares/auth");
@@ -67,7 +68,6 @@ module.exports = (app) => {
                 });
 
             const payload = { user: { id: user.id } };
-
             jwt.sign(payload, jwtKey, { expiresIn: 3600 },
                 (err, token) => {
                     if (err) throw err;
@@ -92,6 +92,33 @@ module.exports = (app) => {
             res.json(user.id);
         } catch (e) {
             res.send({ message: "Error in Fetching user" });
+        }
+    });
+
+    app.post("/api/contact", async (req, res) => {
+        const { name, email, message } = req.body;
+
+        try {
+            let contact = await Contact.find({ email });
+            let contactData = new Contact({
+                name,
+                email,
+                message,
+            });
+            console.log(contact);
+                console.log("Saveing..")
+                await contactData.save();
+                res.send({message: "Success"})
+/*             if(contact < 4){
+                console.log("not saving");
+                res.status(400).json({ message: "you´ve sent too many times in short time"});
+            } */
+        }
+        catch (e) {
+            console.log("error")
+            res.status(500).json({
+                message: "Server Error"
+            });
         }
     });
 

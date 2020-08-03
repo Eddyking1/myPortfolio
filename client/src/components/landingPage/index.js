@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
 import Particles from 'react-particles-js';
+import Contact from '../contact/contact.js';
 import reactLogo from '../../assets/Images/reactlogo.png';
 import jsLogo from '../../assets/Images/jsLogo.png';
 import cssLogo from '../../assets/Images/cssLogo.png';
 import htmlLogo from '../../assets/Images/htmlLogo.png';
-import picOfMe from '../../assets/Images/PicMe.WebP';
+import profile1 from '../../assets/Images/profile1.JPG';
+import profile2 from '../../assets/Images/profile2.JPG';
 import nodejsLogo from '../../assets/Images/nodejsLogo.png';
 import ReactSkillbar from 'react-skillbars';
 import { Link } from "react-router-dom";
@@ -142,15 +144,19 @@ const LandingPage = () => {
                             </div>
                         </div>
                     </div>
-                    {/*<div >
-                        <div className="items">
-                            <img src={picOfMe}  />
-                            <p>Profile</p>
-                        </div>
-                </div> */}
+
                     <div className="skillWrapper">
-                        <div className="profile">
-                            {}
+                        <div >
+                            <div className="profileImg">
+                                <img src={profile2} />
+                                <p>
+                                    I'm a Front-End Developer In Stockholm, Sweden.
+                                    <br />
+                                    I have serious passion for UI effects, animations and creating optimised, intuitive, dynamic user experiences.
+                                    <br />
+                                    Let's make something great.
+                            </p>
+                            </div>
                         </div>
                         <div className="skillBox ">
                             <div className="skillImageContainer">
@@ -164,7 +170,13 @@ const LandingPage = () => {
 
             <section id="contact">
                 <div classname="flex ">
-                    <h1> contact</h1>
+                    <div className="headText">
+                        <h1> contact</h1>
+                    </div>
+                    <p>
+                        Have a question or want to work together?
+                    </p>
+                    <Contact />
                 </div>
             </section>
         </div>

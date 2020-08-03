@@ -21,6 +21,7 @@
     border-radius:15px;
     margin-top:30px;
     font-size:20px;
+
 }
 
 ::placeholder {
@@ -34,10 +35,14 @@
         text-align: center;
     }
     .formInputs{
-        width: 33%;
+        width: 40%;
+        padding:0 90px 30px;
     }
 }
 
+.textArea{
+    width:230px;    
+}
 
 .input {
     padding: 15px 40px;
@@ -76,6 +81,6 @@ textarea {
     box-shadow: 2px 3px black;
     border: 2px solid rgba(0, 0, 0, 0.6);
     P {
-        columns: #03dac6;
+        color:black !important;
     }
 }

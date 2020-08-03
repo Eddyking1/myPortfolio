@@ -70,6 +70,15 @@
   align-content: center;
   flex-direction: column;
   margin: 80px 0 0 0;
+  img {
+    width: 250px;
+    height: auto;
+    clip-path: polygon(50% -20%, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  }
+  p{
+    width:70%;
+    font-size: 1.3em;
+  }
 }
 
 .skillBox {
@@ -108,10 +117,6 @@
     width: 60%;
     font-size: 22px;
   }
-}
-
-#contact {
-  height: calc(50vh);
 }
 
 @media only screen and (max-width: 800px) {

@@ -64,13 +64,13 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top:40px;
+    padding-top: 40px;
 }
 #contact {
-    padding-top:30px;
-    p{
-        color:rgb(4,194,201);
-        font-size:1.2rem;
+    padding-top: 30px;
+    p {
+        color: rgb(4, 194, 201);
+        font-size: 1.2rem;
     }
 }
 
@@ -83,4 +83,10 @@ section {
     display: flex;
     justify-content: center;
     flex-direction: column;
+}
+
+@media only screen and (max-width: 500px) {
+    section {
+        padding: 50px 0 50px 0 0;
+    }
 }

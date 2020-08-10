@@ -95,6 +95,10 @@ export default function NavBar() {
 			window.scrollTo(0, document.getElementById("about").offsetTop);
 		}
 
+		if (props === "work") {
+			window.scrollTo(0, document.getElementById("work").offsetTop);
+		}
+		
 		if (props === "contact") {
 			window.scrollTo(0, document.getElementById("contact").offsetTop);
 		}
@@ -116,6 +120,7 @@ export default function NavBar() {
 				<div className="link-wrap">
 					<Link to="/" onClick={() => offsets("home")} className="page-link"> <p> Home </p> </Link>
 					<Link onClick={() => offsets("about")} className="page-link"> <p> About </p> </Link>
+					<Link onClick={() => offsets("work")} className="page-link"> <p> Work </p> </Link>
 					<Link onClick={() => offsets("contact")} className="page-link"> <p> Contact </p> </Link>
 					{/* 
 					<Link to="/login" className="page-link"> <p> Login </p> </Link>
@@ -157,6 +162,10 @@ export function NavDropDown() {
 			window.scrollTo(0, document.getElementById("about").offsetTop);
 		}
 
+		if (props === "work") {
+			window.scrollTo(0, document.getElementById("work").offsetTop);
+		}
+
 		if (props === "contact") {
 			window.scrollTo(0, document.getElementById("contact").offsetTop);
 		}
@@ -188,6 +197,9 @@ export function NavDropDown() {
 						</Link>
 						<Link className="link" onClick={() => { hamChecker(); offsets("contact") }}>
 							<p> Contact </p>
+						</Link>
+						<Link className="link" onClick={() => { hamChecker(); offsets("work") }}>
+							<p> Work </p>
 						</Link>
 						{
 							/* 

@@ -40,6 +40,13 @@
     }
 }
 
+@media only screen and (max-width: 400px) {
+    .formInputs{
+        width: 40%;
+        padding:0 70px 30px;
+    }
+}
+
 .input {
     padding: 15px 40px;
     font-size: 18px;

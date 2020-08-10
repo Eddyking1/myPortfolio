@@ -5,13 +5,14 @@ import reactLogo from '../../assets/Images/reactlogo.png';
 import jsLogo from '../../assets/Images/jsLogo.png';
 import cssLogo from '../../assets/Images/cssLogo.png';
 import htmlLogo from '../../assets/Images/htmlLogo.png';
-import profile1 from '../../assets/Images/profile1.JPG';
 import profile2 from '../../assets/Images/profile2.JPG';
 import nodejsLogo from '../../assets/Images/nodejsLogo.png';
+import qlok from '../../assets/Images/qlok.png';
+import taurus from '../../assets/Images/taurusQuill.png';
 import ReactSkillbar from 'react-skillbars';
 import { Link } from "react-router-dom";
-import './index.scss';
 import '../../main.scss';
+import './index.scss';
 import '../navBar/nav.scss';
 import { GiSpeedometer } from "react-icons/gi";
 import { IoIosRocket } from "react-icons/io";
@@ -25,18 +26,17 @@ const LandingPage = () => {
     const [state, dispatch] = useContext(Context);
 
     const skills = [
-        { type: "CSS", level: 70 },
-        { type: "HTML", level: 70 },
-        { type: "REACT", level: 70 },
-        { type: "REACT-NATIVE", level: 50 },
-        { type: "Javascript", level: 75 },
-        { type: "NODE.JS", level: 65 },
-        { type: "GIT", level: 65 },
-        { type: "UI DESIGN", level: 50 },
+        { type: "CSS", level: 90 },
+        { type: "HTML", level: 80 },
+        { type: "Javascript", level: 90 },
+        { type: "TypeScript", level: 70 },
+        { type: "REACT", level: 85 },
+        { type: "REACT-NATIVE", level: 65 },
+        { type: "NODE.JS", level: 75 },
+        { type: "GIT", level: 90 },
+        { type: "UI DESIGN", level: 60 },
         { type: "Photoshop", level: 40 },
     ];
-
-
 
     function pageLoads() {
         setTimeout(() => {
@@ -53,18 +53,18 @@ const LandingPage = () => {
         }
     }
 
-    let logoData = {
+    let Data = {
         images: [reactLogo, jsLogo, cssLogo, htmlLogo, nodejsLogo],
-        imageAlts: ['Javascript react Logo', 'javaScript Logo', 'css3 Logo', 'html5 Logo', 'nodeJs Logo']
-
+        imageAlts: ['Javascript react Logo', 'javaScript Logo', 'css3 Logo', 'html5 Logo', 'nodeJs Logo'],
+        workImages: [taurus, qlok],
     }
-    const renderLogos = logoData.images.map((img, index) => {
-        return <img key={index} src={img} alt={logoData.imageAlts[index]}></img>
+    const renderLogos = Data.images.map((img, index) => {
+        return <img key={index} src={img} alt={Data.imageAlts[index]}></img>
     });
-
 
     return (
         <div>
+            {/* Home Section */}
             <section id="home" classname="flex">
                 <Particles
                     width="100vw"
@@ -96,7 +96,7 @@ const LandingPage = () => {
                         <p> Hello, I'm
                     <span class="highlight"> Edward Kumerius</span>.
                     <br />
-                    I'm a front-end web developer. </p>
+                    I'm a Front-End web developer. </p>
                     </div>
                     <div >
                         <Link onClick={() => offsets("about")} className="link slideInRightTilt"> <p> About </p> </Link>
@@ -104,6 +104,7 @@ const LandingPage = () => {
 
                 </div>
             </section>
+            {/* About Section */}
             <section id="about">
                 <div className="headText slideInLeft">
                     <h1> About </h1>
@@ -162,14 +163,29 @@ const LandingPage = () => {
                             <div className="skillImageContainer">
                                 {renderLogos}
                             </div>
+                            <p> Skills: JavaScript( Vanilla, TypeScript, React, NodeJS ), HTML & CSS. </p>
                             <ReactSkillbar classname="skillBar" skills={skills} height={50} />
                         </div>
                     </div>
                 </div>
             </section>
-
+            {/* Work Section */}
+            <section id="work">
+                <div className="headText slideInLeft">
+                    <h1> Projects </h1>
+                </div>
+                <div className="flex">
+                    <div className="qlok workImages">
+                        <a href="https://github.com/Eddyking1/Qlok"> <p> Github</p></a>
+                    </div>
+                    <div className="taurus workImages">
+                        <a href="https://github.com/bayev/Taurus"> <p> Github</p></a>
+                    </div>
+                </div>
+            </section>
+            {/*Contact Section */}
             <section id="contact">
-                <div classname="flex ">
+                <div className="flex">
                     <div className="headText">
                         <h1> contact</h1>
                     </div>
@@ -184,15 +200,3 @@ const LandingPage = () => {
 }
 
 export default LandingPage;
-
-
-/*
-<div className="cards">
-{renderTextCard}
-  {renderTextCardTwo}
- </div>
-
- <div className="skillImageContainer">
- {renderLogos}
- </div>
-*/

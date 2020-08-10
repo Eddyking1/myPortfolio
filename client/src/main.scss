@@ -66,11 +66,16 @@ section {
     justify-content: center;
     padding-top: 40px;
 }
+#work {
+    .flex{
+        display: flex;
+        flex-direction: row;
+    }
+}
 #contact {
     padding-top: 30px;
     p {
-        color: rgb(4, 194, 201);
-        font-size: 1.2rem;
+        font-size: 1.3rem;
     }
 }
 
@@ -85,6 +90,14 @@ section {
     flex-direction: column;
 }
 
+@media only screen and (max-width: 750px) {
+
+#work {
+    .flex{
+        flex-direction: column;
+    }
+}
+}
 @media only screen and (max-width: 500px) {
     #contact {
         padding: 50px 0 100px 0 0;

@@ -35,6 +35,14 @@ html {
 }
 .headText {
     @extend .text;
+
+    p {
+        color: black;
+    }
+    a {
+        color:#fdc273;
+        text-decoration: none;
+    }
 }
 
 .highlight {
@@ -67,7 +75,7 @@ section {
     padding-top: 40px;
 }
 #work {
-    .flex{
+    .flex {
         display: flex;
         flex-direction: row;
     }
@@ -75,7 +83,7 @@ section {
 #contact {
     padding-top: 30px;
     p {
-        font-size: 1.3rem;
+        font-size: 1.6rem;
     }
 }
 
@@ -91,12 +99,11 @@ section {
 }
 
 @media only screen and (max-width: 750px) {
-
-#work {
-    .flex{
-        flex-direction: column;
+    #work {
+        .flex {
+            flex-direction: column;
+        }
     }
-}
 }
 @media only screen and (max-width: 500px) {
     #contact {
@@ -121,7 +128,6 @@ section {
 .slideInRightTilt {
     animation: slide-in-right-tilt-down 1s;
 }
-
 
 @keyframes slide-in-left {
     0% {
@@ -155,7 +161,6 @@ section {
         transform: translateX(0px);
     }
 }
-
 
 @keyframes slide-in-right-tilt-down {
     0% {

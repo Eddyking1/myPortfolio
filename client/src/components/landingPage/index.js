@@ -173,6 +173,11 @@ const LandingPage = () => {
             <section id="work">
                 <div className="headText slideInLeft">
                     <h1> Projects </h1>
+                    <p> Currently Working on a RSVP WebbApp
+                    <br />
+                        <a href="https://github.com/Eddyking1/RSVP-Project"> click here </a>
+                    for more info!
+                    </p>
                 </div>
                 <div className="flex">
                     <div className="qlok workImages">
@@ -188,10 +193,10 @@ const LandingPage = () => {
                 <div className="flex">
                     <div className="headText">
                         <h1> contact</h1>
+                        <p>
+                            Have a question or want to work together?
+                        </p>
                     </div>
-                    <p>
-                        Have a question or want to work together?
-                    </p>
                     <Contact />
                 </div>
             </section>

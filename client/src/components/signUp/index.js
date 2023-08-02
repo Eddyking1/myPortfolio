@@ -1,20 +1,14 @@
-import React, { useReducer, useState, useEffect, useContext } from "react";
-import { Link, Redirect } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, redirect } from "react-router-dom";
 import axios from 'axios';
 import "../form/index.scss";
-
 
 function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [success, setSuccess] = useState(null);
+  const [success, setSuccess] = useState(false);
   const [url, setUrl] = useState('/api/signup');
-  
-  const reDirect = () => {
-    setTimeout(() => {
-        return <Redirect to ="/profile"/>
-    }, 1000);
-  }
+  const history = redirect(); // Create a history object
 
   const postData = async (email, password) => {
     axios({
@@ -38,13 +32,21 @@ function SignUp() {
       });
   };
 
+  // Use useEffect to redirect on success
+  useEffect(() => {
+    if (success) {
+      setTimeout(() => {
+        history.push("/profile"); // Redirect to /profile if success is true
+      }, 1000);
+    }
+  }, [success, history]);
+
   return (
     <div className="wrapper">
-    {(success ? <p> Success! {reDirect()}</p> : <p> Error try again </p>)}
       <form
         className="formStyle"
         onSubmit={e => {
-          console.log("submit did run");
+          console.log("submitted answers!");
           e.preventDefault();
           postData(email, password);
           setEmail("");
@@ -74,10 +76,8 @@ function SignUp() {
           <button className="buttonSubmit" type="submit"> <p>Submit</p> </button>
         </div>
       </form>
-
     </div>
   );
 }
 
 export default SignUp;
-

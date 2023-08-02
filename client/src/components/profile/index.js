@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { Context } from '../../contextApi/newIndex.js';
-import { Redirect } from "react-router-dom";
+import { redirect } from "react-router-dom";
 import homeIcon from '../../assets/Images/homeIcon.png';
 import cookie from 'js-cookie';
 import './index.scss';
@@ -37,7 +37,7 @@ export const Profile = () => {
                             </button>
                         </div>
                     </div>
-                    : <div> <p>Error</p> <Redirect to="/" /> </div>)}
+                    : <div> <p>Error</p> <redirect to="/" /> </div>)}
             </div>)
     )
 }

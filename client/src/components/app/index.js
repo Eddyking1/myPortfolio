@@ -5,7 +5,7 @@ import Footer from '../footer/footer.js';
 import NavBar from '../navBar/navComponent.js';
 import './main.scss';
 
-function WebbApp() {
+const WebbApp = () => {
   return (
     <div className="Main">
           <LandingPage />
@@ -13,5 +13,7 @@ function WebbApp() {
           <Footer />
     </div>
   );
-} export default WebbApp;
+}
+
+export default WebbApp;
 

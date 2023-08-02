@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Redirect } from "react-router-dom";
+import { redirect } from "react-router-dom";
 import "./index.scss";
 import { Context } from '../../contextApi/newIndex.js';
 import homeIcon from '../../assets/Images/homeIcon.png';
@@ -12,51 +12,44 @@ export default function Login() {
   const [state, dispatch] = useContext(Context);
   const [isError, setIsError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [url, setUrl] = useState('/api/login');
 
   const checkLoginData = async (email, password) => {
-    axios({
-      method: 'post',
-      url: url,
-      data: {
-        email: email,
-        password: password
-      },
-      headers: { 'Content-Type': 'application/json; charset=UTF-8' }
-    })
-      .then(function (response) {
-        setIsLoading(true);
-        let jwToken = response.data.token;
-        cookie.set('jwToken', jwToken, { expires: 2 });
-        // sets cookie to jwToken and then data. 
-        fetchAuthorizedUser().then(data => (dispatch({ type: AUTHORIZE_USER, data })));
-        cookie.set('isAuthorized', state.isAuthorized, { expires: 2 });
-        // fetches /api/me to authorize user with stored token.
-        setTimeout(() => {
-          setIsLoading(false);
-          setIsError(false);
-        }, 1500);
-        // animation and redirect
-      })
-      .catch(function (response) {
-        //handle error
-        setIsError(true)
-        console.log(response);
-      });
+    try {
+      setIsLoading(true);
+      const response = await axios.post(url, { email, password }, { headers: { 'Content-Type': 'application/json; charset=UTF-8' } });
+      console.log('got response');
+      const jwToken = response.data.token;
+      cookie.set('jwToken', jwToken, { expires: 2 });
+      const data = await fetchAuthorizedUser();
+      dispatch({ type: AUTHORIZE_USER, data });
+      cookie.set('isAuthorized', state.isAuthorized, { expires: 2 });
+      setTimeout(() => {
+        setIsLoading(false);
+        setIsError(false);
+      }, 1500);
+    } catch (error) {
+      setIsError(true);
+      console.log(error);
+    }
   };
 
   const renderRedirect = () => {
-    if (state.isAuthorized.bool === true) {
-      return <Redirect to='/profile' />
+    if (state.isAuthorized) {
+      return <redirect to='/profile' />;
     }
-  }
+  };
+
   console.log(state.isAuthorized);
 
   return (
-    (isLoading ? <div className="loading"> <img src={homeIcon} /> Loading..</div> :
+    isLoading ? (
+      <div className="loading">
+        <img src={homeIcon} alt="Loading" /> Loading..
+      </div>
+    ) : (
       <div className="wrapper">
         <form
           className="formStyle"
@@ -70,7 +63,7 @@ export default function Login() {
         >
           <div className="formInputs">
             <h1>Login</h1>
-            {(isError ? <p style={{ color: 'red' }}> Wrong credentials </p> : " ")}
+            {isError && <p style={{ color: 'red' }}> Wrong credentials </p>}
             <p> Email address</p>
             <input
               className="input"
@@ -89,11 +82,13 @@ export default function Login() {
               onChange={e => setPassword(e.target.value)}
               required={true}
             />
-            <button className="buttonSubmit" type="submit" >  <p>Submit</p>  </button>
+            <button className="buttonSubmit" type="submit">
+              <p>Submit</p>
+            </button>
           </div>
         </form>
         {renderRedirect()}
-      </div>)
+      </div>
+    )
   );
 }
-

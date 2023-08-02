@@ -1,28 +1,42 @@
 {
-  "name": "client",
+  "name": "edwards_portfolio",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.19.2",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.4.0",
     "conditional-expression": "^1.1.2",
-    "http-proxy-middleware": "^1.0.3",
-    "js-cookie": "^2.2.1",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-icons": "^3.10.0",
-    "react-image-gallery": "^1.0.7",
-    "react-particles-js": "^3.3.0",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "^3.4.0",
-    "react-skillbars": "^1.6.1",
-    "sass": "^1.23.7",
-    "smooth-scroll": "^16.1.3"
+    "http-proxy-middleware": "^2.0.6",
+    "js-cookie": "^3.0.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.10.1",
+    "react-image-gallery": "^1.3.0",
+    "react-router-dom": "^6.2.1",
+    "react-scripts": "5.0.1",
+    "react-skillbars": "^2.1.0",
+    "react-tsparticles": "^2.11.0",
+    "sass": "^1.64.2",
+    "smooth-scroll": "^16.1.3",
+    "tsparticles": "^2.11.1",
+    "web-vitals": "^2.1.4"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object" :"^1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
   "browserslist": {
     "production": [

@@ -10,11 +10,15 @@ require('./models/contactModel');
 require('./services/passport');
 
 mongoose.Promise = global.Promise;
-mongoose.connect(keys.mongoURI);
+mongoose.connect(
+  "mongodb+srv://appuser:appuser12345@examcluster.nqpdy.mongodb.net/?retryWrites=true&w=majority",
+ { useNewUrlParser: true,  useUnifiedTopology: true });
 
 const app = express();
-
-app.use(bodyParser.json());
+app.use(express.json());
+app.use(express.urlencoded({
+  extended: true
+}));
 
 app.use(
   cookieSession({

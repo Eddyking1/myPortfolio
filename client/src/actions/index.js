@@ -16,11 +16,10 @@ export async function fetchAuthorizedUser() {
         method: 'get',
         timeout: 6000,
         headers: { 'token': jwToken, 'Content-Type': 'application/json; charset=UTF-8' }
-      })
-      if (result.status === 200) {
-        console.log(result)
-        return result.data;
-      }
+      }).then(
+          console.log(result, 'testing')
+          /* return result.data; */
+      )
     }
     catch (error) {
       console.error(error);

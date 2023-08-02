@@ -25,10 +25,7 @@ const Reducer = (state, action) => {
     case AUTHORIZE_USER:
       return {
         ...state,
-        isAuthorized: {
-          data:[action.data],
-          bool: true,
-        }
+        isAuthorized: true,
       }
     default:
       return state;

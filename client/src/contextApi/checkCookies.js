@@ -9,10 +9,11 @@ import { Context } from './newIndex.js';
     let isAuth = cookie.get("isAuthorized");
 
     if (jwt) {
-        dispatch({ type: AUTHORIZE_USER, data: jwt });
+        dispatch({ type: AUTHORIZE_USER });
         return console.log(state, "should update state");
     }
     else {
+        dispatch({ type: AUTHORIZE_USER });
         return console.log('no cookie found', jwt, isAuth)
     }
 
